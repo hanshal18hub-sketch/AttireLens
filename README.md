@@ -1,8 +1,8 @@
 # AttireLens
 
-A privacy-first virtual try-on experience for South Asian and Asian occasion wear and home wear.
+A privacy-first virtual try-on experience for occasion wear and home wear across South, Southeast, East, Central and West Asia, Iran, Iraq and the wider Middle East.
 
-AttireLens is designed for garments conventional virtual fitting rooms frequently handle poorly: Pakistani suits, kurtas, sarees, lehengas, salwar kameez, hanbok, kebaya, kaftans and other embroidered, draped or layered clothing.
+AttireLens is designed for garments conventional virtual fitting rooms frequently handle poorly: sarees, lehengas, salwar kameez, kebaya, baju kurung, ao dai, hanbok, kimono, hanfu, qipao, chapan, manteau, abaya, thobe, kaftan, bisht and other embroidered, draped or layered clothing.
 
 ## What works today
 
@@ -11,6 +11,9 @@ AttireLens is designed for garments conventional virtual fitting rooms frequentl
 - Session deletion without an account
 - Clear separation between style visualization and physical fit
 - Responsive, accessible product experience
+- Multi-piece outfit composition and culturally relevant draping choices
+- Spoken and written outfit descriptions
+- Privacy receipts, detail-fidelity checks and text-only review notes
 
 The current MVP keeps selected images in browser memory and has no upload endpoint, database, accounts, or analytics. Its result screen is intentionally labelled a concept preview; culturally accurate AI garment transfer is the next model-integration milestone.
 

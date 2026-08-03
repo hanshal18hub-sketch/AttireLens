@@ -4,6 +4,8 @@
 
 AttireLens lets shoppers see themselves in occasion wear and home wear across South, Southeast, East, Central and West Asia, Iran, Iraq and the wider Middle East without turning their body images into a permanent data asset. It specializes in culturally specific, embroidered, draped and layered garments that generic virtual try-on systems frequently represent poorly.
 
+AttireLens applies the same capture, measurement, styling, layering, accessory, footwear and fit capabilities to womenswear, menswear, unisex and gender-fluid looks. Gender must never reduce the available feature set or determine body-shape assumptions.
+
 ## Core user
 
 A shopper choosing clothing for weddings, festivals, religious occasions, family events or daily home wear—especially when buying remotely, coordinating multiple pieces, ordering custom tailoring, or judging a garment from photographs shared by a boutique or family member.

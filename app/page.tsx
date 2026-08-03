@@ -172,7 +172,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="eyebrow">Asian and West Asian wear, seen through your lens</div>
         <h1>Every layer.<br /><em>Your whole story.</em></h1>
-        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Asian and Middle Eastern style, fitted to you. Private, for your eyes only.</p>
+        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Asian and Middle Eastern styles, fitted to you. Private, for your eyes only.</p>
 
         <div className="tryon-card" id="fitting-room">
           <div className="mode-tabs" role="group" aria-label="Shopping mode">
@@ -208,11 +208,11 @@ export default function Home() {
             <section className="pieces-panel" aria-labelledby="pieces-title">
               <div className="step-label"><b>2</b><span><strong id="pieces-title">Free mix-and-match space</strong>Add, remove and replace each category independently.</span></div>
               <div className="piece-grid">
-                <UploadCard id="main-garment" title={mode === "online" ? "Main garment" : "Photograph main piece"} hint="Kurta, saree, dress, thobe..." file={main} onChange={setMainFile} />
-                <UploadCard id="lower-piece" title="Lower piece" hint="Trousers, lehenga, skirt, sarong..." file={bottom} onChange={setBottomFile} optional />
+                <UploadCard id="main-garment" title={mode === "online" ? "Main garment" : "Photograph main piece"} hint="Kurta, saree, sherwani, dress, thobe..." file={main} onChange={setMainFile} />
+                <UploadCard id="lower-piece" title="Lower piece" hint="Trousers, lehenga, dhoti, skirt, sarong..." file={bottom} onChange={setBottomFile} optional />
                 <UploadCard id="outer-layer" title="Layer or drape" hint="Dupatta, shawl, pallu, bisht..." file={layer} onChange={setLayerFile} optional />
-                <UploadCard id="accessory" title="Accessories" hint="Jewellery, bag, belt, headwear..." file={accessory} onChange={setAccessoryFile} optional />
-                <UploadCard id="footwear" title="Shoes & footwear" hint="Jutti, khussa, sandals, heels..." file={footwear} onChange={setFootwearFile} optional />
+                <UploadCard id="accessory" title="Accessories" hint="Jewellery, cufflinks, bag, belt, headwear..." file={accessory} onChange={setAccessoryFile} optional />
+                <UploadCard id="footwear" title="Shoes & footwear" hint="Jutti, khussa, loafers, sandals, heels..." file={footwear} onChange={setFootwearFile} optional />
               </div>
             </section>
           </div>
@@ -291,13 +291,13 @@ export default function Home() {
           )}
         </div>
 
-        <div className="trust-row"><span><b>Yes</b> No account</span><span><b>Yes</b> No photo storage</span><span><b>Yes</b> Never training data</span><span><b>Yes</b> Seated photos welcome</span></div>
+        <div className="trust-row"><span><b>Yes</b> Every body welcome</span><span><b>Yes</b> No photo storage</span><span><b>Yes</b> Never training data</span><span><b>Yes</b> Seated photos welcome</span></div>
       </section>
 
       <section className="how shell" id="how">
         <div><span className="section-kicker">BUILT AROUND CULTURAL CONTEXT</span><h2>Specific traditions.<br />Never generic.</h2></div>
         <div className="feature-grid">
-          <article><b>01</b><h3>Free mix and match</h3><p>Compose upper and lower garments, draped layers, accessories and footwear independently.</p></article>
+          <article><b>01</b><h3>Every wardrobe welcome</h3><p>Explore womenswear, menswear, unisex and gender-fluid looks with the same complete feature set.</p></article>
           <article><b>02</b><h3>Accessible descriptions</h3><p>Read or hear a structured explanation of the complete look.</p></article>
           <article><b>03</b><h3>Measurement-backed fit</h3><p>Gate fit estimates behind body and garment dimensions instead of inventing an idealised model.</p></article>
           <article><b>04</b><h3>Visible privacy</h3><p>Receive a receipt showing what was processed, stored and shared.</p></article>

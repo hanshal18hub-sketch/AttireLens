@@ -4,6 +4,8 @@ A privacy-first virtual try-on experience for occasion wear and home wear across
 
 AttireLens is designed for garments conventional virtual fitting rooms frequently handle poorly: sarees, lehengas, salwar kameez, kebaya, baju kurung, ao dai, hanbok, kimono, hanfu, qipao, chapan, manteau, abaya, thobe, kaftan, bisht and other embroidered, draped or layered clothing.
 
+The complete capture, measurement, styling, layering, accessory, footwear and fit-review experience is designed equally for womenswear, menswear, unisex and gender-fluid wardrobes.
+
 ## What works today
 
 - Online-shopping and in-store journeys

@@ -172,7 +172,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="eyebrow">Asian and West Asian wear, seen through your lens</div>
         <h1>Every layer.<br /><em>Your whole story.</em></h1>
-        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Asian and Middle Eastern style, fitted to you—privately.</p>
+        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Asian and Middle Eastern style, fitted to you. Private, for your eyes only.</p>
 
         <div className="tryon-card" id="fitting-room">
           <div className="mode-tabs" role="group" aria-label="Shopping mode">

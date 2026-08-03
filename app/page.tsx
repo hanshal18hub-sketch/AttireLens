@@ -1,372 +1,223 @@
-­r‡^Ñf¥–Ø¦{]¬yÊ'vÃ®¶›­"use client";
+­r‡^Ñf¥–Ø¦{kr‰İ°ë­¦ëH\ÙHÛY[Â‚š[\ÜÈÚ[™ÙQ]™[\ÙQY™™Xİ\ÙSY[[Ë\ÙTİ]HHœ›ÛHœ™XXİÂ‚\H™]šY]ÈHÈ\›ˆİš[™ÎÈ˜[YNˆİš[™ÈH[Â\HİYÙHHšYHˆœ™XYHˆœ™]šY]ÈÂ\HYX\İ\™[Y[ÈHÈZYÚˆİš[™ÎÈÚ\İˆİš[™ÎÈØZ\İˆİš[™ÎÈ\ˆİš[™ÎÈ[œÙX[Nˆİš[™ÈNÂ\HØ\›Y[YX\İ\™[Y[ÈHÈÚ\İˆİš[™ÎÈØZ\İˆİš[™ÎÈ\ˆİš[™ÎÈ[™İˆİš[™ÈNÂ\HÛÛ™š\›X][ÛˆH™XÛÜ™Ù^[ÙˆYX\İ\™[Y[Ë›ÛÛX[Â‚˜ÛÛœİ[\P›ÙNˆYX\İ\™[Y[ÈHÈZYÚˆˆ‹Ú\İˆˆ‹ØZ\İˆˆ‹\ˆˆ‹[œÙX[NˆˆˆNÂ˜ÛÛœİ[\QØ\›Y[ˆØ\›Y[YX\İ\™[Y[ÈHÈÚ\İˆˆ‹ØZ\İˆˆ‹\ˆˆ‹[™İˆˆˆNÂ˜ÛÛœİ[\PÛÛ™š\›X][ÛˆÛÛ™š\›X][ÛˆHÈZYÚˆ˜[ÙKÚ\İˆ˜[ÙKØZ\İˆ˜[ÙK\ˆ˜[ÙK[œÙX[Nˆ˜[ÙHNÂ‚˜ÛÛœİ™YÚ[ÛœÈHÂˆ”Ûİ]\ÚXH‹ˆ”Ûİ]X\İ\ÚXH‹ˆ“ZYHX\İ‹ˆÜ›ÜÜËXİ[\˜[ÜˆÛÛ[\Ü˜\H‹—NÂ‚˜ÛÛœİØ\›Y[^[\\Îˆ™XÛÜ™İš[™Ëİš[™ÏˆHÂˆ”Ûİ]\ÚXHˆœØ\™YKZ[™ØKØ[Ø\ˆØ[YY^‹İ\KÚ\Ø[šH‹ˆ”Ûİ]X\İ\ÚXHˆšÙX˜^XK˜ZHİ\[™Ë˜\›Û™ËÚ[š[ÈZH‹ˆ“ZYHX\İˆ˜X˜^XKØ™K˜[Xš^XKØY[‹X[X]H[™š\Ú‹ˆÜ›ÜÜËXİ[\˜[ÜˆÛÛ[\Ü˜\Hˆ™\Ú[ÛˆÙ]Ë[Ù\İØØØ\Ú[ÛˆÙX\ˆ[™[]˜]YÛYHÙX\ˆ‹ŸNÂ‚˜ÛÛœİ˜\PÚÚXÙ\ÈHÂˆ“˜]\˜[È\ÈİÙÜ˜\Y‹ˆ“İ™\ˆÛ™HÚİ[\ˆ‹ˆXÜ›ÜÜÈ›İÚİ[\œÈ‹ˆ’XYÛİ™\š[™È‹ˆ•Ü˜\YÜˆÛÜÙY‹ˆ“Ü[ˆİ]\ˆ^Y\ˆ‹—NÂ‚™[˜İ[Ûˆ\ÙT™]šY]Êš[Nˆš[H[
+Nˆ™]šY]ÈÂˆÛÛœİÜ™]šY]ËÙ]™]šY]×HH\ÙTİ]O™]šY]ÏŠ[
+NÂˆ\ÙQY™™Xİ
 
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
-type Preview = { url: string; name: string } | null;
-type Stage = "idle" | "ready" | "preview";
-type Measurements = { height: string; chest: string; waist: string; hip: string; inseam: string };
-type GarmentMeasurements = { chest: string; waist: string; hip: string; length: string };
-type Confirmation = Record<keyof Measurements, boolean>;
+HOˆÂˆYˆ
+Yš[JH™]\›ˆÙ]™]šY]Ê[
+NÂˆÛÛœİ\›HT“˜Ü™X]SØš™XİT“
+š[JNÂˆÙ]™]šY]ÊÈ\›˜[YNˆš[K›˜[YHJNÂˆ™]\›ˆ
 
-const emptyBody: Measurements = { height: "", chest: "", waist: "", hip: "", inseam: "" };
-const emptyGarment: GarmentMeasurements = { chest: "", waist: "", hip: "", length: "" };
-const emptyConfirmation: Confirmation = { height: false, chest: false, waist: false, hip: false, inseam: false };
+HOˆT“œ™]›ÚÙSØš™XİT“
+\›
+NÂˆKÙš[WJNÂˆ™]\›ˆ™]šY]ÎÂŸB‚™[˜İ[Ûˆ\ØYØ\™
+ÈY]K[š[KÛÚ[™ÙKÜ[Û˜[H˜[ÙKÛ”™]šY]Ñ\œ›ÜˆNˆÂˆYˆİš[™ÎÂˆ]Nˆİš[™ÎÂˆ[ˆİš[™ÎÂˆš[Nˆ™]šY]ÎÂˆÛÚ[™ÙNˆ
+š[Nˆš[H[
+HOˆ›ÚYÂˆÜ[Û˜[Îˆ›ÛÛX[ÂˆÛ”™]šY]Ñ\œ›ÜÎˆ
 
-const regions = [
-  "South Asia",
-  "Southeast Asia",
-  "Middle East",
-  "Cross-cultural or contemporary",
-];
+HOˆ›ÚYÂŸJHÂˆ™]\›ˆ
+ˆX™[Û\ÜÓ˜[YO^Ø\ØYXØ\™ÛÛ\Xİ	Ùš[HÈš\ËYš[HˆˆˆŸXH[›Ü^ÚYO‚ˆÙš[HÈ[YÈÜ˜Ï^Ùš[K\›H[^Ø	İ]_Nˆ	Ùš[K›˜[Y_XHÛ‘\œ›Ü^ÛÛ”™]šY]Ñ\œ›ÜŸHÏˆˆ
+ˆÜ[ˆÛ\ÜÓ˜[YOH\ØYY[\H‚ˆÜ[ˆÛ\ÜÓ˜[YOH\ØYZXÛÛˆˆ\šXKZY[HYHŠÏÜÜ[‚ˆİ›Û™Ïİ]_^ÛÜ[Û˜[	‰ˆÛX[ˆÜ[Û˜[ÜÛX[ŸOÜİ›Û™Ï‚ˆÜ[Ú[OÜÜ[‚ˆÜÜ[‚ˆ
+_Bˆ[œ]Y^ÚYH\OH™š[HˆXØÙ\Hš[XYÙKÚœYË[XYÙKÜ™Ë[XYÙKİÙXœ[XYÙKÚZXÈˆÛÚ[™ÙO^Ê]™[ˆÚ[™ÙQ]™[S[œ][[Y[ŠHOˆÛÚ[™ÙJ]™[\™Ù]™š[\ÏË–ÌHÏÈ[
+_HÏ‚ˆÙš[H	‰ˆÜ[ˆÛ\ÜÓ˜[YOHœ™\XÙKXÚ\Ú[™ÙOÜÜ[ŸBˆÛX™[‚ˆ
+NÂŸB‚™[˜İ[ÛˆšY[Õ\ØYØ\™
+Èš[KÛÚ[™ÙK\œ›ÜˆNˆÈš[Nˆ™]šY]ÎÈÛÚ[™ÙNˆ
+š[Nˆš[H[
+HOˆ›ÚYÈ\œ›Üˆİš[™ÈJHÂˆ™]\›ˆ
+ˆX™[Û\ÜÓ˜[YO^ØšY[Ë]\ØY	Ùš[HÈš\ËYš[HˆˆˆŸXH[›ÜH\›‹]šY[È‚ˆÙš[HÈšY[ÈÜ˜Ï^Ùš[K\›H\šXK[X™[^Ø\ØYY\›ˆšY[Îˆ	Ùš[K›˜[Y_XHÛÛ›ÛÈ]]Y^\Ò[›[™H™[ØYH›Y]Y]HˆÏˆˆÜ[“ÜˆYÛ™HÚÜ\›ˆšY[ÏØÛX[x $ÌLÙXÛÛ™È0­Èœ›ÛšYÚ˜XÚÈ[™Y0­ÈTSÕˆÜˆÙX“H0­È\ÈHPÜÛX[ÜÜ[ŸBˆ[œ]YH\›‹]šY[Èˆ\OH™š[HˆXØÙ\HšY[ËÛ\šY[ËİÙX›KšY[ËÜ]ZXÚİ[YHˆÛÚ[™ÙO^Ê]™[ˆÚ[™ÙQ]™[S[œ][[Y[ŠHOˆÛÚ[™ÙJ]™[\™Ù]™š[\ÏË–ÌHÏÈ[
+_HÏ‚ˆİ›Û™ÏÙš[HÈÚ[™ÙHšY[ÈˆˆÚÛÜÙHšY[ÈŸOÜİ›Û™Ï‚ˆÙ\œ›Üˆ	‰ˆ[H›ÛOH˜[\Ù\œ›ÜŸOÙ[OŸBˆÛX™[‚ˆ
+NÂŸB‚™[˜İ[Ûˆœ˜[™
 
-const garmentExamples: Record<string, string> = {
-  "South Asia": "saree, lehenga, salwar kameez, kurta, sherwani",
-  "Southeast Asia": "kebaya, baju kurung, barong, sinh, ao dai",
-  "Middle East": "abaya, thobe, jalabiya, kaftan, manteau and bisht",
-  "Cross-cultural or contemporary": "fusion sets, modest occasion wear and elevated home wear",
-};
+HÂˆÛÛœİÛÛ[HÜ[ˆÛ\ÜÓ˜[YOH˜œ˜[™[X\šÈˆ\šXKZY[HYHÜ[ˆÏÜÜ[Ü[ˆÛ\ÜÓ˜[YOH˜œ˜[™[˜[YH]\™O[O“[œÏÙ[OÜÜ[ÏÂˆ™]\›ˆ]ˆÛ\ÜÓ˜[YOH˜œ˜[™ˆ\šXK[X™[H]\™S[œÈØÛÛ[OÙ]ÂŸB‚™[˜İ[ÛˆÚ^™QİZYJÈÛÛÜÙHNˆÈÛÛÜÙNˆ
 
-const drapeChoices = [
-  "Natural / as photographed",
-  "Over one shoulder",
-  "Across both shoulders",
-  "Head covering",
-  "Wrapped or closed",
-  "Open outer layer",
-];
+HOˆ›ÚYJHÂˆ™]\›ˆ]ˆÛ\ÜÓ˜[YOH›[Ù[X˜XÚÙ›Üˆ›ÛOHœ™\Ù[][ÛˆˆÛ“[İ\ÙQİÛ^ÛÛÛÜÙ_OÙXİ[ÛˆÛ\ÜÓ˜[YOHœÚ^™K[[Ù[ˆ›ÛOH™X[ÙÈˆ\šXK[[Ù[HYHˆ\šXK[X™[YOHœÚ^™KYİZYK]]HˆÛ“[İ\ÙQİÛ^Ê]™[
+HOˆ]™[œİÜ›ÜYØ][ÛŠ
+_O]ÛˆÛ\ÜÓ˜[YOH›[Ù[XÛÜÙHˆ\šXK[X™[HÛÜÙHÚ^™HİZYHˆÛÛXÚÏ^ÛÛÛÜÙ_OØ]ÛÜ[ˆÛ\ÜÓ˜[YOHœÙXİ[Û‹ZÚXÚÙ\ˆ”URPÒÈÒV‘H‘Q‘T‘SÑOÜÜ[ˆYHœÚ^™KYİZYK]]H‘š[™[İ\ˆİ\[™ÈÚ^™OÚÛ\ÜÓ˜[YOHœÚ^™KZ[›È•\ÙH\ÙH\ÈÛÛ™\œÚ[ÛˆİZY\ÈÛ›Kˆœ˜[™Ú\È[™XİX[Ø\›Y[YX\İ\™[Y[ÈÚİ[[Ø^\ÈZÙHš[Üš]KÜÚ^™UX›H]OH•ÛÛY[¸ &\ÈÛİ[™ÈˆXY\œÏ^ÖÈ›ÙHÈX™[‹–È‹”È‹“H‹“‹–‹Œ–‹ŒÖ—_H›İÜÏ^ÖÖÈ\İ
+[ŠH‹ŒÌˆ‹ŒÍ‹ŒÍˆ‹ŒÎ‹‹ˆ‹—KÈ’[™XH‹ŒÌˆ‹ŒÍ‹ŒÍˆ‹ŒÎ‹‹ˆ‹—KÈ•RÈ‹ˆ‹‹ŒL‹ŒLˆ‹ŒM‹ŒMˆ‹ŒN—KÈ•TÈ‹Œˆ‹‹ˆ‹‹ŒL‹ŒLˆ‹ŒM—W_HÏÚ^™UX›H]OH“Y[¸ &\È˜XÚÙ]È[™İ\\ÈˆXY\œÏ^ÖÈ›ÙHÈX™[‹–È‹”È‹“H‹“‹–‹Œ–‹ŒÖ—_H›İÜÏ^ÖÖÈÚ\İ
+[ŠH‹ŒÍˆ‹ŒÎ‹‹ˆ‹‹ˆ‹—KÈ’[™XH‹ŒÍˆ‹ŒÎ‹‹ˆ‹‹ˆ‹—KÈ•RÈ‹ŒÍˆ‹ŒÎ‹‹ˆ‹‹ˆ‹—KÈ•TÈ‹ŒÍˆ‹ŒÎ‹‹ˆ‹‹ˆ‹—W_HÏ]ˆÛ\ÜÓ˜[YOH™›ÛİÙX\‹]X›\ÈÚ^™UX›H]OH•ÛÛY[¸ &\È›ÛİÙX\ˆˆXY\œÏ^ÖÈ’[™XHÈRÈ‹ŒÈ‹‹H‹ˆ‹È‹—_H›İÜÏ^ÖÖÈ•TÈ‹H‹ˆ‹È‹‹H‹ŒL—W_HÏÚ^™UX›H]OH“Y[¸ &\È›ÛİÙX\ˆˆXY\œÏ^ÖÈ’[™XHÈRÈ‹ˆ‹È‹‹H‹ŒL‹ŒLH—_H›İÜÏ^ÖÖÈ•TÈ‹È‹‹H‹ŒL‹ŒLH‹ŒLˆ—W_HÏÙ]Û\ÜÓ˜[YOHœÚ^™K[›İH™]ÙY[ˆÚ^™\ÏÈÛÛ\\™H[İ\ˆ›ÙHYX\İ\™[Y[ÈÚ]HØ\›Y[]Ù[‹[ˆÚÛÜÙH˜\ÙYÛˆ˜XœšXÈİ™]Ú[™™Y™\œ™Yš]ÜÜÙXİ[ÛÙ]ÂŸB‚™[˜İ[ÛˆÚ^™UX›JÈ]KXY\œË›İÜÈNˆÈ]Nˆİš[™ÎÈXY\œÎˆİš[™Ö×NÈ›İÜÎˆİš[™Ö×V×HJHÂˆ™]\›ˆ]ˆÛ\ÜÓ˜[YOHœÚ^™K\ÙXİ[ÛˆÏİ]_OÚÏ]ˆÛ\ÜÓ˜[YOHX›K]Ü˜\X›OXYÚXY\œË›X\
 
-function usePreview(file: File | null): Preview {
-  const [preview, setPreview] = useState<Preview>(null);
-  useEffect(() => {
-    if (!file) return setPreview(null);
-    const url = URL.createObjectURL(file);
-    setPreview({ url, name: file.name });
-    return () => URL.revokeObjectURL(url);
-  }, [file]);
-  return preview;
-}
+][JHOˆÙ^O^Ú][_OÚ][_OİŠ_OİİXY›ÙOÜ›İÜË›X\
 
-function UploadCard({ id, title, hint, file, onChange, optional = false, onPreviewError }: {
-  id: string;
-  title: string;
-  hint: string;
-  file: Preview;
-  onChange: (file: File | null) => void;
-  optional?: boolean;
-  onPreviewError?: () => void;
-}) {
-  return (
-    <label className={`upload-card compact ${file ? "has-file" : ""}`} htmlFor={id}>
-      {file ? <img src={file.url} alt={`${title}: ${file.name}`} onError={onPreviewError} /> : (
-        <span className="upload-empty">
-          <span className="upload-icon" aria-hidden="true">+</span>
-          <strong>{title}{optional && <small> Optional</small>}</strong>
-          <span>{hint}</span>
-        </span>
-      )}
-      <input id={id} type="file" accept="image/jpeg,image/png,image/webp,image/heic" onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.files?.[0] ?? null)} />
-      {file && <span className="replace-chip">Change</span>}
-    </label>
-  );
-}
+›İÊHOˆˆÙ^O^Ü›İÖÌ_OÜ›İÖÌ_OİÜ›İËœÛXÙJJK›X\
 
-function VideoUploadCard({ file, onChange, error }: { file: Preview; onChange: (file: File | null) => void; error: string }) {
-  return (
-    <label className={`video-upload ${file ? "has-file" : ""}`} htmlFor="turn-video">
-      {file ? <video src={file.url} aria-label={`Uploaded turn video: ${file.name}`} controls muted playsInline preload="metadata" /> : <span><b>Or add one short turn video</b><small>5â€“10 seconds Â· front, right, back and left Â· MP4, MOV or WebM Â· up to 25 MB</small></span>}
-      <input id="turn-video" type="file" accept="video/mp4,video/webm,video/quicktime" onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.files?.[0] ?? null)} />
-      <strong>{file ? "Change video" : "Choose video"}</strong>
-      {error && <em role="alert">{error}</em>}
-    </label>
-  );
-}
+][K[™^
+HOˆÙ^O^Ø	Ü›İÖÌ_KIÚ[™^XOÚ][_OİŠ_OİŠ_Oİ›ÙOİX›OÙ]Ù]ÂŸB‚™[˜İ[ÛˆİÒ]ÛÜšÜÊÈÛÛÜÙHNˆÈÛÛÜÙNˆ
 
-function Brand() {
-  const content = <><span className="brand-mark" aria-hidden="true"><span /></span><span className="brand-name">Attire<em>Lens</em></span></>;
-  return <div className="brand" aria-label="AttireLens">{content}</div>;
-}
+HOˆ›ÚYJHÂˆ™]\›ˆ]ˆÛ\ÜÓ˜[YOH›[Ù[X˜XÚÙ›Üˆ›ÛOHœ™\Ù[][ÛˆˆÛ“[İ\ÙQİÛ^ÛÛÛÜÙ_OÙXİ[ÛˆÛ\ÜÓ˜[YOHšİË[[Ù[ˆ›ÛOH™X[ÙÈˆ\šXK[[Ù[HYHˆ\šXK[X™[YOHšİËZ]]ÛÜšÜË]]HˆÛ“[İ\ÙQİÛ^Ê]™[
+HOˆ]™[œİÜ›ÜYØ][ÛŠ
+_O]ÛˆÛ\ÜÓ˜[YOH›[Ù[XÛÜÙHˆ\šXK[X™[HÛÜÙHİÈ]ÛÜšÜÈˆÛÛXÚÏ^ÛÛÛÜÙ_OØ]ÛÜ[ˆÛ\ÜÓ˜[YOHœÙXİ[Û‹ZÚXÚÙ\ˆ‘Q“Ô‘HSÕTˆ’T”Õ’US‘ÏÜÜ[ˆYHšİËZ]]ÛÜšÜË]]H“Û™H›ÛÛKˆ[HØ^H[İHÚÜÚÛ\ÜÓ˜[YOHšİËZ[›È•Ú]\ˆ[İH›İ[™HÛÚÈÛ›[™HÜˆİÙÜ˜\Y][ˆHİÜ™K]\™S[œÈ\Ù\ÈHØ[YHš][™È›ØÙ\ÜËˆÛ›HHØ^H[İHYHØ\›Y[Ú[™Ù\ËÜ]ˆÛ\ÜÓ˜[YOHšİË[[Ù[YÜšY\XÛOŒOØ]ÏØ\\™H[İ\œÙ[ÚÏYHÚÜ\›ˆšY[ÈÜˆÛİYœ›ÛÚYH[™˜XÚÈİÜËˆHÛ›İÛˆZYÚ[™›İ\ˆÛX\ˆšY]ÜÈ›İšYHHİ›Û™Ù\İYX\İ\™[Y[˜\Ú\ËÜÙ]Ø\XÛO\XÛOŒØ]Ïœš[™ÈHİ]š]ÚÏ”\İHHÙXİ\™H›ÙXİ[šÈÜˆYØ\›Y[İÜËˆ[˜ÛYHÙ\\˜]H^Y\œËXØÙ\ÜÛÜšY\È[™›ÛİÙX\ˆÚ[ˆ[İHØ[ÈZ[HÛÛ\]HÛÚËÜÙ]Ø\XÛO\XÛOŒÏØ]ÏÛÛ™š\›HH˜XİÏÚÏ”™]šY]È›ÙH[™Ø\›Y[YX\İ\™[Y[È™Y›Ü™Hš][˜[\Ú\Ëˆ\İ[X]Y˜[Y\È™[XZ[ˆš\ÚX›HY™™\™[œ›ÛHYX\İ\™[Y[È[İH]™HÛÛ™š\›YYÜÙ]Ø\XÛO\XÛOŒØ]Ï”™XYH™\İ[Û™\İOÚÏ]\™S[œÈ™\ÜÈÛÛ™šY[˜ÙH[™Z\ÜÚ[™È[™›Ü›X][Û‹ˆHš\İX[K[ÛˆÚİÜÈ\X\˜[˜ÙNÈ\ÚXØ[š]™\]Z\™\ÈYX\İ\™[Y[Ë˜XœšXÈ[™ÛÛœİXİ[Ûˆ]KÜÙ]Ø\XÛOÙ]]ˆÛ\ÜÓ˜[YOHšİËXØ[İ]İ›Û™Ï‘›ÜˆHÛX\™\İ™\İ[Üİ›Û™ÏÜ[•\ÙH]™[ˆYÚ[™ËÙY\H[›ÙH[ˆœ˜[YKİ[™˜]\˜[K[™İÙÜ˜\HØ\›Y[›]Üˆœ›ÛHHÛX\ˆ›ÙXİšY]ËÜÜ[Ù]]ÛˆÛ\ÜÓ˜[YOHœš[X\KX]ÛˆˆÛÛXÚÏ^ÛÛÛÜÙ_O”İ\^Hš][™ÏØ]ÛÜÙXİ[ÛÙ]ÂŸB‚™^ÜY˜][[˜İ[ÛˆÛYJ
+HÂˆÛÛœİİÛÜšÜÜXÙTİ\Ù]ÛÜšÜÜXÙTİ\HH\ÙTİ]O˜Ø\\™Hˆ›İ]š]ˆ™š]Š˜Ø\\™HŠNÂˆÛÛœİÜ\œÛÛ‘š[KÙ]\œÛÛ‘š[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİİšY[Ñš[KÙ]šY[Ñš[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİİšY[Ñ\œ›Ü‹Ù]šY[Ñ\œ›Ü—HH\ÙTİ]JˆŠNÂˆÛÛœİÜšYÚš[KÙ]šYÚš[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİØ˜XÚÑš[KÙ]˜XÚÑš[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİÛYš[KÙ]Yš[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİÛXZ[‘š[KÙ]XZ[‘š[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİÙØ\›Y[[šËÙ]Ø\›Y[[š×HH\ÙTİ]JˆŠNÂˆÛÛœİÛ[šÙYØ\›Y[Ù][šÙYØ\›Y[HH\ÙTİ]O™]šY]ÏŠ[
+NÂˆÛÛœİÛ[šÓY\ÜØYÙKÙ][šÓY\ÜØYÙWHH\ÙTİ]JˆŠNÂˆÛÛœİØ›İÛQš[KÙ]›İÛQš[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİÛ^Y\‘š[KÙ]^Y\‘š[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİØXØÙ\ÜÛÜQš[KÙ]XØÙ\ÜÛÜQš[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİÙ›ÛİÙX\‘š[KÙ]›ÛİÙX\‘š[WHH\ÙTİ]Oš[H[Š[
+NÂˆÛÛœİØ›ÙKÙ]›ÙWHH\ÙTİ]OYX\İ\™[Y[ÏŠ[\P›ÙJNÂˆÛÛœİØÛÛ™š\›YYÙ]ÛÛ™š\›YYHH\ÙTİ]OÛÛ™š\›X][ÛŠ[\PÛÛ™š\›X][ÛŠNÂˆÛÛœİÙØ\›Y[Ù]Ø\›Y[HH\ÙTİ]OØ\›Y[YX\İ\™[Y[ÏŠ[\QØ\›Y[
+NÂˆÛÛœİİ[š]Ù][š]HH\ÙTİ]O˜ÛHˆš[ˆŠ˜ÛHŠNÂˆÛÛœİÜ™Y™\œ™Yš]Ù]™Y™\œ™Yš]HH\ÙTİ]J”™Yİ[\ˆŠNÂˆÛÛœİÜ›İ][Û‹Ù]›İ][Û—HH\ÙTİ]J
+NÂˆÛÛœİÜ™YÚ[Û‹Ù]™YÚ[Û—HH\ÙTİ]J™YÚ[ÛœÖÌJNÂˆÛÛœİÙ˜\KÙ]˜\WHH\ÙTİ]J˜\PÚÚXÙ\ÖÌJNÂˆÛÛœİÜİYÙKÙ]İYÙWHH\ÙTİ]OİYÙOŠšYHŠNÂˆÛÛœİÜš]˜XŞSÜ[‹Ù]š]˜XŞSÜ[—HH\ÙTİ]J˜[ÙJNÂˆÛÛœİÜÚ^™QİZYSÜ[‹Ù]Ú^™QİZYSÜ[—HH\ÙTİ]J˜[ÙJNÂˆÛÛœİÚİÓÜ[‹Ù]İÓÜ[—HH\ÙTİ]J˜[ÙJNÂˆÛÛœİÜÚ\™SY\ÜØYÙKÙ]Ú\™SY\ÜØYÙWHH\ÙTİ]JˆŠNÂ‚ˆÛÛœİ\œÛÛˆH\ÙT™]šY]Ê\œÛÛ‘š[JNÂˆÛÛœİ\›•šY[ÈH\ÙT™]šY]ÊšY[Ñš[JNÂˆÛÛœİšYÚH\ÙT™]šY]ÊšYÚš[JNÂˆÛÛœİ˜XÚÈH\ÙT™]šY]Ê˜XÚÑš[JNÂˆÛÛœİYH\ÙT™]šY]ÊYš[JNÂˆÛÛœİ\ØYYXZ[ˆH\ÙT™]šY]ÊXZ[‘š[JNÂˆÛÛœİXZ[ˆH\ØYYXZ[ˆÏÈ[šÙYØ\›Y[ÂˆÛÛœİ›İÛHH\ÙT™]šY]Ê›İÛQš[JNÂˆÛÛœİ^Y\ˆH\ÙT™]šY]Ê^Y\‘š[JNÂˆÛÛœİXØÙ\ÜÛÜHH\ÙT™]šY]ÊXØÙ\ÜÛÜQš[JNÂˆÛÛœİ›ÛİÙX\ˆH\ÙT™]šY]Ê›ÛİÙX\‘š[JNÂˆÛÛœİØ[”™]šY]ÈH›ÛÛX[Š
+\œÛÛˆ\›•šY[ÊH	‰ˆXZ[ŠNÂˆÛÛœİ›ÙQšY[ĞÛÛ\]HHØš™Xİ˜[Y\Ê›ÙJK™]™\J›ÛÛX[ŠNÂˆÛÛœİØ\›Y[šY[ĞÛÛ\]HHØš™Xİ˜[Y\ÊØ\›Y[
+K™]™\J›ÛÛX[ŠNÂˆÛÛœİš]]PÛÛ\]HH›ÙQšY[ĞÛÛ\]H	‰ˆØ\›Y[šY[ĞÛÛ\]NÂˆÛÛœİİĞ[™ÛPÛİ[HÜ\œÛÛ‹šYÚ˜XÚËYK™š[\Š›ÛÛX[ŠK›[™İÂˆÛÛœİ[™ÛPÛİ[H\›•šY[ÈÈˆİĞ[™ÛPÛİ[ÂˆÛÛœİØ\\™S]™[H\›•šY[ÈÈ•šY[ÈÛİ™\˜YÙHÈ™\šYHˆˆ[™ÛPÛİ[OOHÈ™\İ]˜Z[X›HØ\\™Hˆˆ[™ÛPÛİ[OOHÈÈ’[\›İ™Y\İ[X]Hˆˆ[™ÛPÛİ[OOHˆÈ“[Z]Y\İ[X]Hˆˆ“İËXÛÛ™šY[˜ÙH\İ[X]HÂˆÛÛœİØ\\™Q]Z[H\›•šY[ÈÈ‘œ˜[YH˜[Y][Ûˆ]\İÛÛ™š\›H]œ›ÛšYÚ˜XÚÈ[™YšY]ÜÈ\™HÛX\ˆ™Y›Ü™H›ÙH[˜[\Ú\È™YÚ[œËˆˆˆ[™ÛPÛİ[OOHÈ[›İ\ˆ™XÛÛ[Y[™YšY]ÜÈ\™H™\Ù[ˆˆˆ	ÍH[™ÛPÛİ[H[Ü™H[™ÛIÍH[™ÛPÛİ[OOHHÈˆˆˆœÈŸH™XÛÛ[Y[™YÈYX\İ\™[Y[ÛÛ™šY[˜ÙHÚ[™H™YXÙY˜Â‚ˆ\ÙQY™™Xİ
 
-function SizeGuide({ onClose }: { onClose: () => void }) {
-  return <div className="modal-backdrop" role="presentation" onMouseDown={onClose}><section className="size-modal" role="dialog" aria-modal="true" aria-labelledby="size-guide-title" onMouseDown={(event) => event.stopPropagation()}><button className="modal-close" aria-label="Close size guide" onClick={onClose}>x</button><span className="section-kicker">QUICK SIZE REFERENCE</span><h2 id="size-guide-title">Find your starting size</h2><p className="size-intro">Use these as conversion guides only. Brand charts and actual garment measurements should always take priority.</p><SizeTable title="Womenâ€™s clothing" headers={["Body / label", "XS", "S", "M", "L", "XL", "2XL", "3XL"]} rows={[["Bust (in)", "32", "34", "36", "38", "40", "42", "44"], ["India", "32", "34", "36", "38", "40", "42", "44"], ["UK", "6", "8", "10", "12", "14", "16", "18"], ["US", "2", "4", "6", "8", "10", "12", "14"]]} /><SizeTable title="Menâ€™s jackets and kurtas" headers={["Body / label", "XS", "S", "M", "L", "XL", "2XL", "3XL"]} rows={[["Chest (in)", "36", "38", "40", "42", "44", "46", "48"], ["India", "36", "38", "40", "42", "44", "46", "48"], ["UK", "36", "38", "40", "42", "44", "46", "48"], ["US", "36", "38", "40", "42", "44", "46", "48"]]} /><div className="footwear-tables"><SizeTable title="Womenâ€™s footwear" headers={["India / UK", "3", "4", "5", "6", "7", "8"]} rows={[["US", "5", "6", "7", "8", "9", "10"]]} /><SizeTable title="Menâ€™s footwear" headers={["India / UK", "6", "7", "8", "9", "10", "11"]} rows={[["US", "7", "8", "9", "10", "11", "12"]]} /></div><p className="size-note">Between sizes? Compare your body measurements with the garment itself, then choose based on fabric stretch and preferred fit.</p></section></div>;
-}
 
-function SizeTable({ title, headers, rows }: { title: string; headers: string[]; rows: string[][] }) {
-  return <div className="size-section"><h3>{title}</h3><div className="table-wrap"><table><thead><tr>{headers.map((item) => <th key={item}>{item}</th>)}</tr></thead><tbody>{rows.map((row) => <tr key={row[0]}><th>{row[0]}</th>{row.slice(1).map((item, index) => <td key={`${row[0]}-${index}`}>{item}</td>)}</tr>)}</tbody></table></div></div>;
-}
+HOˆÙ]İYÙJØ[”™]šY]ÈÈœ™XYHˆˆšYHŠKØØ[”™]šY]×JNÂˆ\ÙQY™™Xİ
 
-export default function Home() {
-  const [workspaceStep, setWorkspaceStep] = useState<"capture" | "outfit" | "fit">("capture");
-  const [mode, setMode] = useState<"online" | "store">("online");
-  const [personFile, setPersonFile] = useState<File | null>(null);
-  const [videoFile, setVideoFile] = useState<File | null>(null);
-  const [videoError, setVideoError] = useState("");
-  const [rightFile, setRightFile] = useState<File | null>(null);
-  const [backFile, setBackFile] = useState<File | null>(null);
-  const [leftFile, setLeftFile] = useState<File | null>(null);
-  const [mainFile, setMainFile] = useState<File | null>(null);
-  const [garmentLink, setGarmentLink] = useState("");
-  const [linkedGarment, setLinkedGarment] = useState<Preview>(null);
-  const [linkMessage, setLinkMessage] = useState("");
-  const [bottomFile, setBottomFile] = useState<File | null>(null);
-  const [layerFile, setLayerFile] = useState<File | null>(null);
-  const [accessoryFile, setAccessoryFile] = useState<File | null>(null);
-  const [footwearFile, setFootwearFile] = useState<File | null>(null);
-  const [body, setBody] = useState<Measurements>(emptyBody);
-  const [confirmed, setConfirmed] = useState<Confirmation>(emptyConfirmation);
-  const [garment, setGarment] = useState<GarmentMeasurements>(emptyGarment);
-  const [unit, setUnit] = useState<"cm" | "in">("cm");
-  const [preferredFit, setPreferredFit] = useState("Regular");
-  const [rotation, setRotation] = useState(0);
-  const [region, setRegion] = useState(regions[0]);
-  const [drape, setDrape] = useState(drapeChoices[0]);
-  const [stage, setStage] = useState<Stage>("idle");
-  const [privacyOpen, setPrivacyOpen] = useState(false);
-  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
-  const [shareMessage, setShareMessage] = useState("");
 
-  const person = usePreview(personFile);
-  const turnVideo = usePreview(videoFile);
-  const right = usePreview(rightFile);
-  const back = usePreview(backFile);
-  const left = usePreview(leftFile);
-  const uploadedMain = usePreview(mainFile);
-  const main = uploadedMain ?? linkedGarment;
-  const bottom = usePreview(bottomFile);
-  const layer = usePreview(layerFile);
-  const accessory = usePreview(accessoryFile);
-  const footwear = usePreview(footwearFile);
-  const canPreview = Boolean((person || turnVideo) && main);
-  const bodyFieldsComplete = Object.values(body).every(Boolean);
-  const garmentFieldsComplete = Object.values(garment).every(Boolean);
-  const fitDataComplete = bodyFieldsComplete && garmentFieldsComplete;
-  const photoAngleCount = [person, right, back, left].filter(Boolean).length;
-  const angleCount = turnVideo ? 4 : photoAngleCount;
-  const captureLevel = turnVideo ? "Video coverage to verify" : angleCount === 4 ? "Best available capture" : angleCount === 3 ? "Improved estimate" : angleCount === 2 ? "Limited estimate" : "Low-confidence estimate";
-  const captureDetail = turnVideo ? "Frame validation must confirm that front, right, back and left views are clear before body analysis begins." : angleCount === 4 ? "All four recommended views are present." : `${4 - angleCount} more angle${4 - angleCount === 1 ? "" : "s"} recommended; measurement confidence will be reduced.`;
+HOˆÂˆYˆ
+\š]˜XŞSÜ[ˆ	‰ˆ\Ú^™QİZYSÜ[ˆ	‰ˆZİÓÜ[ŠH™]\›ÂˆÛÛœİÛÜÙHH
+]™[ˆÙ^X›Ø\™]™[
+HOˆÈYˆ
+]™[šÙ^HOOH‘\ØØ\HŠHÈÙ]š]˜XŞSÜ[Š˜[ÙJNÈÙ]Ú^™QİZYSÜ[Š˜[ÙJNÈÙ]İÓÜ[Š˜[ÙJNÈHNÂˆÚ[™İË˜Y]™[\İ[™\ŠšÙ^YİÛˆ‹ÛÜÙJNÂˆ™]\›ˆ
 
-  useEffect(() => setStage(canPreview ? "ready" : "idle"), [canPreview]);
-  useEffect(() => {
-    if (!privacyOpen && !sizeGuideOpen) return;
-    const close = (event: KeyboardEvent) => { if (event.key === "Escape") { setPrivacyOpen(false); setSizeGuideOpen(false); } };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, [privacyOpen, sizeGuideOpen]);
+HOˆÚ[™İËœ™[[İ™Q]™[\İ[™\ŠšÙ^YİÛˆ‹ÛÜÙJNÂˆKÜš]˜XŞSÜ[‹Ú^™QİZYSÜ[‹İÓÜ[—JNÂ‚ˆÛÛœİ\ØÜš\[ÛˆH\ÙSY[[Ê
 
-  const description = useMemo(() => {
-    const pieces = [main && "main garment", bottom && "lower piece", layer && "draped or outer layer", accessory && "accessory", footwear && "footwear"].filter(Boolean).join(", ");
-    const fitNote = fitDataComplete
-      ? `Body and garment measurements are present in ${unit} for a ${preferredFit.toLowerCase()}-fit comparison; fabric stretch and construction still require verification.`
-      : "Physical fit is not estimated because body and garment measurements are incomplete.";
-    return `A fitting session in the ${region} context using ${pieces || "a main garment"}. Draping preference: ${drape}. ${fitNote}`;
-  }, [region, drape, main, bottom, layer, accessory, footwear, fitDataComplete, unit, preferredFit]);
+HOˆÂˆÛÛœİYXÙ\ÈHÛXZ[ˆ	‰ˆ›XZ[ˆØ\›Y[‹›İÛH	‰ˆ›İÙ\ˆYXÙH‹^Y\ˆ	‰ˆ™˜\YÜˆİ]\ˆ^Y\ˆ‹XØÙ\ÜÛÜH	‰ˆ˜XØÙ\ÜÛÜH‹›ÛİÙX\ˆ	‰ˆ™›ÛİÙX\ˆ—K™š[\Š›ÛÛX[ŠKš›Ú[Š‹ŠNÂˆÛÛœİš]›İHHš]]PÛÛ\]BˆÈ›ÙH[™Ø\›Y[YX\İ\™[Y[È\™H™\Ù[[ˆ	İ[š]H›ÜˆH	Ü™Y™\œ™Yš]ÓİÙ\Ø\ÙJ
+_KYš]ÛÛ\\š\ÛÛÈ˜XœšXÈİ™]Ú[™ÛÛœİXİ[Ûˆİ[™\]Z\™H™\šYšXØ][Û‹˜ˆˆ”\ÚXØ[š]\È›İ\İ[X]Y™XØ]\ÙH›ÙH[™Ø\›Y[YX\İ\™[Y[È\™H[˜ÛÛ\]KˆÂˆ™]\›ˆHš][™ÈÙ\ÜÚ[Ûˆ[ˆH	Ü™YÚ[ÛŸHÛÛ^\Ú[™È	ÜYXÙ\È˜HXZ[ˆØ\›Y[ŸKˆ˜\[™È™Y™\™[˜ÙNˆ	Ù˜\_Kˆ	Ùš]›İ_XÂˆKÜ™YÚ[Û‹˜\KXZ[‹›İÛK^Y\‹XØÙ\ÜÛÜK›ÛİÙX\‹š]]PÛÛ\]K[š]™Y™\œ™Yš]JNÂ‚ˆ[˜İ[ÛˆÛX\”Ù\ÜÚ[ÛŠ
+HÂˆÜYXÚŞ[\Ú\ÏË˜Ø[˜Ù[
 
-  function clearSession() {
-    speechSynthesis?.cancel();
-    setPersonFile(null); setVideoFile(null); setVideoError(""); setRightFile(null); setBackFile(null); setLeftFile(null); setMainFile(null); setGarmentLink(""); setLinkedGarment(null); setLinkMessage(""); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
-    setBody(emptyBody); setConfirmed(emptyConfirmation); setGarment(emptyGarment); setRotation(0);
-    setWorkspaceStep("capture");
-    setStage("idle"); setShareMessage("");
-  }
+NÂˆÙ]\œÛÛ‘š[J[
+NÈÙ]šY[Ñš[J[
+NÈÙ]šY[Ñ\œ›ÜŠˆŠNÈÙ]šYÚš[J[
+NÈÙ]˜XÚÑš[J[
+NÈÙ]Yš[J[
+NÈÙ]XZ[‘š[J[
+NÈÙ]Ø\›Y[[šÊˆŠNÈÙ][šÙYØ\›Y[
+[
+NÈÙ][šÓY\ÜØYÙJˆŠNÈÙ]›İÛQš[J[
+NÈÙ]^Y\‘š[J[
+NÈÙ]XØÙ\ÜÛÜQš[J[
+NÈÙ]›ÛİÙX\‘š[J[
+NÂˆÙ]›ÙJ[\P›ÙJNÈÙ]ÛÛ™š\›YY
+[\PÛÛ™š\›X][ÛŠNÈÙ]Ø\›Y[
+[\QØ\›Y[
+NÈÙ]›İ][ÛŠ
+NÂˆÙ]ÛÜšÜÜXÙTİ\
+˜Ø\\™HŠNÂˆÙ]İYÙJšYHŠNÈÙ]Ú\™SY\ÜØYÙJˆŠNÂˆB‚ˆ[˜İ[Ûˆ\]P›ÙJšY[ˆÙ^[ÙˆYX\İ\™[Y[Ë˜[YNˆİš[™ÊHÂˆÙ]›ÙJ
+İ\œ™[
+HOˆ
+È‹‹˜İ\œ™[ÙšY[Nˆ˜[YHJJNÂˆÙ]ÛÛ™š\›YY
 
-  function updateBody(field: keyof Measurements, value: string) {
-    setBody((current) => ({ ...current, [field]: value }));
-    setConfirmed((current) => ({ ...current, [field]: false }));
-  }
+İ\œ™[
+HOˆ
+È‹‹˜İ\œ™[ÙšY[Nˆ˜[ÙHJJNÂˆB‚ˆ[˜İ[Ûˆ\]QØ\›Y[
+šY[ˆÙ^[ÙˆØ\›Y[YX\İ\™[Y[Ë˜[YNˆİš[™ÊHÂˆÙ]Ø\›Y[
 
-  function updateGarment(field: keyof GarmentMeasurements, value: string) {
-    setGarment((current) => ({ ...current, [field]: value }));
-  }
+İ\œ™[
+HOˆ
+È‹‹˜İ\œ™[ÙšY[Nˆ˜[YHJJNÂˆB‚ˆ[˜İ[Ûˆ\]UšY[Êš[Nˆš[H[
+HÂˆYˆ
+š[H	‰ˆš[KœÚ^™HˆH
+ˆL
+ˆL
+HÂˆÙ]šY[Ñ\œ›ÜŠ”X\ÙHÚÛÜÙHHšY[ÈÛX[\ˆ[ˆHP‹ˆŠNÂˆÙ]šY[Ñš[J[
+NÂˆ™]\›ÂˆBˆÙ]šY[Ñ\œ›ÜŠˆŠNÂˆÙ]šY[Ñš[Jš[JNÂˆB‚ˆ[˜İ[Ûˆ[\ÜØ\›Y[[šÊ
+HÂˆHÂˆÛÛœİ\›H™]ÈT“
+Ø\›Y[[šËš[J
+JNÂˆYˆ
+\›œ›İØÛÛOOHšÎˆŠH›İÈ™]È\œ›ÜŠ
+NÂˆÙ]XZ[‘š[J[
+NÂˆÙ][šÙYØ\›Y[
+È\›ˆ\›Ôİš[™Ê
+K˜[YNˆÛÚÈœ›ÛH	İ\›šÜİ˜[YKœ™\XÙJ×İİ×‹ËˆŠ_XJNÂˆÙ][šÓY\ÜØYÙJ“[šÈYYˆYˆHÚÜ›ØÚÜÈ]È[XYÙKØ]™HHØ\›Y[İÈ[™Y]™[İËˆŠNÂˆHØ]ÚÂˆÙ][šÙYØ\›Y[
+[
+NÂˆÙ][šÓY\ÜØYÙJ”\İHHÛÛ\]HÙXİ\™H[šÈ™YÚ[›š[™ÈÚ]Î‹ËÈŠNÂˆBˆB‚ˆ[˜İ[Ûˆ›İ]PJYÜ™Y\Îˆ[X™\ŠHÂˆÙ]›İ][ÛŠ
+İ\œ™[
+HOˆ
+İ\œ™[
+ÈYÜ™Y\È
+ÈÍŒ
+H	HÍŒ
+NÂˆB‚ˆ[˜İ[ÛˆÜXZÑ\ØÜš\[ÛŠ
+HÂˆYˆ
+JœÜYXÚŞ[\Ú\Èˆ[ˆÚ[™İÊJH™]\›ÂˆÚ[™İËœÜYXÚŞ[\Ú\Ë˜Ø[˜Ù[
 
-  function updateVideo(file: File | null) {
-    if (file && file.size > 25 * 1024 * 1024) {
-      setVideoError("Please choose a video smaller than 25 MB.");
-      setVideoFile(null);
-      return;
-    }
-    setVideoError("");
-    setVideoFile(file);
-  }
+NÂˆÚ[™İËœÜYXÚŞ[\Ú\ËœÜXZÊ™]ÈÜYXÚŞ[\Ú\Õ]\˜[˜ÙJ\ØÜš\[ÛŠJNÂˆB‚ˆ\Ş[˜È[˜İ[ÛˆÛÜT™]šY]Ó›İJ
+HÂˆÛÛœİ^\HH™]È]J]K››İÊ
+H
+È
+ˆŒ
+ˆŒ
+ˆL
+KÓØØ[Tİš[™Ê
+NÂˆÛÛœİ›İHH]\™S[œÈš]˜]H™]šY]È›İW‰Ù\ØÜš\[ÛŸW”™]šY]ÈNˆ	Ù^\_W“›È\œÛÛ˜[İÈ\È[˜ÛYY[ˆ\È›İK˜Âˆ]ØZ]˜]šYØ]Ü‹˜Û\›Ø\™Üš]U^
+›İJNÂˆÙ]Ú\™SY\ÜØYÙJ”š]˜]H^[Û›H™]šY]È›İHÛÜYYˆ›È[XYÙHY\È]šXÙKˆŠNÂˆB‚ˆ™]\›ˆ
+ˆXZ[‚ˆHÛ\ÜÓ˜[YOHœÚÚ\[[šÈˆ™YHˆÙš][™Ë\›ÛÛH”ÚÚ\Èš][™È›ÛÛOØO‚ˆ˜]ˆÛ\ÜÓ˜[YOH›˜]ˆÚ[ˆ\šXK[X™[H“XZ[ˆ˜]šYØ][Ûˆ‚ˆœ˜[™Ï‚ˆ]ˆÛ\ÜÓ˜[YOH›˜]‹[[šÜÈ]ÛˆÛ\ÜÓ˜[YOH›[šËX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]İÓÜ[ŠYJ_O’İÈ]ÛÜšÜÏØ]Û]ÛˆÛ\ÜÓ˜[YOH›[šËX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]Ú^™QİZYSÜ[ŠYJ_O”Ú^™HİZYOØ]Û]ÛˆÛ\ÜÓ˜[YOH›[šúç{h‘éì¶»§q«^wOOHÚÚXÙ_HÛ\ÜÓ˜[YO^Ù˜\HOOHÚÚXÙHÈ˜ÚÚXÙHXİ]™Hˆˆ˜ÚÚXÙHŸHÙ^O^ØÚÚXÙ_HÛÛXÚÏ^Ê
+HOˆÙ]˜\JÚÚXÙJ_OØÚÚXÙ_OØ]ÛŠ_OÙ]ÙšY[Ù]‚ˆÙ]ŸB‚ˆ]ˆÛ\ÜÓ˜[YO^ØÛÛ\ÜÚ][Û‹YÜšYİ\IİÛÜšÜÜXÙTİ\XO‚ˆÙXİ[ÛˆÛ\ÜÓ˜[YOHœ\œÛÛ‹\[™[Ø\\™K\[™[ˆ\šXK[X™[YOHœ\œÛÛ‹]]H‚ˆ]ˆÛ\ÜÓ˜[YOHœİ\[X™[ŒOØÜ[İ›Û™ÈYHœ\œÛÛ‹]]HØ\\™H[İ\ˆÚ\OÜİ›Û™Ï‘›İ\ˆ[™Û\È\™HH™XÛÛ[Y[™YZ[š[][H›ÜˆHİ›Û™Ù\İ\İ[X]KÜÜ[Ù]‚ˆ]ˆÛ\ÜÓ˜[YOH˜ÛİYXØ\\™H”İ^HÛÛY›ÜX›HÛİYØÜ[‘]™\Y^HÛİ\È\™HÙ[ÛÛYKˆHš]Y\Ú\[™›İ\Ù\œÈÚ]™HHÛX\™\İİ][™K]Y]H\È™]™\ˆ™\]Z\™YÜˆ\›ÜšX]KÜÜ[Ù]‚ˆšY[Õ\ØYØ\™š[O^İ\›•šY[ßHÛÚ[™ÙO^İ\]UšY[ßH\œ›Ü^İšY[Ñ\œ›ÜŸHÏ‚ˆ]ˆÛ\ÜÓ˜[YOH˜Ø\\™KY]šY\ˆÜ[›ÜˆY[™]šYX[İÜÏÜÜ[Ù]‚ˆ]ˆÛ\ÜÓ˜[YOH˜Ø\\™KYÜšY‚ˆ\ØYØ\™YHœ\œÛÛ‹\İÈˆ]OH‘œ›Ûˆ[H”™\]Z\™Yˆš[O^Ü\œÛÛŸHÛÚ[™ÙO^ÜÙ]\œÛÛ‘š[_HÏ‚ˆ\ØYØ\™YHœšYÚ\İÈˆ]OH”šYÚ›Ùš[Hˆ[H”™XÛÛ[Y[™Yˆš[O^ÜšYÚHÛÚ[™ÙO^ÜÙ]šYÚš[_HÜ[Û˜[Ï‚ˆ\ØYØ\™YH˜˜XÚË\İÈˆ]OH˜XÚÈˆ[H”™XÛÛ[Y[™Yˆš[O^Ø˜XÚßHÛÚ[™ÙO^ÜÙ]˜XÚÑš[_HÜ[Û˜[Ï‚ˆ\ØYØ\™YH›Y\İÈˆ]OH“Y›Ùš[Hˆ[H”™XÛÛ[Y[™Yˆš[O^ÛYHÛÚ[™ÙO^ÜÙ]Yš[_HÜ[Û˜[Ï‚ˆÙ]‚ˆ]ˆÛ\ÜÓ˜[YO^ØØ\\™K\™XY[™\ÜÈ]™[IØ[™ÛPÛİ[XH›ÛOHœİ]\Èˆ\šXK[]™OHœÛ]HØ[™ÛPÛİ[KÍšY]ÜÈ0­ÈØØ\\™S]™[OØÜ[ØØ\\™Q]Z[OÜÜ[Ù]‚ˆ]Z[ÈÛ\ÜÓ˜[YOH˜Ø\\™KYİZYHİ[[X\O’İÈÈØ\\™HH™\İ™\İ[Üİ[[X\O[O•ÙX\ˆ›Ü›X[ÛÛY›ÜX›HÛİ\ËˆHš]Y\Ú\Ú]YÙÚ[™ÜÈÜˆ›İ\Ù\œÈ[ÈHŞ\İ[H™XY[İ\ˆİ][™KÛOO“™]™\ˆ\ØYYHÜˆ[™\ÙX\‹[Û›HİÜËˆ^H\™H›İ™YYY›Üˆš\X[K[Û‹ÛOO”ÚİÈ[İ\ˆÛÛ\]H›ÙK[˜ÛY[™ÈHÜÙˆHXY[™›İ™Y]ÛOO‘›ÜˆšY[Ë\›ˆÛİÛH›İYÚœ›ÛšYÚ˜XÚÈ[™YÚ]İ][İš[™ÈHØ[Y\˜KÛOO”İ[™˜]\˜[HÚ]™Y]\]ÚY\\[™\›\ÈÛYÚH]Ø^Hœ›ÛHHÜœÛËÛOO”XÙHHØ[Y\˜H]™[\›İ[™ØZ\İZYÚÈÈ›İ[]\ÜˆİÛ‹ÛOO“ÛÜÙHÜˆ^Y\™YÛİ\È\™Hİ[\ØX›K]H\İ[X]HÚİ[ÚİÈÚY\ˆ[˜Ù\Z[H˜[™Ù\ËÛOO”›İšYH[İ\ˆYX\İ\™YZYÚÈÚ]İ]HÛ›İÛˆØØ[KÙ[[Y]™H\İ[X]\ÈØ[››İ™H\[™X›KÛOİ[Ù]Z[Ï‚ˆÜÙXİ[Û‚ˆÙXİ[ÛˆÛ\ÜÓ˜[YOHœYXÙ\Ë\[™[ˆ\šXK[X™[YOHœYXÙ\Ë]]H‚ˆ]ˆÛ\ÜÓ˜[YOHœİ\[X™[ŒØÜ[İ›Û™ÈYHœYXÙ\Ë]]H‘œ™YHZ^X[™[X]ÚÜXÙOÜİ›Û™ÏY™[[İ™H[™™\XÙHXXÚØ]YÛÜH[™\[™[KÜÜ[Ù]‚ˆ]ˆÛ\ÜÓ˜[YOH›[šËZ[\ÜX™[[›ÜH™Ø\›Y[[[šÈ‘›İ[™]Û›[™OÏØÜ[”\İHH\™XİØ\›Y[[XYÙH[šËÜˆYHİÈ™[İÈYˆ[İH\™HÚÜ[™È[ˆ\œÛÛ‹ÜÜ[ÛX™[][œ]YH™Ø\›Y[[[šÈˆ\OH\›ˆ[œ][ÙOH\›ˆXÙZÛ\HšÎ‹ËÜÚÜ˜ÛÛKÙØ\›Y[Z[XYÙKšœÈˆ˜[YO^ÙØ\›Y[[šßHÛÚ[™ÙO^Ê]™[
+HOˆÈÙ]Ø\›Y[[šÊ]™[\™Ù]˜[YJNÈÙ][šÓY\ÜØYÙJˆŠNÈ_HÛ’Ù^QİÛ^Ê]™[
+HOˆ]™[šÙ^HOOH‘[\ˆˆ	‰ˆ[\ÜØ\›Y[[šÊ
+_HÏ]Ûˆ\OH˜]ÛˆˆÛÛXÚÏ^Ú[\ÜØ\›Y[[šßOYÈØ\™›Ø™OØ]ÛÙ]Û[šÓY\ÜØYÙH	‰ˆ›ÛOHœİ]\ÈÛ[šÓY\ÜØYÙ_OÜŸOÙ]‚ˆ]ˆÛ\ÜÓ˜[YOHœYXÙKYÜšY‚ˆ\ØYØ\™YH›XZ[‹YØ\›Y[ˆ]OH“XZ[ˆØ\›Y[ˆ[H’İ\KØ\™YKÚ\Ø[šK™\ÜËØ™K‹‹ˆˆš[O^ÛXZ[ŸHÛÚ[™ÙO^Êš[JHOˆÈÙ]XZ[‘š[Jš[JNÈYˆ
+š[JHÈÙ][šÙYØ\›Y[
+[
+NÈÙ][šÓY\ÜØYÙJˆŠNÈH_HÛ”™]šY]Ñ\œ›Ü^Ê
+HOˆÈYˆ
+[šÙYØ\›Y[
+HÈÙ][šÙYØ\›Y[
+[
+NÈÙ][šÓY\ÜØYÙJ•\ÈÚÜ›ØÚÜÈ\™Xİ[XYÙH[\Ü[™ËˆØ]™HHØ\›Y[İË[ˆY]\™H[œİXYˆŠNÈH_HÏ‚ˆ\ØYØ\™YH›İÙ\‹\YXÙHˆ]OH“İÙ\ˆYXÙHˆ[H•›İ\Ù\œËZ[™ØKİKÚÚ\Ø\›Û™Ë‹‹ˆˆš[O^Ø›İÛ_HÛÚ[™ÙO^ÜÙ]›İÛQš[_HÜ[Û˜[Ï‚ˆ\ØYØ\™YH›İ]\‹[^Y\ˆˆ]OH“^Y\ˆÜˆ˜\Hˆ[H‘\]KÚ]Û[Kš\Ú‹‹ˆˆš[O^Û^Y\ŸHÛÚ[™ÙO^ÜÙ]^Y\‘š[_HÜ[Û˜[Ï‚ˆ\ØYØ\™YH˜XØÙ\ÜÛÜHˆ]OHXØÙ\ÜÛÜšY\Èˆ[H’™]Ù[\KİY™›[šÜË˜YË™[XYÙX\‹‹‹ˆˆš[O^ØXØÙ\ÜÛÜ_HÛÚ[™ÙO^ÜÙ]XØÙ\ÜÛÜQš[_HÜ[Û˜[Ï‚ˆ\ØYØ\™YH™›ÛİÙX\ˆˆ]OH”ÚÙ\È	ˆ›ÛİÙX\ˆˆ[H’]KÚ\ÜØKØY™\œËØ[™[ËY[Ë‹‹ˆˆš[O^Ù›ÛİÙX\ŸHÛÚ[™ÙO^ÜÙ]›ÛİÙX\‘š[_HÜ[Û˜[Ï‚ˆÙ]‚ˆÜÙXİ[Û‚ˆÙ]‚‚ˆİÛÜšÜÜXÙTİ\OOH˜Ø\\™Hˆ	‰ˆ]ˆÛ\ÜÓ˜[YOHœİ\XXİ[ÛœÈÜ[•\ÙHÛ™HÚÜ\›ˆšY[ÈÜˆ›İ\ˆ[™]šYX[šY]ÜÈ›ÜˆHİ›Û™Ù\İ˜\Ú\ËÜÜ[]ÛˆÛ\ÜÓ˜[YOHœš[X\KX]Ûˆˆ\ØX›Y^È\\œÛÛˆ	‰ˆ]\›•šY[ßHÛÛXÚÏ^Ê
+HOˆÙ]ÛÜšÜÜXÙTİ\
+›İ]š]Š_OÛÛ[YHÈİ]š]Ü[ˆ\šXKZY[HYH‹I™İÏÜÜ[Ø]ÛÙ]ŸBˆİÛÜšÜÜXÙTİ\OOH›İ]š]ˆ	‰ˆ]ˆÛ\ÜÓ˜[YOHœİ\XXİ[ÛœÈ]ÛˆÛ\ÜÓ˜[YOHœÙXÛÛ™\KX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]ÛÜšÜÜXÙTİ\
+˜Ø\\™HŠ_O‰›ËH˜XÚÈÈİÜÏØ]Û]ÛˆÛ\ÜÓ˜[YOHœš[X\KX]Ûˆˆ\ØX›Y^È[XZ[ŸHÛÛXÚÏ^Ê
+HOˆÙ]ÛÜšÜÜXÙTİ\
+™š]Š_OÛÛ[YHÈš]Ü[ˆ\šXKZY[HYH‹I™İÏÜÜ[Ø]ÛÙ]ŸB‚ˆİÛÜšÜÜXÙTİ\OOH™š]ˆ	‰ˆÙXİ[ÛˆÛ\ÜÓ˜[YOH™š]\İY[Èˆ\šXK[X™[YOH™š]\İY[Ë]]H‚ˆ]ˆÛ\ÜÓ˜[YOH™š]Z[›È‚ˆÜ[ˆÛ\ÜÓ˜[YOHœÙXİ[Û‹ZÚXÚÙ\ˆ‘’UUK“ÕÕQTÔÕÓÔ’ÏÜÜ[‚ˆˆYH™š]\İY[Ë]]HZ[HYX\İ\™[Y[X˜XÚÙYš]›Ùš[OÚ‚ˆ•˜[Y\Èİ^H[ˆ\Èœ›İÜÙ\ˆÙ\ÜÚ[Û‹ˆHİÈ[Û™HØ[››İ™[XX›H›İ™HÚ^™K[™İÜˆš]Ü‚ˆ]ˆÛ\ÜÓ˜[YOH™š][Ü[ÛœÈ‚ˆX™[•[š]Ù[Xİ˜[YO^İ[š]HÛÚ[™ÙO^Ê]™[
+HOˆÙ][š]
+]™[\™Ù]˜[YH\È˜ÛHˆš[ˆŠ_OÜ[Ûˆ˜[YOH˜ÛHÙ[[Y]™\ÏÛÜ[ÛÜ[Ûˆ˜[YOHš[ˆ’[˜Ú\ÏÛÜ[ÛÜÙ[XİÛX™[‚ˆX™[”™Y™\œ™Yš]Ù[Xİ˜[YO^Ü™Y™\œ™Yš]HÛÚ[™ÙO^Ê]™[
+HOˆÙ]™Y™\œ™Yš]
+]™[\™Ù]˜[YJ_OÜ[ÛÛÜÙOÛÜ[ÛÜ[Û”™Yİ[\ÛÜ[ÛÜ[Û”™[^YÛÜ[ÛÜÙ[XİÛX™[‚ˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÓ˜[YOH›YX\İ\™[Y[YÜ›İ\‚ˆÏ‘\İ[X]Y›ÙH]OÚÏ‚ˆÛ\ÜÓ˜[YOH›YX\İ\™[Y[[›İH”İÈ[˜[\Ú\È]\İ™]\›ˆ˜[™Ù\Ë›İ˜[ÙH™XÚ\Ú[Û‹ˆ™]šY]ÈXXÚ˜]È˜[YH[™ÛÛ™š\›H]™Y›Ü™Hš]Ø[İ[][ÛœÈ\ÙH]Ü‚ˆ]ˆÛ\ÜÓ˜[YOH›YX\İ\™[Y[YÜšY‚ˆÊØš™XİšÙ^\Ê›ÙJH\È
+Ù^[ÙˆYX\İ\™[Y[ÊV×JK›X\
 
-  function importGarmentLink() {
-    try {
-      const url = new URL(garmentLink.trim());
-      if (url.protocol !== "https:") throw new Error();
-      setMainFile(null);
-      setLinkedGarment({ url: url.toString(), name: `Look from ${url.hostname.replace(/^www\./, "")}` });
-      setLinkMessage("Link added. If the shop blocks its image, save the garment photo and add it below.");
-    } catch {
-      setLinkedGarment(null);
-      setLinkMessage("Paste a complete secure link beginning with https://");
-    }
-  }
+šY[
+HOˆX™[Ù^O^ÙšY[OÜ[ÙšY[OOHš[œÙX[HˆÈ’[œÙX[HˆˆšY[ÌKÕ\\Ø\ÙJ
+H
+ÈšY[œÛXÙJJ_H
+İ[š]JOÜÜ[[œ][œ][ÙOH™XÚ[X[ˆ\OH›[X™\ˆˆZ[HŒˆİ\HŒŒHˆXÙZÛ\H‘\İ[X]Hˆ˜[YO^Ø›ÙVÙšY[_HÛÚ[™ÙO^Ê]™[
+HOˆ\]P›ÙJšY[]™[\™Ù]˜[YJ_HÏÜ[ˆÛ\ÜÓ˜[YOH˜ÛÛ™š\›K\›İÈ[œ]\OH˜ÚXÚØ›ŞˆÚXÚÙY^ØÛÛ™š\›YYÙšY[_H\ØX›Y^ÈX›ÙVÙšY[_HÛÚ[™ÙO^Ê]™[
+HOˆÙ]ÛÛ™š\›YY
 
-  function rotateBy(degrees: number) {
-    setRotation((current) => (current + degrees + 360) % 360);
-  }
+İ\œ™[
+HOˆ
+È‹‹˜İ\œ™[ÙšY[Nˆ]™[\™Ù]˜ÚXÚÙYJJ_HÏˆHÛÛ™š\›H\È˜[YOÜÜ[ÛX™[Š_BˆÙ]‚ˆ]ˆÛ\ÜÓ˜[YOH›YX\İ\™[Y[XÚ\ˆ\šXK[X™[H›ÙHYX\İ\™[Y[Ü˜\ÊØš™XİšÙ^\Ê›ÙJH\È
+Ù^[ÙˆYX\İ\™[Y[ÊV×JK›X\
 
-  function speakDescription() {
-    if (!("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance(description));
-  }
+šY[
+HOˆ]ˆÙ^O^ÙšY[OÜ[ÙšY[OÜÜ[Hİ[O^ŞÈÚYˆ›ÙVÙšY[HÈ	ÓX]›Z[ŠL[X™\Š›ÙVÙšY[JHÈ
+[š]OOH˜ÛHˆÈ‹ŒHˆÊJ_IXˆŒ	Hˆ_HÏØ›ÙVÙšY[H¸ %ŸHØ›ÙVÙšY[H	‰ˆ[š]OØÙ]Š_OÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÓ˜[YOH›YX\İ\™[Y[YÜ›İ\‚ˆÏ“XZ[ˆØ\›Y[ÚÏ‚ˆ]ˆÛ\ÜÓ˜[YOH›YX\İ\™[Y[YÜšY‚ˆÊØš™XİšÙ^\ÊØ\›Y[
+H\È
+Ù^[ÙˆØ\›Y[YX\İ\™[Y[ÊV×JK›X\
 
-  async function copyReviewNote() {
-    const expiry = new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleString();
-    const note = `AttireLens private review note\n${description}\nReview by: ${expiry}\nNo personal photo is included in this note.`;
-    await navigator.clipboard.writeText(note);
-    setShareMessage("Private text-only review note copied. No image left this device.");
-  }
+šY[
+HOˆX™[Ù^O^ÙšY[OÜ[ÙšY[ÌKÕ\\Ø\ÙJ
+H
+ÈšY[œÛXÙJJ_H
+İ[š]JOÜÜ[[œ][œ][ÙOH™XÚ[X[ˆ\OH›[X™\ˆˆZ[HŒˆİ\HŒŒHˆ˜[YO^ÙØ\›Y[ÙšY[_HÛÚ[™ÙO^Ê]™[
+HOˆ\]QØ\›Y[
+šY[]™[\™Ù]˜[YJ_HÏÛX™[Š_BˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÓ˜[YO^Øš]\™XY[™\ÜÈ	Ùš]]PÛÛ\]HÈ˜ÛÛ\]HˆˆˆŸXH›ÛOHœİ]\Èˆ\šXK[]™OHœÛ]H‚ˆÙš]]PÛÛ\]HÈ“YX\İ\™[Y[Ù]ÛÛ\]Hˆˆ“YX\İ\™[Y[È™\]Z\™YŸOØ‚ˆÜ[Ùš]]PÛÛ\]HÈ”™XYH›ÜˆİXİ\™Yš][˜[\Ú\ÈÛ˜ÙH˜XœšXÈİ™]Ú[™ÛÛœİXİ[Ûˆ]H\™H™\šYšYYˆˆˆÛÛ\]H›İYX\İ\™[Y[Ü›İ\È™Y›Ü™H]\™S[œÈ\™›Ü›\Èš][˜[\Ú\Ëˆİ\œ™[İÈ˜\Ú\Îˆ	Ø[™ÛPÛİ[KÍšY]ÜË˜OÜÜ[‚ˆÙ]‚ˆÜÙXİ[ÛŸB‚ˆİÛÜšÜÜXÙTİ\OOH™š]ˆ	‰ˆ]ˆÛ\ÜÓ˜[YOH˜Xİ[Û‹\[™[ÚYH‚ˆ]ÛˆÛ\ÜÓ˜[YOHœÙXÛÛ™\KX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]ÛÜšÜÜXÙTİ\
+›İ]š]Š_O‰›ËH˜XÚÈÈİ]š]Ø]Û‚ˆ]ˆÛ\ÜÓ˜[YOHœİ]\Èˆ›ÛOHœİ]\Èˆ\šXK[]™OHœÛ]HHÛ\ÜÓ˜[YO^ØØ[”™]šY]ÈÈœ™XYHˆˆˆŸHÏØØ[”™]šY]ÈÈ’[œ]È™XYH›Üˆ˜[Y][ÛˆˆˆY[İ\œÙ[ˆ[™HXZ[ˆØ\›Y[È™YÚ[ˆŸOÙ]‚ˆ]ÛˆÛ\ÜÓ˜[YOHœš[X\KX]Ûˆˆ\ØX›Y^ÈXØ[”™]šY]ßHÛÛXÚÏ^Ê
+HOˆÙ]İYÙJœ™]šY]ÈŠ_O”™]šY]Èš][™È[œ]ÈÜ[ˆ\šXKZY[HYH‹I™İÏÜÜ[Ø]Û‚ˆÙ]ŸB‚ˆÜİYÙHOOHœ™]šY]Èˆ	‰ˆ
+\œÛÛˆ\›•šY[ÊH	‰ˆXZ[ˆ	‰ˆ
+ˆÙXİ[ÛˆÛ\ÜÓ˜[YOHœ™\İ[ˆ\šXK[X™[YOHœ™\İ[]]H‚ˆ]ˆÛ\ÜÓ˜[YOHœ™\İ[XÛÜH‚ˆÜ[ˆÛ\ÜÓ˜[YOHœ™\İ[ZÚXÚÙ\ˆ”’UUH’US‘ÈÑTÔÒSÓÜÜ[‚ˆˆYHœ™\İ[]]H–[İ\ˆÛÛ\]HÛÚÏÚ‚ˆÙ\ØÜš\[ÛŸOÜ‚ˆ]ˆÛ\ÜÓ˜[YOHœ™\İ[XXİ[ÛœÈ‚ˆ]ÛˆÛ\ÜÓ˜[YOHœÙXÛÛ™\KX]ÛˆˆÛÛXÚÏ^ÜÜXZÑ\ØÜš\[ÛŸO“\İ[ˆÈ\ØÜš\[ÛØ]Û‚ˆ]ÛˆÛ\ÜÓ˜[YOHœÙXÛÛ™\KX]ÛˆˆÛÛXÚÏ^ØÛÜT™]šY]Ó›İ_OÛÜHš]˜]H™]šY]È›İOØ]Û‚ˆÙ]‚ˆÛ\ÜÓ˜[YOHœÜ‹\İ]\Èˆ\šXK[]™OHœÛ]HÜÚ\™SY\ÜØYÙ_OÜ‚‚ˆ]ˆÛ\ÜÓ˜[YOH˜]Y]YÜšYÚ[™ÛH‚ˆÙXİ[ÛÏ”›ØÙ\ÜÚ[™È™XY[™\ÜÏÚÏ[Û\ÜÓ˜[YOH˜ÚXÚË[\İO”Ûİ\˜ÙH[XYÙ\ÏØÜ[ˆÛ\ÜÓ˜[YOH™ÛÛÙ”™XYH›Üˆ˜[Y][ÛÜÜ[ÛOO”ÜÙH[™Ú[İY]OØÜ[”ÙXİ\™H[™™\™[˜ÙH™\]Z\™YÜÜ[ÛOO›ÙH[Y[œÚ[ÛœÏØÜ[ˆÛ\ÜÓ˜[YO^Ø›ÙQšY[ĞÛÛ\]HÈ™ÛÛÙˆˆˆŸOØ›ÙQšY[ĞÛÛ\]HÈ•\Ù\ˆÛÛ™š\›YYˆˆ’[˜ÛÛ\]HŸOÜÜ[ÛOO‘Ø\›Y[[Y[œÚ[ÛœÏØÜ[ˆÛ\ÜÓ˜[YO^ÙØ\›Y[šY[ĞÛÛ\]HÈ™ÛÛÙˆˆˆŸOÙØ\›Y[šY[ĞÛÛ\]HÈ”›İšYYˆˆ’[˜ÛÛ\]HŸOÜÜ[ÛOO‘š][™K[ÛØÜ[Ùš]]PÛÛ\]HÈ”™XYH›Üˆ[Ù[\[[™Hˆˆ]ØZ][™ÈYX\İ\™[Y[ÈŸOÜÜ[ÛOİ[ÜÙXİ[Û‚ˆÙ]‚ˆ]ÛˆÛ\ÜÓ˜[YOH™[]KX]ÛˆˆÛÛXÚÏ^ØÛX\”Ù\ÜÚ[ÛŸO‘[]H\ÈÙ\ÜÚ[Ûˆ›İÏØ]Û‚ˆÙ]‚ˆ]ˆÛ\ÜÓ˜[YOH˜ÛÛ˜Ù\XØ[˜\È‚ˆÜ\œÛÛˆÈ[YÈÛ\ÜÓ˜[YOHœ\œÛÛ‹Z[XYÙHˆİ[O^ŞÈ˜[œÙ›Ü›Nˆ›İ]J	Ü›İ][ÛŸYYÊX_HÜ˜Ï^Ü\œÛÛ‹\›H[^Ø[İ\ˆ\ØYY˜\ÙHİÙÜ˜\›İ]Y	Ü›İ][ÛŸHYÜ™Y\ØHÏˆˆ\›•šY[È	‰ˆšY[ÈÛ\ÜÓ˜[YOHœ\œÛÛ‹Z[XYÙHˆÜ˜Ï^İ\›•šY[Ë\›H\šXK[X™[H–[İ\ˆ\ØYY\›ˆšY[ÈˆÛÛ›ÛÈ]]Y^\Ò[›[™HÛÜÏŸBˆ]ˆÛ\ÜÓ˜[YOHœYXÙK\İXÚÈˆ\šXK[X™[H”Ù[XİYİ]š]YXÙ\È‚ˆÖÛXZ[‹›İÛK^Y\‹XØÙ\ÜÛÜK›ÛİÙX\—K™š[\Š›ÛÛX[ŠK›X\
 
-  return (
-    <main>
-      <a className="skip-link" href="#fitting-room">Skip to fitting room</a>
-      <nav className="nav shell" aria-label="Main navigation">
-        <Brand />
-        <div className="nav-links"><a href="#how">How it works</a><button className="link-button" onClick={() => setSizeGuideOpen(true)}>Size guide</button><button className="link-button" onClick={() => setPrivacyOpen(true)}>Privacy</button></div>
-      </nav>
-
-      <section className="hero shell" id="top">
-        <div className="eyebrow">Asian + Middle Eastern style. Your way.</div>
-        <h1>Every layer.<br /><em>Your whole story.</em></h1>
-        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Your wardrobe, reimagined before you wear it.</p>
-
-        <div className="tryon-card" id="fitting-room">
-          <div className="mode-tabs" role="group" aria-label="Shopping mode">
-            <button aria-pressed={mode === "online"} className={mode === "online" ? "active" : ""} onClick={() => setMode("online")}>Shopping online</button>
-            <button aria-pressed={mode === "store"} className={mode === "store" ? "active" : ""} onClick={() => setMode("store")}>In a store</button>
-          </div>
-
-          <nav className="workspace-progress" aria-label="Fitting room steps">
-            <button className={workspaceStep === "capture" ? "active" : ""} aria-current={workspaceStep === "capture" ? "step" : undefined} onClick={() => setWorkspaceStep("capture")}><b>1</b><span>Add your photos<small>Capture your shape</small></span></button>
-            <i aria-hidden="true" />
-            <button disabled={!person && !turnVideo} className={workspaceStep === "outfit" ? "active" : ""} aria-current={workspaceStep === "outfit" ? "step" : undefined} onClick={() => setWorkspaceStep("outfit")}><b>2</b><span>Build your look<small>Mix and match pieces</small></span></button>
-            <i aria-hidden="true" />
-            <button disabled={(!person && !turnVideo) || !main} className={workspaceStep === "fit" ? "active" : ""} aria-current={workspaceStep === "fit" ? "step" : undefined} onClick={() => setWorkspaceStep("fit")}><b>3</b><span>Review the fit<small>Confirm measurements</small></span></button>
-          </nav>
-
-          {workspaceStep === "outfit" && <div className="context-row">
-            <l×nm¢G§²ÚîÆ­yÓsed={drape === choice} className={drape === choice ? "choice active" : "choice"} key={choice} onClick={() => setDrape(choice)}>{choice}</button>)}</div></fieldset>
-          </div>}
-
-          <div className={`composition-grid step-${workspaceStep}`}>
-            <section className="person-panel capture-panel" aria-labelledby="person-title">
-              <div className="step-label"><b>1</b><span><strong id="person-title">Capture your shape</strong>Four angles are the recommended minimum for the strongest estimate.</span></div>
-              <div className="clothed-capture"><b>Stay comfortably clothed</b><span>Everyday clothes are welcome. A fitted T-shirt and trousers give the clearest outline, but nudity is never required or appropriate.</span></div>
-              <VideoUploadCard file={turnVideo} onChange={updateVideo} error={videoError} />
-              <div className="capture-divider"><span>or add individual photos</span></div>
-              <div className="capture-grid">
-                <UploadCard id="person-photo" title="Front" hint="Required" file={person} onChange={setPersonFile} />
-                <UploadCard id="right-photo" title="Right profile" hint="Recommended" file={right} onChange={setRightFile} optional />
-                <UploadCard id="back-photo" title="Back" hint="Recommended" file={back} onChange={setBackFile} optional />
-                <UploadCard id="left-photo" title="Left profile" hint="Recommended" file={left} onChange={setLeftFile} optional />
-              </div>
-              <div className={`capture-readiness level-${angleCount}`} role="status" aria-live="polite"><b>{angleCount}/4 views Â· {captureLevel}</b><span>{captureDetail}</span></div>
-              <details className="capture-guide"><summary>How to capture the best result</summary><ul><li>Wear normal, comfortable clothes. A fitted T-shirt with leggings or trousers helps the system read your outline.</li><li>Never upload nude or underwear-only photos. They are not needed for virtual try-on.</li><li>Show your complete body, including the top of the head and both feet.</li><li>For video, turn slowly through front, right, back and left without moving the camera.</li><li>Stand naturally with feet hip-width apart and arms slightly away from the torso.</li><li>Place the camera level around waist height; do not tilt it up or down.</li><li>Loose or layered clothes are still usable, but the estimate should show wider uncertainty ranges.</li><li>Provide your measured height; without a known scale, centimetre estimates cannot be dependable.</li></ul></details>
-            </section>
-            <section className="pieces-panel" aria-labelledby="pieces-title">
-              <div className="step-label"><b>2</b><span><strong id="pieces-title">Free mix-and-match space</strong>Add, remove and replace each category independently.</span></div>
-              {mode === "online" && <div className="link-import"><label htmlFor="garment-link"><b>Bring in a shopping link</b><span>Paste a direct garment image link from the shop you are browsing.</span></label><div><input id="garment-link" type="url" inputMode="url" placeholder="https://shop.com/garment-image.jpg" value={garmentLink} onChange={(event) => { setGarmentLink(event.target.value); setLinkMessage(""); }} onKeyDown={(event) => event.key === "Enter" && importGarmentLink()} /><button type="button" onClick={importGarmentLink}>Add to wardrobe</button></div>{linkMessage && <p role="status">{linkMessage}</p>}</div>}
-              <div className="piece-grid">
-                <UploadCard id="main-garment" title={mode === "online" ? "Main garment" : "Photograph main piece"} hint="Kurta, saree, sherwani, dress, thobe..." file={main} onChange={(file) => { setMainFile(file); if (file) { setLinkedGarment(null); setLinkMessage(""); } }} onPreviewError={() => { if (linkedGarment) { setLinkedGarment(null); setLinkMessage("This shop blocks direct image importing. Save the garment photo, then add it here instead."); } }} />
-                <UploadCard id="lower-piece" title="Lower piece" hint="Trousers, lehenga, dhoti, skirt, sarong..." file={bottom} onChange={setBottomFile} optional />
-                <UploadCard id="outer-layer" title="Layer or drape" hint="Dupatta, shawl, pallu, bisht..." file={layer} onChange={setLayerFile} optional />
-                <UploadCard id="accessory" title="Accessories" hint="Jewellery, cufflinks, bag, belt, headwear..." file={accessory} onChange={setAccessoryFile} optional />
-                <UploadCard id="footwear" title="Shoes & footwear" hint="Jutti, khussa, loafers, sandals, heels..." file={footwear} onChange={setFootwearFile} optional />
-              </div>
-            </section>
-          </div>
-
-          {workspaceStep === "capture" && <div className="step-actions"><span>Use one short turn video or four individual views for the strongest basis.</span><button className="primary-button" disabled={!person && !turnVideo} onClick={() => setWorkspaceStep("outfit")}>Continue to outfit <span aria-hidden="true">-&gt;</span></button></div>}
-          {workspaceStep === "outfit" && <div className="step-actions"><button className="secondary-button" onClick={() => setWorkspaceStep("capture")}>&lt;- Back to photos</button><button className="primary-button" disabled={!main} onClick={() => setWorkspaceStep("fit")}>Continue to fit <span aria-hidden="true">-&gt;</span></button></div>}
-
-          {workspaceStep === "fit" && <section className="fit-studio" aria-labelledby="fit-studio-title">
-            <div className="fit-intro">
-              <span className="section-kicker">FIT DATA, NOT GUESSWORK</span>
-              <h2 id="fit-studio-title">Build a measurement-backed fit profile</h2>
-              <p>Values stay in this browser session. A photo alone cannot reliably prove size, length or fit.</p>
-              <div className="fit-options">
-                <label>Unit<select value={unit} onChange={(event) => setUnit(event.target.value as "cm" | "in")}><option value="cm">Centimetres</option><option value="in">Inches</option></select></label>
-                <label>Preferred fit<select value={preferredFit} onChange={(event) => setPreferredFit(event.target.value)}><option>Close</option><option>Regular</option><option>Relaxed</option></select></label>
-              </div>
-            </div>
-            <div className="measurement-group">
-              <h3>Estimated body data</h3>
-              <p className="measurement-note">Photo analysis must return ranges, not false precision. Review each raw value and confirm it before fit calculations use it.</p>
-              <div className="measurement-grid">
-                {(Object.keys(body) as (keyof Measurements)[]).map((field) => <label key={field}><span>{field === "inseam" ? "Inseam" : field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" placeholder="Estimate" value={body[field]} onChange={(event) => updateBody(field, event.target.value)} /><span className="confirm-row"><input type="checkbox" checked={confirmed[field]} disabled={!body[field]} onChange={(event) => setConfirmed((current) => ({ ...current, [field]: event.target.checked }))} /> I confirm this value</span></label>)}
-              </div>
-              <div className="measurement-chart" aria-label="Body measurement graph">{(Object.keys(body) as (keyof Measurements)[]).map((field) => <div key={field}><span>{field}</span><i style={{ width: body[field] ? `${Math.min(100, Number(body[field]) / (unit === "cm" ? 2.1 : .83))}%` : "0%" }} /><b>{body[field] || "â€”"} {body[field] && unit}</b></div>)}</div>
-            </div>
-            <div className="measurement-group">
-              <h3>Main garment</h3>
-              <div className="measurement-grid">
-                {(Object.keys(garment) as (keyof GarmentMeasurements)[]).map((field) => <label key={field}><span>{field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" value={garment[field]} onChange={(event) => updateGarment(field, event.target.value)} /></label>)}
-              </div>
-            </div>
-            <div className={`fit-readiness ${fitDataComplete ? "complete" : ""}`} role="status" aria-live="polite">
-              <b>{fitDataComplete ? "Measurement set complete" : "Measurements required"}</b>
-              <span>{fitDataComplete ? "Ready for structured fit analysis once fabric stretch and construction data are verified." : `Complete both measurement groups before AttireLens performs fit analysis. Current photo basis: ${angleCount}/4 views.`}</span>
-            </div>
-          </section>}
-
-          {workspaceStep === "fit" && <div className="action-panel wide">
-            <button className="secondary-button" onClick={() => setWorkspaceStep("outfit")}>&lt;- Back to outfit</button>
-            <div className="status" role="status" aria-live="polite"><i className={canPreview ? "ready" : ""} />{canPreview ? "Inputs ready for validation" : "Add yourself and a main garment to begin"}</div>
-            <button className="primary-button" disabled={!canPreview} onClick={() => setStage("preview")}>Review fitting inputs <span aria-hidden="true">-&gt;</span></button>
-          </div>}
-
-          {stage === "preview" && (person || turnVideo) && main && (
-            <section className="result" aria-labelledby="result-title">
-              <div className="result-copy">
-                <span className="result-kicker">PRIVATE FITTING SESSION</span>
-                <h2 id="result-title">Your complete look</h2>
-                <p>{description}</p>
-                <div className="result-actions">
-                  <button className="secondary-button" onClick={speakDescription}>Listen to description</button>
-                  <button className="secondary-button" onClick={copyReviewNote}>Copy private review note</button>
-                </div>
-                <p className="sr-status" aria-live="polite">{shareMessage}</p>
-
-                <div className="audit-grid single">
-                  <section><h3>Processing readiness</h3><ul className="check-list"><li><b>Source images</b><span className="good">Ready for validation</span></li><li><b>Pose and silhouette</b><span>Secure inference required</span></li><li><b>Body dimensions</b><span className={bodyFieldsComplete ? "good" : ""}>{bodyFieldsComplete ? "User confirmed" : "Incomplete"}</span></li><li><b>Garment dimensions</b><span className={garmentFieldsComplete ? "good" : ""}>{garmentFieldsComplete ? "Provided" : "Incomplete"}</span></li><li><b>Fit and try-on</b><span>{fitDataComplete ? "Ready for model pipeline" : "Awaiting measurements"}</span></li></ul></section>
-                </div>
-                <button className="delete-button" onClick={clearSession}>Delete this session now</button>
-              </div>
-              <div className="concept-canvas">
-                {person ? <img className="person-image" style={{ transform: `rotate(${rotation}deg)` }} src={person.url} alt={`Your uploaded base photograph, rotated ${rotation} degrees`} /> : turnVideo && <video className="person-image" src={turnVideo.url} aria-label="Your uploaded turn video" controls muted playsInline loop />}
-                <div className="piece-stack" aria-label="Selected outfit pieces">
-                  {[main, bottom, layer, accessory, footwear].filter(Boolean).map((piece, index) => piece && <img key={piece.url} src={piece.url} alt={`Selected piece ${index + 1}: ${piece.name}`} />)}
-                </div>
-                <span className="concept-label">Input review â€” generation begins after validation</span>
-                <div className="rotation-controls" aria-label="Rotate preview image">
-                  <button type="button" onClick={() => rotateBy(-90)} aria-label="Rotate preview counterclockwise 90 degrees">â†¶</button>
-                  <span>{rotation}Â°</span>
-                  <button type="button" onClick={() => rotateBy(90)} aria-label="Rotate preview clockwise 90 degrees">â†·</button>
-                </div>
-              </div>
-              <p className="rotation-note">These controls rotate the 2D photo through a complete circle. A true view around the body requires front, side and back capture plus multi-angle garment data.</p>
-            </section>
-          )}
-        </div>
-
-        <p className="privacy-line">Your photos stay in this browser session and are not stored.</p>
-      </section>
-
-      <section className="how shell" id="how">
-        <div className="how-promise"><span className="section-kicker">YOUR VIRTUAL DRESSING ROOM</span><h2>Build the look.<br />See the fit.<br /><em>Own the moment.</em></h2><p>Your wardrobe is the playground. AttireLens is where the whole look comes to life.</p></div>
-        <div className="feature-grid">
-          <article><h3>Every look belongs here.</h3><p>Womenswear, menswear, unisex and gender-fluid styles. The same tools, no separate lanes.</p></article>
-          <article><h3>See the whole story.</h3><p>Read or hear how every layer comes together, from drape to detail.</p></article>
-          <article><h3>Fit starts with facts.</h3><p>Body and garment measurements first. Guesswork never.</p></article>
-          <article><h3>Style it head to toe.</h3><p>Clothes, layers, accessories and footwear in one complete look.</p></article>
-        </div>
-      </section>
-
-      <footer className="shell"><Brand /><p>Virtual try-on for Asian and Middle Eastern styles.</p><div className="footer-links"><button className="link-button" onClick={() => setSizeGuideOpen(true)}>Size guide</button><button className="link-button" onClick={() => setPrivacyOpen(true)}>Privacy</button></div></footer>
-
-      {sizeGuideOpen && <SizeGuide onClose={() => setSizeGuideOpen(false)} />}
-
-      {privacyOpen && <div className="modal-backdrop" role="presentation" onMouseDown={() => setPrivacyOpen(false)}><section className="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" onMouseDown={(e) => e.stopPropagation()}><button className="modal-close" aria-label="Close privacy details" onClick={() => setPrivacyOpen(false)}>x</button><span className="section-kicker">THE ATTIRELENS PROMISE</span><h2 id="privacy-title">Your body is not our data.</h2><p>AttireLens processes session images only for body, pose, silhouette, garment and fit analysis. This deployed build keeps input previews in browser memory until the secure zero-retention inference service is connected.</p><ul><li><b>Immediate control:</b> clear the session at any time.</li><li><b>No training:</b> photos never become training data by default.</li><li><b>Honest output:</b> a visual preview is not proof of physical fit.</li><li><b>Production standard:</b> every production inference provider must contractually enforce zero retention.</li></ul><button className="primary-button" onClick={() => setPrivacyOpen(false)}>I understand</button></section></div>}
-    </main>
-  );
-}
+YXÙK[™^
+HOˆYXÙH	‰ˆ[YÈÙ^O^ÜYXÙK\›HÜ˜Ï^ÜYXÙK\›H[^ØÙ[XİYYXÙH	Ú[™^
+È_Nˆ	ÜYXÙK›˜[Y_XHÏŠ_BˆÙ]‚ˆÜ[ˆÛ\ÜÓ˜[YOH˜ÛÛ˜Ù\[X™[’[œ]™]šY]È8 %Ù[™\˜][Ûˆ™YÚ[œÈY\ˆ˜[Y][ÛÜÜ[‚ˆ]ˆÛ\ÜÓ˜[YOHœ›İ][Û‹XÛÛ›ÛÈˆ\šXK[X™[H”›İ]H™]šY]È[XYÙH‚ˆ]Ûˆ\OH˜]ÛˆˆÛÛXÚÏ^Ê
+HOˆ›İ]PJNL
+_H\šXK[X™[H”›İ]H™]šY]ÈÛİ[\˜ÛØÚİÚ\ÙHLYÜ™Y\È¸¡­Ø]Û‚ˆÜ[Ü›İ][ÛŸp¬ÜÜ[‚ˆ]Ûˆ\OH˜]ÛˆˆÛÛXÚÏ^Ê
+HOˆ›İ]PJL
+_H\šXK[X™[H”›İ]H™]šY]ÈÛØÚİÚ\ÙHLYÜ™Y\È¸¡­ÏØ]Û‚ˆÙ]‚ˆÙ]‚ˆÛ\ÜÓ˜[YOHœ›İ][Û‹[›İH•\ÙHÛÛ›ÛÈ›İ]HH‘İÈ›İYÚHÛÛ\]HÚ\˜ÛKˆHYHšY]È\›İ[™H›ÙH™\]Z\™\Èœ›ÛÚYH[™˜XÚÈØ\\™H\È][KX[™ÛHØ\›Y[]KÜ‚ˆÜÙXİ[Û‚ˆ
+_BˆÙ]‚‚ˆÛ\ÜÓ˜[YOHœš]˜XŞK[[™H–[İ\ˆİÜÈİ^H[ˆ\Èœ›İÜÙ\ˆÙ\ÜÚ[Ûˆ[™\™H›İİÜ™YÜ‚ˆÜÙXİ[Û‚‚ˆÙXİ[ÛˆÛ\ÜÓ˜[YOHšİÈÚ[ˆYHšİÈ‚ˆ]ˆÛ\ÜÓ˜[YOHšİË\›ÛZ\ÙHÜ[ˆÛ\ÜÓ˜[YOHœÙXİ[Û‹ZÚXÚÙ\ˆ–SÕTˆ’T•PS‘TÔÒS‘È“ÓÓOÜÜ[Z[HÛÚËœˆÏ”ÙYHHš]œˆÏ[O“İÛˆH[ÛY[Ù[OÚ–[İ\ˆØ\™›Ø™H\ÈH^YÜ›İ[™ˆ]\™S[œÈ\ÈÚ\™HHÚÛHÛÚÈÛÛY\ÈÈY™KÜÙ]‚ˆ]ˆÛ\ÜÓ˜[YOH™™X]\™KYÜšY‚ˆ\XÛOÏ‘]™\HÛÚÈ™[Û™ÜÈ\™KÚÏ•ÛÛY[œİÙX\‹Y[œİÙX\‹[š\Ù^[™Ù[™\‹Y›ZYİ[\ËˆHØ[YHÛÛË›ÈÙ\\˜]H[™\ËÜØ\XÛO‚ˆ\XÛOÏ”ÙYHHÚÛHİÜKÚÏ”™XYÜˆX\ˆİÈ]™\H^Y\ˆÛÛY\ÈÙÙ]\‹œ›ÛH˜\HÈ]Z[ÜØ\XÛO‚ˆ\XÛOÏ‘š]İ\ÈÚ]˜XİËÚÏ›ÙH[™Ø\›Y[YX\İ\™[Y[Èš\œİˆİY\ÜİÛÜšÈ™]™\‹ÜØ\XÛO‚ˆ\XÛOÏ”İ[H]XYÈÙKÚÏÛİ\Ë^Y\œËXØÙ\ÜÛÜšY\È[™›ÛİÙX\ˆ[ˆÛ™HÛÛ\]HÛÚËÜØ\XÛO‚ˆÙ]‚ˆÜÙXİ[Û‚‚ˆ›Ûİ\ˆÛ\ÜÓ˜[YOHœÚ[œ˜[™Ï•š\X[K[Ûˆ›Üˆ\ÚX[ˆ[™ZYHX\İ\›ˆİ[\ËÜ]ˆÛ\ÜÓ˜[YOH™›Ûİ\‹[[šÜÈ]ÛˆÛ\ÜÓ˜[YOH›[šËX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]Ú^™QİZYSÜ[ŠYJ_O”Ú^™HİZYOØ]Û]ÛˆÛ\ÜÓ˜[YOH›[šËX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]š]˜XŞSÜ[ŠYJ_O”š]˜XŞOØ]ÛÙ]Ù›Ûİ\‚‚ˆÜÚ^™QİZYSÜ[ˆ	‰ˆÚ^™QİZYHÛÛÜÙO^Ê
+HOˆÙ]Ú^™QİZYSÜ[Š˜[ÙJ_HÏŸBˆÚİÓÜ[ˆ	‰ˆİÒ]ÛÜšÜÈÛÛÜÙO^Ê
+HOˆÙ]İÓÜ[Š˜[ÙJ_HÏŸB‚ˆÜš]˜XŞSÜ[ˆ	‰ˆ]ˆÛ\ÜÓ˜[YOH›[Ù[X˜XÚÙ›Üˆ›ÛOHœ™\Ù[][ÛˆˆÛ“[İ\ÙQİÛ^Ê
+HOˆÙ]š]˜XŞSÜ[Š˜[ÙJ_OÙXİ[ÛˆÛ\ÜÓ˜[YOHœš]˜XŞK[[Ù[ˆ›ÛOH™X[ÙÈˆ\šXK[[Ù[HYHˆ\šXK[X™[YOHœš]˜XŞK]]HˆÛ“[İ\ÙQİÛ^ÊJHOˆKœİÜ›ÜYØ][ÛŠ
+_O]ÛˆÛ\ÜÓ˜[YOH›[Ù[XÛÜÙHˆ\šXK[X™[HÛÜÙHš]˜XŞH]Z[ÈˆÛÛXÚÏ^Ê
+HOˆÙ]š]˜XŞSÜ[Š˜[ÙJ_OØ]ÛÜ[ˆÛ\ÜÓ˜[YOHœÙXİ[Û‹ZÚXÚÙ\ˆ•HUT‘SS”È“ÓRTÑOÜÜ[ˆYHœš]˜XŞK]]H–[İ\ˆ›ÙH\È›İİ\ˆ]KÚ]\™S[œÈ›ØÙ\ÜÙ\ÈÙ\ÜÚ[Ûˆ[XYÙ\ÈÛ›H›Üˆ›ÙKÜÙKÚ[İY]KØ\›Y[[™š][˜[\Ú\Ëˆ\È\ŞYYZ[ÙY\È[œ]™]šY]ÜÈ[ˆœ›İÜÙ\ˆY[[ÜH[[HÙXİ\™H™\›Ë\™][[Ûˆ[™™\™[˜ÙHÙ\šXÙH\ÈÛÛ›™XİYÜ[O’[[YYX]HÛÛ›ÛØˆÛX\ˆHÙ\ÜÚ[Ûˆ][H[YKÛOO“›È˜Z[š[™ÎØˆİÜÈ™]™\ˆ™XÛÛYH˜Z[š[™È]HHY˜][ÛOO’Û™\İİ]]ØˆHš\İX[™]šY]È\È›İ›ÛÙˆÙˆ\ÚXØ[š]ÛOO”›ÙXİ[Ûˆİ[™\™Øˆ]™\H›ÙXİ[Ûˆ[™™\™[˜ÙH›İšY\ˆ]\İÛÛ˜XİX[H[™›Ü˜ÙH™\›È™][[Û‹ÛOİ[]ÛˆÛ\ÜÓ˜[YOHœš[X\KX]ÛˆˆÛÛXÚÏ^Ê
+HOˆÙ]š]˜XŞSÜ[Š˜[ÙJ_O’H[™\œİ[™Ø]ÛÜÙXİ[ÛÙ]ŸBˆÛXZ[‚ˆ
+NÂŸB

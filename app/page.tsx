@@ -6,9 +6,11 @@ type Preview = { url: string; name: string } | null;
 type Stage = "idle" | "ready" | "preview";
 type Measurements = { height: string; chest: string; waist: string; hip: string; inseam: string };
 type GarmentMeasurements = { chest: string; waist: string; hip: string; length: string };
+type Confirmation = Record<keyof Measurements, boolean>;
 
 const emptyBody: Measurements = { height: "", chest: "", waist: "", hip: "", inseam: "" };
 const emptyGarment: GarmentMeasurements = { chest: "", waist: "", hip: "", length: "" };
+const emptyConfirmation: Confirmation = { height: false, chest: false, waist: false, hip: false, inseam: false };
 
 const regions = [
   "South Asia",
@@ -76,12 +78,16 @@ function UploadCard({ id, title, hint, file, onChange, optional = false }: {
 export default function Home() {
   const [mode, setMode] = useState<"online" | "store">("online");
   const [personFile, setPersonFile] = useState<File | null>(null);
+  const [rightFile, setRightFile] = useState<File | null>(null);
+  const [backFile, setBackFile] = useState<File | null>(null);
+  const [leftFile, setLeftFile] = useState<File | null>(null);
   const [mainFile, setMainFile] = useState<File | null>(null);
   const [bottomFile, setBottomFile] = useState<File | null>(null);
   const [layerFile, setLayerFile] = useState<File | null>(null);
   const [accessoryFile, setAccessoryFile] = useState<File | null>(null);
   const [footwearFile, setFootwearFile] = useState<File | null>(null);
   const [body, setBody] = useState<Measurements>(emptyBody);
+  const [confirmed, setConfirmed] = useState<Confirmation>(emptyConfirmation);
   const [garment, setGarment] = useState<GarmentMeasurements>(emptyGarment);
   const [unit, setUnit] = useState<"cm" | "in">("cm");
   const [preferredFit, setPreferredFit] = useState("Regular");
@@ -93,6 +99,9 @@ export default function Home() {
   const [shareMessage, setShareMessage] = useState("");
 
   const person = usePreview(personFile);
+  const right = usePreview(rightFile);
+  const back = usePreview(backFile);
+  const left = usePreview(leftFile);
   const main = usePreview(mainFile);
   const bottom = usePreview(bottomFile);
   const layer = usePreview(layerFile);
@@ -102,6 +111,9 @@ export default function Home() {
   const bodyFieldsComplete = Object.values(body).every(Boolean);
   const garmentFieldsComplete = Object.values(garment).every(Boolean);
   const fitDataComplete = bodyFieldsComplete && garmentFieldsComplete;
+  const angleCount = [person, right, back, left].filter(Boolean).length;
+  const captureLevel = angleCount === 4 ? "Best available capture" : angleCount === 3 ? "Improved estimate" : angleCount === 2 ? "Limited estimate" : "Low-confidence estimate";
+  const captureDetail = angleCount === 4 ? "All four recommended views are present." : `${4 - angleCount} more angle${4 - angleCount === 1 ? "" : "s"} recommended; AttireLens should widen every uncertainty range.`;
 
   useEffect(() => setStage(canPreview ? "ready" : "idle"), [canPreview]);
   useEffect(() => {
@@ -121,13 +133,14 @@ export default function Home() {
 
   function clearSession() {
     speechSynthesis?.cancel();
-    setPersonFile(null); setMainFile(null); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
-    setBody(emptyBody); setGarment(emptyGarment); setRotation(0);
+    setPersonFile(null); setRightFile(null); setBackFile(null); setLeftFile(null); setMainFile(null); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
+    setBody(emptyBody); setConfirmed(emptyConfirmation); setGarment(emptyGarment); setRotation(0);
     setStage("idle"); setShareMessage("");
   }
 
   function updateBody(field: keyof Measurements, value: string) {
     setBody((current) => ({ ...current, [field]: value }));
+    setConfirmed((current) => ({ ...current, [field]: false }));
   }
 
   function updateGarment(field: keyof GarmentMeasurements, value: string) {
@@ -177,9 +190,16 @@ export default function Home() {
           </div>
 
           <div className="composition-grid">
-            <section className="person-panel" aria-labelledby="person-title">
-              <div className="step-label"><b>1</b><span><strong id="person-title">Add yourself</strong>A seated or standing photo can work.</span></div>
-              <UploadCard id="person-photo" title="Your photo" hint="JPG, PNG, WebP or HEIC" file={person} onChange={setPersonFile} />
+            <section className="person-panel capture-panel" aria-labelledby="person-title">
+              <div className="step-label"><b>1</b><span><strong id="person-title">Capture your shape</strong>Four angles are the recommended minimum for the strongest estimate.</span></div>
+              <div className="capture-grid">
+                <UploadCard id="person-photo" title="Front" hint="Required" file={person} onChange={setPersonFile} />
+                <UploadCard id="right-photo" title="Right profile" hint="Recommended" file={right} onChange={setRightFile} optional />
+                <UploadCard id="back-photo" title="Back" hint="Recommended" file={back} onChange={setBackFile} optional />
+                <UploadCard id="left-photo" title="Left profile" hint="Recommended" file={left} onChange={setLeftFile} optional />
+              </div>
+              <div className={`capture-readiness level-${angleCount}`} role="status" aria-live="polite"><b>{angleCount}/4 views · {captureLevel}</b><span>{captureDetail}</span></div>
+              <details className="capture-guide"><summary>How to photograph for the best result</summary><ul><li>Show your complete body, including the top of the head and both feet.</li><li>Stand naturally with feet hip-width apart and arms slightly away from the torso.</li><li>Place the camera level around waist height; do not tilt it up or down.</li><li>Use the same distance, zoom and lighting for every angle.</li><li>Wear close-fitting clothing when comfortable, or enter measurements manually.</li><li>Provide your measured height; without a known scale, centimetre estimates cannot be dependable.</li></ul></details>
             </section>
             <section className="pieces-panel" aria-labelledby="pieces-title">
               <div className="step-label"><b>2</b><span><strong id="pieces-title">Free mix-and-match space</strong>Add, remove and replace each category independently.</span></div>
@@ -204,10 +224,12 @@ export default function Home() {
               </div>
             </div>
             <div className="measurement-group">
-              <h3>Your body</h3>
+              <h3>Estimated body data</h3>
+              <p className="measurement-note">Photo analysis must return ranges, not false precision. Review each raw value and confirm it before fit calculations use it.</p>
               <div className="measurement-grid">
-                {(Object.keys(body) as (keyof Measurements)[]).map((field) => <label key={field}><span>{field === "inseam" ? "Inseam" : field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" value={body[field]} onChange={(event) => updateBody(field, event.target.value)} /></label>)}
+                {(Object.keys(body) as (keyof Measurements)[]).map((field) => <label key={field}><span>{field === "inseam" ? "Inseam" : field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" placeholder="Estimate" value={body[field]} onChange={(event) => updateBody(field, event.target.value)} /><span className="confirm-row"><input type="checkbox" checked={confirmed[field]} disabled={!body[field]} onChange={(event) => setConfirmed((current) => ({ ...current, [field]: event.target.checked }))} /> I confirm this value</span></label>)}
               </div>
+              <div className="measurement-chart" aria-label="Body measurement graph">{(Object.keys(body) as (keyof Measurements)[]).map((field) => <div key={field}><span>{field}</span><i style={{ width: body[field] ? `${Math.min(100, Number(body[field]) / (unit === "cm" ? 2.1 : .83))}%` : "0%" }} /><b>{body[field] || "—"} {body[field] && unit}</b></div>)}</div>
             </div>
             <div className="measurement-group">
               <h3>Main garment</h3>
@@ -217,7 +239,7 @@ export default function Home() {
             </div>
             <div className={`fit-readiness ${fitDataComplete ? "complete" : ""}`} role="status" aria-live="polite">
               <b>{fitDataComplete ? "Measurement set complete" : "Visual preview only"}</b>
-              <span>{fitDataComplete ? "Ready for a future structured fit comparison - fabric stretch and construction data are still needed." : "Complete both measurement groups before AttireLens may make a fit estimate."}</span>
+              <span>{fitDataComplete ? "Ready for a future structured fit comparison - fabric stretch and construction data are still needed." : `Complete both measurement groups before AttireLens may make a fit estimate. Current photo basis: ${angleCount}/4 views.`}</span>
             </div>
           </section>
 

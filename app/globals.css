@@ -24,6 +24,7 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 h1 { margin:22px auto 16px; font-family:var(--font-display),serif; font-weight:600; font-size:clamp(56px,7vw,92px); line-height:.84; letter-spacing:-.055em; }
 h1 em { color:#71806d; font-weight:500; }
 .hero-copy { color:#66685f; line-height:1.65; max-width:580px; margin:24px auto 38px; font-size:16px; }
+.hero-copy strong { color:var(--ink); font-family:var(--font-display),serif; font-size:21px; font-weight:700; }
 .tryon-card { background:var(--paper); border:1px solid #ded9cd; box-shadow:0 25px 70px rgba(52,67,56,.10); border-radius:20px; text-align:left; overflow:hidden; }
 .mode-tabs { display:flex; justify-content:center; border-bottom:1px solid var(--line); background:#f9f7f1; }
 .mode-tabs button { min-width:210px; padding:19px 28px 16px; background:none; border:0; border-bottom:3px solid transparent; color:#85867e; cursor:pointer; }

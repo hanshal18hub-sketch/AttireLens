@@ -172,7 +172,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="eyebrow">Asian and West Asian wear, seen through your lens</div>
         <h1>Every layer.<br /><em>Your whole story.</em></h1>
-        <p className="hero-copy">Explore occasion wear and elevated home wear from South and Southeast Asia and the Middle East—with your photos kept private in this browser session.</p>
+        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Asian and Middle Eastern style, fitted to you—privately.</p>
 
         <div className="tryon-card" id="fitting-room">
           <div className="mode-tabs" role="group" aria-label="Shopping mode">

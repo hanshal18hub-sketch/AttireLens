@@ -16,7 +16,7 @@ const sans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://drape-private-dressing-room.soulavenger18.chatgpt.site"),
   title: "AttireLens - Private virtual try-on across Asia",
-  description: "Private virtual try-on for occasion wear and home wear across South, Southeast, East, Central and West Asia and the wider Middle East.",
+  description: "Virtual try-on for Asian and Middle Eastern occasion wear and home wear.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "AttireLens",

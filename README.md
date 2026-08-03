@@ -1,6 +1,6 @@
 # AttireLens
 
-A privacy-first virtual try-on experience for occasion wear and home wear across South, Southeast, East, Central and West Asia, Iran, Iraq and the wider Middle East.
+A virtual try-on experience for Asian and Middle Eastern occasion wear and home wear.
 
 AttireLens is designed for garments conventional virtual fitting rooms frequently handle poorly: sarees, lehengas, salwar kameez, kebaya, baju kurung, ao dai, hanbok, kimono, hanfu, qipao, chapan, manteau, abaya, thobe, kaftan, bisht and other embroidered, draped or layered clothing.
 

@@ -170,7 +170,7 @@ export default function Home() {
       </nav>
 
       <section className="hero shell" id="top">
-        <div className="eyebrow">Asian and West Asian wear, seen through your lens</div>
+        <div className="eyebrow">Asian + Middle Eastern style. Your way.</div>
         <h1>Every layer.<br /><em>Your whole story.</em></h1>
         <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Your wardrobe, reimagined before you wear it.</p>
 
@@ -303,7 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="shell"><div className="brand"><span className="brand-mark">A</span><span>AttireLens</span></div><p>Private virtual try-on across Asian and West Asian cultures.</p><button className="link-button" onClick={() => setPrivacyOpen(true)}>Read our privacy promise -&gt;</button></footer>
+      <footer className="shell"><div className="brand"><span className="brand-mark">A</span><span>AttireLens</span></div><p>Virtual try-on for Asian and Middle Eastern styles.</p><button className="link-button" onClick={() => setPrivacyOpen(true)}>Privacy -&gt;</button></footer>
 
       {privacyOpen && <div className="modal-backdrop" role="presentation" onMouseDown={() => setPrivacyOpen(false)}><section className="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" onMouseDown={(e) => e.stopPropagation()}><button className="modal-close" aria-label="Close privacy details" onClick={() => setPrivacyOpen(false)}>x</button><span className="section-kicker">THE ATTIRELENS PROMISE</span><h2 id="privacy-title">Your body is not our data.</h2><p>This prototype has no upload endpoint, account, analytics or database. Image previews exist only in browser memory.</p><ul><li><b>Immediate control:</b> clear the session at any time.</li><li><b>No training:</b> photos never become training data by default.</li><li><b>Honest output:</b> a visual preview is not proof of physical fit.</li><li><b>Production standard:</b> future inference must contractually support zero retention.</li></ul><button className="primary-button" onClick={() => setPrivacyOpen(false)}>I understand</button></section></div>}
     </main>

@@ -238,101 +238,56 @@ export default function Home() {
                 <UploadCard id="main-garment" title={mode === "online" ? "Main garment" : "Photograph main piece"} hint="Kurta, saree, sherwani, dress, thobe..." file={main} onChange={setMainFile} />
                 <UploadCard id="lower-piece" title="Lower piece" hint="Trousers, lehenga, dhoti, skirt, sarong..." file={bottom} onChange={setBottomFile} optional />
                 <UploadCard id="outer-layer" title="Layer or drape" hint="Dupatta, shawl, pallu, bisht..." file={layer} onChange={setLayerFile} optional />
-                <UploadCard id="accessory" title="Accessories" hint="Jewellery, cufflinks, bag, belt, headwear..." file={accessory} onChange={setAccessoryFile} optional />
-                <UploadCard id="footwear" title="Shoes & footwear" hint="Jutti, khussa, loafers, sandals, heels..." file={footwear} onChange={setFootwearFile} optional />
-              </div>
-            </section>
-          </div>
+                <UploaÛµã‹h‘éì¶»§q«^uÍp3
+$±TÔl”"Ô³kˆA8c&hG9áÀÄe•—OU!\Ü‘C€R-XD „™Š Œ9×;°p¤[ÈÙ‚ò&BÄH¥0² C"˜`R)L—¶'Eı*Z!ª–¢Â5ÂKœ¡° 8RE²›H–§£1¬,ê“‹¤˜ø²Õ5Ï0n•)–·HcD$ ×@³¾ì×4äd$RI1Di¤eçLkM•g@âRªR;²v’Í4õ2ğ4pÓUZ´\ªiƒ™
+FéDd7ê/§ƒÃãû÷·gÓŒâg.YnWHb4I\ı€$g¸¡rí­ˆ‡#ùüÖ0‚|Èİ<B¤ëÛµ«w>õFö¢à™¢6?Ó/@ t]f‘ÄS¤bæ®AÈn†@5”ì‚)Ï£ùÿ½:„)ö•	ØcÒüï›r;„µ.«¿~7÷E¨I‡½ãñ×4Di""*£j^G¤Áúƒ	‚Xœ¼Æcš0.÷÷—Ÿÿ;:E×ïw›M¶í§>Ô!Ï¾Ó×Ÿ¼oSÏ×å³~áñùóëœp¥[³ØØ_+Oÿ|ºõ¥³ïşC`ş>råÃÃñ÷i›MÆÔŞ„|+SÏ¿½Ï¿yrõÛÚß}¹2zÍÛôöaB G2 9°”i(¡mÈİVåÚ]º¿iúòËû×·×—_Ş¾û>}ss{[j+ºö©ı©Œ9ë´˜jyZ¬Şx•õîÿwxøwxø}níÛû·»m®öÿ}s}}_®Ë6ÁHh«÷pıö÷N±¸]½_'ÓÜÃ,úC’°ˆc©¿ş³rËûû¯¯¾y´ÙçÏŸı½9¯Û¹lïö² D ÂvnØ_¯¯î·{OŸ~»=w~åıûû‡‡ÓÎ2áşíáñçïŞ|úçß<¶lùïı«sÇ“±õİûãúêoÏûëç®w{MÒÊùıo=”VmëOw{ÃéüØÏçñ–1Ù)|z¸\=Ş??6QËë›÷·o_ı¹:gÿó«çÙ/GbG_åJ°‹2×k®ûl±D5ÈyÀ’ÖÙ‡éøşlãÏÿ¸¹rß›Í†ãÔ=É‡“ÍşêÙvg¹Õ²Û­îoÏäD”~Övº]ŸŞÿº™@C Ä§š£ñüß®îÎÇ±ôäúÊá‚À`æs;nşãç.no'HAp¸8\.®·‡sùêm‹-}Ï/læ÷Gc³ÛÛã©üÕèb=Báñ' û£îóy±|öõÛû‚&BÀ¥êBï_<ù¾÷ş53éüÖ©:…œ^ìÄãê1>ôSG\JAH!¶ŒM„ü„ÅƒRØHh_n \Äg´Ä²bÜW.ŠW¾¦!€@=°MDâtñ‘pAÏ@µ )íRP'ÔğÌı‡£QOeÿÁ:IÑ@²’-HùßÅ
+d26{I%İ@n¢Ä3 ’„LœÃüÃ#hVu1†´ÒëD:NÉÌÒÓ¨aC\ÀP)çÃêtaƒÓ.BãƒüíÒSÈDH±4Sb
+ÔCoË`„	ÍAÆ×8@‚`72iŒ š\À?_Nlà…åÉ·fjR¦j…Ò€TÑ„!"¦s[”Å«3€$DNI˜‰?Ø¢ÂÊ¤¬ (ÂE! 	1´IÌHdd??%×ëcéûÿnwÿ1cÿú;K×ÿSÿùÿìÿqí×ß|~§ÿ ßï:µûûóÇÿş»içÏî¾¿_ıËïgSïüwÿ¨ßş;wÿ?6÷ÿçyÇ÷8=ÿø7UıËåçí†?{›¸¸»±nõéæóİ”ÿ\?Ş½%×ïnß_ï¾æ‚Ÿ=i×÷/nıı<]Ïş¿9Mßı çßız¿¤ãíóëöı*ü™ÒĞÙ ÷÷Ë,şîçïµ¼	íÓÍõõÛlêÛbõ æ%Bs ´–´tpìu	‹:©…¸Q$&ËÀ7¯—$‘b7PÇöËêa* "61¥T²ì€!R!€¦Dn[ª¨àCR|Ù$£ÌO' K…_‘!s5f<t“ÔÕÉQ‚şö¹³›x±^aâRÁP™°—çrK‚ QV)">(•ZƒR´NõéLurÆ¦H*ó]uF; :ª‘ K†_j˜>6Tbµ-¸R‡#ş´>Âˆ&‘ú
+a+™¢‹%$ÕDØGtİ¯hww7c!@´!åãNÄ¹ª­Ÿ.¦çS©õ‡1ŞH‘êwîå;ÌD}²a#±‘+Mdd£<-kóDQÇØç[möÄÄÀJ(˜À;@Ê?\7¾ê¹›—šˆÀ™‡ß+dB:‡äp3OO}¬m´†0w+8R‰2ÙºÙ£ããÀ±læö¹u30Gºªó†p9‹ƒTÑûïká0Qº±Ô‹4„Š+´÷3píCÊ¸™•ÙØè÷<HùU{ …‘ÔÈÕLá| H¨ ıœMÂĞ™ ¡&Q!ÅQ“ñ×E]ÚqHÁlÁ v
+¤!""w"DFVd$&. d}‰²Š™/˜N(ôÆ¨nÎîù™êÊÆØ™$‚VrGbî¢{T&û„·ºYs€¥ñt¡×á¥5ÀÄrix'*¬ÌÔZM{$bœ²¨:yEpá%Ú´Ü*¥!’;›…”ª5¸ĞÊê¦NI6‹+Ãi©Œ—ğí-®½~ñ3ê%Ö€XOgÛC„Vz”–úèóØeÖZĞ1¤B¥“9ßÖ2KhßUŠ¥Ô¹Í	,&+ C|êÓDR*EnDUÉ˜mQ*efEœséò÷d€ æ)uX¢]\"âùƒó>Â ‚ónÒçÙ®Vˆ|±+ÈØ£®¹‡ .7{ÙíÀàoŠ¬eŒ¨@B;»ƒ“:yÉ
+@“¨2©K¾Ss—ÙYÔúÊ€YV\µù»¡%Ñ„„¦A$¨6áòØ*I@³P©%NKQğâ-MLü (”†Ñ‡…O47M&cÎuÈ ]c@M±¦9ím RGÙÁ5QdD-dÄ‘:'  rXM—eDËTÀ@]c‰ 'GLÍçzn@‚¡€ÂÍJE™ÙD`A[i¬ÉLÙ# %¿ôÂ)%”#Ù#^NnÜwbH ˜
+E@0€IqÇÆ³r\Ú@pTÜ¦VÁ	 % v3´Ï'˜=”Š¥Â°"
+OfÂƒ—
 
-          {workspaceStep === "capture" && <div className="step-actions"><span>Use one short turn video or four individual views for the strongest basis.</span><button className="primary-button" disabled={!person && !turnVideo} onClick={() => setWorkspaceStep("outfit")}>Continue to outfit <span aria-hidden="true">-&gt;</span></button></div>}
-          {workspaceStep === "outfit" && <div className="step-actions"><button className="secondary-button" onClick={() => setWorkspaceStep("capture")}>&lt;- Back to photos</button><button className="primary-button" disabled={!main} onClick={() => setWorkspaceStep("fit")}>Continue to fit <span aria-hidden="true">-&gt;</span></button></div>}
-
-          {workspaceStep === "fit" && <section className="fit-studio" aria-labelledby="fit-studio-title">
-            <div className="fit-intro">
-              <span className="section-kicker">FIT DATA, NOT GUESSWORK</span>
-              <h2 id="fit-studio-title">Build a measurement-backed fit profile</h2>
-              <p>Values stay in this browser session. A photo alone cannot reliably prove size, length or fit.</p>
-              <div className="fit-options">
-                <label>Unit<select value={unit} onChange={(event) => setUnit(event.target.value as "cm" | "in")}><option value="cm">Centimetres</option><option value="in">Inches</option></select></label>
-                <label>Preferred fit<select value={preferredFit} onChange={(event) => setPreferredFit(event.target.value)}><option>Close</option><option>Regular</option><option>Relaxed</option></select></label>
-              </div>
-            </div>
-            <div className="measurement-group">
-              <h3>Estimated body data</h3>
-              <p className="measurement-note">Photo analysis must return ranges, not false precision. Review each raw value and confirm it before fit calculations use it.</p>
-              <div className="measurement-grid">
-                {(Object.keys(body) as (keyof Measurements)[]).map((field) => <label key={field}><span>{field === "inseam" ? "Inseam" : field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" placeholder="Estimate" value={body[field]} onChange={(event) => updateBody(field, event.target.value)} /><span className="confirm-row"><input type="checkbox" checked={confirmed[field]} disabled={!body[field]} onChange={(event) => setConfirmed((current) => ({ ...current, [field]: event.target.checked }))} /> I confirm this value</span></label>)}
-              </div>
-              <div className="measurement-chart" aria-label="Body measurement graph">{(Object.keys(body) as (keyof Measurements)[]).map((field) => <div key={field}><span>{field}</span><i style={{ width: body[field] ? `${Math.min(100, Number(body[field]) / (unit === "cm" ? 2.1 : .83))}%` : "0%" }} /><b>{body[field] || "â€”"} {body[field] && unit}</b></div>)}</div>
-            </div>
-            <div className="measurement-group">
-              <h3>Main garment</h3>
-              <div className="measurement-grid">
-                {(Object.keys(garment) as (keyof GarmentMeasurements)[]).map((field) => <label key={field}><span>{field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" value={garment[field]} onChange={(event) => updateGarment(field, event.target.value)} /></label>)}
-              </div>
-            </div>
-            <div className={`fit-readiness ${fitDataComplete ? "complete" : ""}`} role="status" aria-live="polite">
-              <b>{fitDataComplete ? "Measurement set complete" : "Visual preview only"}</b>
-              <span>{fitDataComplete ? "Ready for a future structured fit comparison - fabric stretch and construction data are still needed." : `Complete both measurement groups before AttireLens may make a fit estimate. Current photo basis: ${angleCount}/4 views.`}</span>
-            </div>
-          </section>}
-
-          {workspaceStep === "fit" && <div className="action-panel wide">
-            <button className="secondary-button" onClick={() => setWorkspaceStep("outfit")}>&lt;- Back to outfit</button>
-            <div className="status" role="status" aria-live="polite"><i className={canPreview ? "ready" : ""} />{canPreview ? "Ready for a local concept preview" : "Add yourself and a main garment to begin"}</div>
-            <button className="primary-button" disabled={!canPreview} onClick={() => setStage("preview")}>Create concept preview <span aria-hidden="true">-&gt;</span></button>
-          </div>}
-
-          {stage === "preview" && (person || turnVideo) && main && (
-            <section className="result" aria-labelledby="result-title">
-              <div className="result-copy">
-                <span className="result-kicker">PRIVATE FITTING SESSION</span>
-                <h2 id="result-title">Your complete look</h2>
-                <p>{description}</p>
-                <div className="result-actions">
-                  <button className="secondary-button" onClick={speakDescription}>Listen to description</button>
-                  <button className="secondary-button" onClick={copyReviewNote}>Copy private review note</button>
-                </div>
-                <p className="sr-status" aria-live="polite">{shareMessage}</p>
-
-                <div className="audit-grid single">
-                  <section><h3>Detail fidelity</h3><ul className="check-list"><li><b>Source images</b><span className="good">Preserved locally</span></li><li><b>Embroidery and borders</b><span>AI check pending</span></li><li><b>Body dimensions</b><span className={bodyFieldsComplete ? "good" : ""}>{bodyFieldsComplete ? "Provided locally" : "Incomplete"}</span></li><li><b>Garment dimensions</b><span className={garmentFieldsComplete ? "good" : ""}>{garmentFieldsComplete ? "Provided locally" : "Incomplete"}</span></li><li><b>Physical fit</b><span>{fitDataComplete ? "Structured engine pending" : "Not estimated"}</span></li></ul></section>
-                </div>
-                <button className="delete-button" onClick={clearSession}>Delete this session now</button>
-              </div>
-              <div className="concept-canvas">
-                {person ? <img className="person-image" style={{ transform: `rotate(${rotation}deg)` }} src={person.url} alt={`Your uploaded base photograph, rotated ${rotation} degrees`} /> : turnVideo && <video className="person-image" src={turnVideo.url} aria-label="Your uploaded turn video" controls muted playsInline loop />}
-                <div className="piece-stack" aria-label="Selected outfit pieces">
-                  {[main, bottom, layer, accessory, footwear].filter(Boolean).map((piece, index) => piece && <img key={piece.url} src={piece.url} alt={`Selected piece ${index + 1}: ${piece.name}`} />)}
-                </div>
-                <span className="concept-label">Concept composition - not an AI try-on yet</span>
-                <div className="rotation-controls" aria-label="Rotate preview image">
-                  <button type="button" onClick={() => rotateBy(-90)} aria-label="Rotate preview counterclockwise 90 degrees">â†¶</button>
-                  <span>{rotation}Â°</span>
-                  <button type="button" onClick={() => rotateBy(90)} aria-label="Rotate preview clockwise 90 degrees">â†·</button>
-                </div>
-              </div>
-              <p className="rotation-note">These controls rotate the 2D photo through a complete circle. A true view around the body requires front, side and back capture plus multi-angle garment data.</p>
-            </section>
-          )}
-        </div>
-
-        <p className="privacy-line">Your photos stay in this browser session and are not stored.</p>
-      </section>
-
-      <section className="how shell" id="how">
-        <div><span className="section-kicker">WHY ATTIRELENS</span><h2>See it.<br />Shape it.<br />Step out.</h2></div>
-        <div className="feature-grid">
-          <article><h3>Every look belongs here.</h3><p>Womenswear, menswear, unisex and gender-fluid styles. The same tools, no separate lanes.</p></article>
-          <article><h3>See the whole story.</h3><p>Read or hear how every layer comes together, from drape to detail.</p></article>
-          <article><h3>Fit starts with facts.</h3><p>Body and garment measurements first. Guesswork never.</p></article>
-          <article><h3>Style it head to toe.</h3><p>Clothes, layers, accessories and footwear in one complete look.</p></article>
-        </div>
-      </section>
-
-      <footer className="shell"><div className="brand"><span className="brand-mark">A</span><span>AttireLens</span></div><p>Virtual try-on for Asian and Middle Eastern styles.</p><button className="link-button" onClick={() => setPrivacyOpen(true)}>Privacy -&gt;</button></footer>
-
-      {privacyOpen && <div className="modal-backdrop" role="presentation" onMouseDown={() => setPrivacyOpen(false)}><section className="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" onMouseDown={(e) => e.stopPropagation()}><button className="modal-close" aria-label="Close privacy details" onClick={() => setPrivacyOpen(false)}>x</button><span className="section-kicker">THE ATTIRELENS PROMISE</span><h2 id="privacy-title">Your body is not our data.</h2><p>This prototype has no upload endpoint, account, analytics or database. Image previews exist only in browser memory.</p><ul><li><b>Immediate control:</b> clear the session at any time.</li><li><b>No training:</b> photos never become training data by default.</li><li><b>Honest output:</b> a visual preview is not proof of physical fit.</li><li><b>Production standard:</b> future inference must contractually support zero retention.</li></ul><button className="primary-button" onClick={() => setPrivacyOpen(false)}>I understand</button></section></div>}
-    </main>
-  );
-}
+37 BÜÎ u/0ÈÌHIÕ1VIrTŠ¨A —”·6‘šÊ14R>‚¨Ä‚dĞ4ÀÄ0°¥&9æ2yYMĞ‚ròBÈ©Ô[½˜`*Aû«Çré’ª_U]Ü€ÄĞK¸›†Îı™lòâí.õÑD4OÂõ–œÜĞC¥ìÎD›RÁ.@,E%¢—0'.u¢©mN`†RÓzªBdÖÖ¡
+Ñ/’) ™hâ<6•ãBB©M‰°n¦D„rxÛ;Œ%©H¨ªThNA„*¡¿OÍğÌQYå½$.*æDT[qKM?C4ÏCK‘r X¬?0* pAûÓLŸĞİaÚg(½Ğ À·Pà	¹·”‘Ç¾lÛfÙÈLƒØ\'ÜêŠùãŠD*OdiÅ	‘áÃõEĞ¢'VL<<¯—xŒáÛy Ìßà¤Ißòûó!ßÏvM’C’T¨ªDĞŠG Xs‘!¶a]# ®P"­ì˜1ŒELgn0±30È‡ü×Ò|C¼)Ğn¥|UÒ@Ù‹­}pĞÏ³=Z¤ó8fÀyÔ&ä)ğË‹
+Â'/^ón¬PÏ¡l¨ ¡$£åêÆ9¥é*‚$[2\ ¬éÔzÂ1g:›¾ocµ;ÈšÄs°•s_!!gã™ÇJá3ÌCıááşıùİo_Î#xNeRÁN²"+‚‡%ÊŒh¶•É¶›mĞ7‡ƒ¹Øç‘DDH¬Èåv¼`mêK4Ç fÈ>~H(° 9ô*V¯µ+H 47Dhâ‚4œè±°üzq*9ÎwJ¨S4È™m÷@˜]¯³¨çõ¥F3T3Uiö…€™‚½råG f~”˜‘¦ GÓ›£:9›§±B…¾y6tîîÁÍÛkWM€;Ÿ}÷ß?zlÅãñğø|_-W}’Çmë‰ØH¡!ôøãßü|é~ïınv¿<µfàöÛ­ö[œ'³×ïŞşócÏÿ½o/¯ÒÌv¸|bõ¶¸SÑ #¢dÖs/NK+Cfé÷—÷woo®îö{g×÷Ï¯î¯¶‹­öËN*:n¢Ì@ìq-vË«W{ıãßo_Şß×÷õ&ÿ¾{s|úæêÙnn®²qi­›Ws¯gÍºÎ±ğŞO}jœÀÁ‰û+ŸŞ½ú²ıûë—ß~cvù÷ß?»ÇÏw÷×@g5÷¾ÀĞu;‘)ú™¾ï.î^ÿªîşşôìzõ<ïıù¸xléÛï¾ôIÇÏß}ºçûÃñøúíû÷ÏÇ‡³ùæ÷¯÷Ë#biúû6ö››Î=áôú\Og~†ˆ¹¿¤ÍËÃÿÛ]û×¯=–÷ş½şücó®¢’X¨‘¬ŠYjm\¤RØj#­¡DQ“éÙVÏşş(×ß¾L¿aû‹°¢1Õ5ûYÌ5Œ]¦ûz^'”ÍæÁ‡•QV›céøıdêúÿ¸\7%ÎMXB4û­öù}¹¹ªõ×Æû&J7L<ä˜ã˜ÏÏîoWµûŠpÜFÎ–Z-÷O§öáDK(¥¬®«úŞv;²ssjíûÄÜİf.Ô¨ƒ£áéÓç·7Çéó—8Is59Ş=Ü6ı×ç÷g†;ÃêÂ8“¥›jyôKtHç˜N‹(¢$È¦¦Æ•„a!:~„ÀFN®!jŞi…·Ws\ñá=ŠÙ AW‹ZDÏ‡(GJ´”Ú{6OGèb¡€:ûg„õæATñC„…`EÉÊX9ÌÉß`;€pS6IˆÁ<®%ÈããÃ‡€Z­l&SUD²Íú=æ;“)°qøØB‡æÎM2Àš“´LÙHaŒ×ãF%ìUÑµ ÀC0Hƒ <¥œRNéô	ĞÒ$à0ÍOŸÇW(cˆH¦Ó€Q(;Š]}a5!¸F0÷!InİŞnDH¹"Æ‚40œ½d÷Ï~<7B öuŠ›‡–P­rüº™Ïş¶ÿüÿ¯oÿ»ß?bíÏÿ°Sßı0ÇÿV¿O¦?ó—ş7{ÿ9ÿ¿Ÿşÿ9ÿü¢Ëßİ¾ÿ¼ßÿöYÍÿı?ÿSÏ®¼cEÇÿ[ÿåÿæÿøÿ}wÿRïÜ_=Y½¼{½x÷uÏŞ½¶]gÿ¤Ïÿ"F¯¾ø[hn¯z¹ütÇßlùşõİöÒ¯ß?üÿ·İuEÓı§ß*Üÿ8¥İöé_?¶çß8ÍÏŞ_õùæ-E:y÷™õ)w_¿+Ôê†ö{Ä¥á¢¦'fğÄùñ÷'L>¦ @F(Ãå²SyÇ›¢Uâï$næÃœÕS`¯#ÎFíÖˆ!*N¾¦BeÉ˜³:‚xj—Š­µˆ›g!0!OAL¥V3,¨ĞXçGˆ)HxN¥L%‘tª²énH’„tÎ~Îp‹­¥²ØIs+]ê«_H7îVN hÂ	Š!Áh ÔŞ¸‘q&3 !nE<êjˆ¸‡‚#§}¼ W0Å7$f	X¸M`¡…‘„K”ˆ®Õ 88¨Å*•@)ìâ,ƒˆğ˜n§“óz™CLÑÜíD˜GmR‡šá fO>áª¥¢üp%°ˆ¥åˆ¤9G,%€…*c­u¬}LÂÈØKfñXÊÈd@.L@ÄQÄ§ËÚ`¼DH…ÀH­é2ŞûÙË‰w`¤Öm®ïngS5C\„EÊ)gáááıÓmÔ‚¡Ù'gõ‹“”Áæ	æÒeÕ÷IÙ³¼úHe‡D…Ã'èóÎa&:è°È84¥fQ±”¡.¨¦ÎA&a–À f…©)
+®çn_ÜĞÌàÜ)<,7ÁX¨‡­™dàMØÁŠÀ*" åéa îŒHáÜØ(,ã,’7yç8’“h¬!êîNu%Çxó1u®ä!‰Æ$ŒÅûDä)b*nªã­m"¸&”be")	Òşú(âœ à À	ƒÇ_}éKÀÊãé„x	!]V½¡bjÃg¥,ÂĞ4jtÀbl%$™Æ%0¹ªœõO“QÙ–!³·•íæFÆ uÔŒ0‘‡ò*¹ûÎåP±±Êp–öØ‚µS,ÑŠ"0Pµ5.¡+éÄàFƒ‘Qİã,jœXü•˜—æ0Ë/y&ˆI
+­R„x•<´f)ÒjeV]s†8D`S*¸ß‚Ò^,&ã¨hŞÁ@»0Ç1¾^-m 3œOÄ¨ÕŠx@EHTÇ×Zêó.€Ô‰Á´u)œAA“™läŒ :'€ÅZÖj´f&IB&ìY1õ_nƒûf€ëĞ
+¬DÕÑA¦ìæì¬.«ØÜ½P~D>ú7y›6ËA³«‹D"üØëòÌ±Ü'`@{ª‡¨­~ –  &İ£În€¢µ"¸,İÉ
+­'éşÁĞÙÁa.]‘\YçXãŞBäk,çÓÁìîox‚5öDHC>õ"Ğs¶â4+¹òs3$ªÏı1ªYOLÁülıÌu—,RšxhlÀáÙ'
+`¨œÜój… #ßƒƒÄ] çË•ÃOÓs…¨i¯€¥­‘ÇLi§H×ÅÂA)`6•'b*”³æsºe„ÌQ‘¨‰	&ÓGYÉä®ˆ",!îÎhªs\J3 :0 ¹¹Åp”ôÄ
+t–š“	ê­ƒi¬	·¯^sN»–Ğ§árs@¤!yÎ³ i@a#Œq–¨Ä"Õ"@&ÒAÕÙÈ…†ŸH\ĞX€½jV’¤ğ 1]3­eÙXQ	Ä0jj”Ò¨F4ğ±««H¾£ŠˆXÉ°—yéPÚ¡†¥/pÈWUÃ		¬!56	Åóªdb #¶yÔ˜J[š£$¤ ÎÅÔ.îS>Æ*áPĞ*UyÍà¢(îæ¢(ó€·"@d&@Ø½¸Y¹¡‚“I431¶¤HOXÖKİQH¦˜î¶ùTá)0Àpİ
+ˆ1qQC¤øĞÍæû•Š€ )†à!`Á0H[:µVF(DA#5H¥Ÿ-kŒÖê¹¹¥ÙŠ•ÕD™´ù)Œ°zÀ–«`'Ñ5HO0›k±.Bà b]T•AÃÂĞ3	¾4CHÉâGˆ›‚&#Ø}À5ãqì›"G$@°¾ŞQA	‘ª@$5àoæfùÍŞ–‚µ7bBupé˜M…È\±+¡
+)DÛi“Miÿó ¦ ‹ÍEí¤k|'0€d€Èô‚¸Y™”ì9•ĞB*ˆP«Lj¬™•%|·•	4JÒ8¸^prYA³]SN™6;1ıİÛŞ×ñô>áìÁi/•–¯’5g@¨jÛBäõ­æÃG»©¶d‡l—æ‚dÚgñÖÒ´,hÈÑ1–Lì“ñ{Ócú¹Î¾Í{fJD)êPX2¿r±kNâZ!7gÇõcbuUuS qµ7l›6 ¥÷¬ñìV‘'•õvM³@«
+ù#²C"œÃòy¥ßÚ#‘Ä0„‘V5ÕaÏ.ß~}FÁöÅ­ÌcûÃÕf¯N"%)eIï}k¬ÍpááÏÿ4cß½ÍßºõÏÿ×)ß}yƒD[eÙo÷çc/¸çÏ?Ê#¡øÙ–R¹]c0³$´}2ÅZ¤o®ÙÒCs7OJ’jW5'¿ş>Zõö÷|ÿslêúêó}¾™‚m÷¡æ£O„H)¤´-µU¶û®½Ü]Ş.Ï_¾}rõû÷»îãÛ§Ï/oŸl·ÍJ]Tåú¦õ¥­cm›z\ç>Î'ñÎQª˜Hm¬áşíáğçï¾¼¬åÓïüø¤ÛÏß¯wûMæın&“–lœIA©´È¨ˆ7u3|—­şíáğæáşğşuaöÓ÷ï__ş1´İ÷ÿ~(ÅíÍ÷ş{4áñğæıÃû÷·ÇÃ¡úÿ}¾š­Ë#iêêf´¹®·»-Ãáíááğî¦¾Ì?~¸9ôìMã?[½úÇßøùÛï¦›­BÎA ¤©u)m—RòùãÜòšõåp..Şÿø¶lóÏ¿~2ë×ÎN‚Ö^†~Î­¶émn§‘ÊûztöÕë÷®ÌsÏµí[ÖŒç}ıáæúêááñÎMiø²nÎÇ«ëë·Çö¸øú]¯Ñá,+c‘~¥İìßÿÜ,ãnÇSé÷[O'3¹Èap#âÓÿÿ¿qËç‹RÏ}æa†5ÛÎŒ…8±øêmy}¹¹ºÍÛĞĞ :aH€*=~³[ß?«sYGsİHMTÂîj’øæˆWÁÂ)jQ‰ŸË‹&jG¯£“±«›‚fæôË!“2H¤Y+¦>gr.	Ü	<ÂÄŒS÷„`Uô­—3Ÿ^½â)P*a pQ9Îu ¡vKë¡c²)u©_ff×;ÙöDôti¨TØ”ôØ˜Y“ i€D’*jb" 	-Ü3LFÑ ¸ÀğšôÑïÑ%‹ÈÎ@""ÉaÄ<@ÃıX²€<=7ˆ‚ Ç¡ü¡×F¾¡ù¥IåÈ5òä3«Ş¨åïÙ»ä¨®Ù9DšD;››‡°^6@×)D@'Eˆƒ8æækÈÙ†ÁH¦
+)â„pRI ³ Hl˜ÚDbñ?Ş¿¾0Ät8¿ı—ÿÿ¾ß7·ÿÅÿâÿøºº}y®Ÿ|«sÿ÷ø_ÿÏÿÿQÿîÿõwşUÏş0lÅÿúÿ¶ßÀí??ú‡ÿ3§şé«ú÷şÏÿWß¿‹ÿùjË÷ë#áëõ´úW½çßë»·s£éÇÿtÌÒ–m¶Ûÿó‰î5ßœ½ëwşñ»‰×Çwïw¬8—ïÿ1ÃùÛßzşqÓÍ¯;?şÿ¼»wno_+ë˜ü½‰ÎÑŠ
+ßìŞü´QÓÏ¿rH|¦¤o@øÊG 163Ò‘«¨óÉ+õ
+ºÖHÓ+^ú>æ@Z·msQ»ÊÄú¨=<™œÓ˜ìû	19H·~æd¶!NtàBÿò0óDBÆ£sXTÜİY‹¡iÁ„bğ6‹G"Å §ˆ£Åb-MY–µÓ“+UI–ˆó(•««AbIÁµ·fd1i€>9ŠÁ9ç³¼ ™ÜÃ<3Ì €A&NùVg‘)&l”*¥3€•İ®åğ§BäÂ5ÌÀ ÈK[xm€$¬ü	ü¹n(z«¯¶ÛÏp'R¸ÜO«ùìõ
+©D¨Ff•â,k˜Ï@Ñ`²Î!"-BÉÈ‰}´ÜUcP¨TğçfUoUFWOp°NAì`@%…†f—Í†ÉšRÖõØLlı
+©e&§,ˆA6-e™»†;„VöÛÚ²: nuIíHp­‹1%v\aÜÅ—¥‹N-)G"³ŒêhD,êí,–m’	Tç~šKiu•›~†ÀJ	#Qn‘™¤x€hÃìÂY²¡P0Èé$*QnC\õA"Œ°×ZeR6SH‘É„‰&ŸQv)×Ê»8y˜lÃÆÊâM6l|:cxQ –73ÉæS Pë–²ˆ­fvN'í'öBÜnQˆyí 4 €wMépİBxIÑ½±W#bJÛsbÙÑ*¡°Ÿ{D¥²ƒ„Ê›Tš®3ÌsUOqŒÄ&úü@à¶u6’9(N¤¸¦·	lÍH€­Ò73
+ØHA*¸¥ÏQÈ ®óNHP¡~§× ğó"C&Tióƒ›lìíîñc`lË	À5N^ÉÊ°…w f$H1GD2‘—xô²ĞCñ ÇĞøä 'Lôôñ	H¢$C9Ü#ÏŒBÂVÍİÅà*fª(Ó0xEÏ)®±Ì>	·éå©:;!
+-m`$
+uİ5˜@	ôç`„N7)³°i[Rê+Yón/«Ks¶óÕD§X™pİSŒÍ`1°¤r@ÁõÀÌà¤ ²(é\›L‘ÚœV>¾i5¢Õ ä£N>:÷9†)EœÆÿc¥ÃDæ*s{€/u‹`njzƒ-ï-à&°Ù
+Qx¯#€ÕêiB#Ï°ë¦·nTt¹æ¨H×d O±ë%yÌ( Ø–³ìjáfp«#Äè ÎSlnfƒLĞ¦X\À®B.@‚a*à„X3tuıq32Ù„Å—133#F7H°„1) ¦èVãœğ	p±îÚQ/§•µzrĞ• 9ä‚(hÈÀ3[TP+)ÌáhÃjæër-£ÌuŒèóì"îAs3P"d$R!úV7Yù†‡O"L0¹Ç0%Âh±gëÜË™lØê¨çñÏà:UàÔ 8¬ªrÙ³cœá`&ãß­]9‰ˆ„³ mB,zt6UIÜb™"ªEñ¿Öñ5[C]=ô^ÚÖp™E¦
+îje ¸Z¡ŠÌ„Íø!ªZæ.Eˆ™xlC‰½œ1À	ŠOMM\êÍ|QÌÍÆ(N¹ÆšÑĞ)(ŒK1"T9ç8ó	Vs++ÇpZêû "X•@ˆNV¸“„âì#”!Ô¦ÎW#Û¡°¥µç¢-#@L¾ë}Òªú/29ˆQ‰‘Ô4Ö†Èá%sfÎBÂÌ’0V‘‡â|nŸ'3>™9­µ<-ã`N€¡¹î®şÃICAI&C¢@µw-*Ó¨§<4§0Û€´d‰,Ÿ/â +ïRÄ@5ã$æö’4[9‹úº`L‰„ÕmÌJ@fFü@ğ‚"D®À Y„Ì—ŸÈ r”¾SRBvÍğÂ¬‚œ@*xTsŒUĞµ2`ìÎqÖÀ¨ÎQ89 l]P".@@9²Óª–=ñ7£}gfŒ|³îÉîà"A”®æ"—6ÑŒ9Ø
+iE¯9öi—Q™9áí…Lˆi~uô Qw ¢0$í `Y‚>~ïV0s¬Şî&azçº³“R¦Z…!,îß`³NsG@—B²ix^w7ÇÇÇÄ8o#¸Ú^ fÁ–O)¤DpZ†£€5fdÕZˆ*jÈØ0!j‡‚M0œûĞ"Ÿ€PÁL/:&lS&Bx¹Î±ÑUÓÌ3u#53H–°!øÜglõ"’:˜@!9·Ë[rtŠÄfzxŞ–óÈ¼Y®ÊRÏgµ‚ØLH3êàN9ƒ!Ö‰ 0•fğ7`2Õİ'ÄhB£j³7lŠm}NMëm”«Ap•#ãCÿa=ı6|ÙæÖ›ëİ½ããÃ¢)@8.şáÏş8Çÿ>{ÿq½Ï¿ã¦÷ÏO½{½ÙnÖu£»ÇÇ’êMîÇF	e3N‡³èĞÑ
+W.e‰} ~Wâ¨8›‰# îÉ‘1·’Œ|üÇyòîıÛ÷·ÛÖŞÜ}[Üî÷Ûvì‰c—C'zî±Ì•K¶÷{¶ºŒ>¶áîîğğşáááğìr2ÉõõÇ÷O\\Şïv×»}¦ö¾º.î}šocúûy¬'‡µß—5Ç…‡…±
+ |1§ß=yK×ï~z=²YóçŸı»6lÿs]¬çlëùÏ³wgbmæè†ŸGFË¾ÉûrY¼ô}ufááõÃıáıo*s¼xë×ï®¯şı2tÛï^?¸¹½¾º¹¼İİİÎ5üõ]íw[Ö´Ğc9¹³>êÖ¹*«ğÿ]:ƒéøØOsjiÌg£?½‡ü<vğÏ@Œ¸M	x£u)UPP£ò¹Kî°?¨g{{¸¤ùÓç÷—/ßÈ)Qc~¦-euš‡Şº¹éÓÛ­öüü_7­¥«€ëég£©÷YœívïŸ^6êB˜1¬'u¿_½ù:½²å×ûÍÆÁ0¶ªšAË:ŞŸŸ7×—ÇGóôàÂ®şpøAUy6.õ	@ÓR=Ïç“•öû|]Ñ1Ñ§«á€Î¿¯–qòBñÁøcï._ßì÷çã™Ì"¤ˆ±Hî³¸q‹ LwèŒ*¦S‘È¬ æáÕó€!9v²IŸl%Nî—y”8B'”Çq$¹şOŠåç´ıI2HÆA·6T@ À¤G`‚uMyĞFêUa"K0³÷0âZná	mxsØœU€ñ’ÔLğ@Šp	A`*€€aDk˜ûŸ{Œ€Ø;ğôOh#t< %õşÇ>?J§eômy‹¨	£‡‡  0A!bó ÄBüA>4ÓZ@  Ñ¥•Ä|Uî©E,Ş³‚.ç	 8”CH¨ş ğ€¢G ´–²äV6‚Bè`Œ SŒàb,…3XY—¨:Ç!P|ª™šXŒÀS>ğÇÿ92[œíVX…^şù¹{ÿÍÿøªå×ÿ³üwÿ=ÿäïÒ>$Ïÿœ×ÿçÿ÷ú+ÿmoı[ïÿ±så•—ßÜ}ú¢íëu"<Ñ÷ÿ.WWŸ^>>¸uß¸ØïÏïÿ~¿=³xıtöù÷Ş?»6îÛÿı‰ò.ï¿x—ÿÙş<óÛ·ïÿ>Sù½ÏŸÑ¡şÅ“ìÏ±¬—O¿½©÷p ºì¯^¬®z8ö«ŠÿœŞ´ ZÚËY”EºyŞJz«ŠÔÁq
+­P) Æw7U@Ğ"ŒèÚ®HŞÎ%Â³›ŠzAûzòpÄ½‹u¼ç©lım‹HˆPa:§À#˜ßÑÍHª´Œ°ïöHlŒÀ{½ÎÍQD›sr¢úX1¶’¾!1'E&ªî~Ù¬ÈVZª@è‡ÕØ„8\È„UµvNĞI€cfÃbH3£)K„)ª€BŒY^òI˜›me³6ûL‚s+RÏˆ÷'aHğ•)R;Üã”Q¶p PsqUSYÔ Ât¥’€,7[n!êĞ¶–ø19âvg6O°‚ :m!2èlP$¶;!îT:'n£d¶ãnç±Ì!-•‚ALİØ¦ö‡
+U+[TpÕMRøà…su B‚Ü˜jc:+·ƒC$ ‘N0,m±H·$a3IŒÄYÂ °/4b7«BrÙœíw`@¡2!İ Ü[ug¥=ûDˆA+i%:„,ÄÒà³0qWÄ›lƒeã¡=z1K!+££"130y•RÅóHƒ@¹7jŞ¼VYÉæèıÌæò,¤¡3ìH˜
+K0ŒËS€Ô..&öÕ	Ã}ôUæÙÀ5ôdv@_j¤¥73„À”†Hv…À”V	‹ûÑrqÄªrì­B"*NRfš¨ãÕ+aĞÙ7†ìu¹·wjœ£k:HYqp÷ *B:Ñ8¤CLùµ D@³YBfù¹»©J$L$E |úq¥¿I­Ì5s"¸ª¢€J+ém-›3¦gbÍ´¬P±ŸÍA¤57gÏÓCDŒm{3ŞXM¨®cƒ*ºç±i®îU`E„IIùœÜÜîÖR8BÙ
+xA¡;‰‰_õ¥Ócæ€d¼ÔÄd˜”ÕûQ"n9 =%d&6™´óÓœÒ+q)4÷w ©(–æWZ¡Ì,K2Ù«ªŒeFl°sÑi#7„PÖ 'm’(¨=ómˆ ^Á:ç —¦gKX¦‘àa9vˆ¼YéM‰”Š„ÒLmdbSœ	Ø‚P—–î‹ERÊôdú¹/kót]C©6³ëO„TZ¹K3”ĞÕÉg‹1w5ÑÅ3ÃV^¨ÀHbâì“à=nL€…â€
+iYROkÈ@"È:g ztıeéX¢¤	d9µ5‘3ù+¥©°NlÚ‘âT°'b$r~ÃÙYIã/§¹×[-îá·5Q´‚öw^Šab3W!>Î
+’Ã½c|•àœ'U‚ŒôM"Úm*S(Œ;w@eÙIÒğu Hä5pOŠéK€xj¸Lu…l@ä[ùn†[­ê\Åji[‹³ÉİçDD+œÊTpY/ìV¿¬59ƒ=ğ°›HZN‘€%¢2y•4ÖfÂÀ*¶µ a.Õ‡H’–ù)ôd‘V9…]J¯$@‘K`6`Ñ
+› )z&)Ê`ˆH bJ„“h˜N“Ui9
+¥®LØ£+°¢ V‘Y­ğÄÆqIK¹‹ê¼CìÌ8%;"…¬bÛÁšÀ—’MˆŠin RA\h³*®såJ¸c‚)be”x¼”`†İC‰˜	M¢ÆDF;à(j²fQq1’e2TUÌhbùCí*Y½Y¦’R²ÜÎÔ.JÄ!V{½wW~psP±°@¼ÍØ^l’2êĞJeW3Wa*êàÅÊim’ŸM”æLYEécM•\™ªe–!$™¥ËRğÅDŞæbIÑ¤HLm)/‚€ŒÑ‡A8*ç·Tëği²¡‘’>h“—^…@ .y+4ó|ú¤é©“&†3ÔQ*¥ë+×@‚ó>Af™a Ès$p7H`¦9“S3›ë¸LÌÆø$ÉÌõJK)L¼Ì·„xsµçÒ€Q:‘2 œÊ%!DÿÆ:ˆŒˆÔ¥=b†‚¦: Ò5lâ‚êÃfØçñøøĞUpø|½Õàf®¦Å"Mb<¿@!99 HQOÑ
+3,¿á¤1XíûA9ñ‡°3 ¨¥¸Ÿ¬; ‘¤œĞÏúTì’à›ŸSÒŒ´ŒTÂôÓ0™Ù„Æ'Ş»æÙ`n(±ÕG;•nÜÈ”u4ÖúşY®ËQ]®çPÇ3çH<£1á)b)—Ï‹ñğ“£F!æªšÊ­›ÈzWSÛë×ï^ŞÎ½YZsuÚœ›B¼÷~T7åÓç·÷»-Æ<,)ÏXw‡Ãßü0Çÿïıv÷ÿó{ÿz	Ïß^İÏùË3+eM};¸x‘V)ë€<7‡Ç©˜iÖmE8UŠˆTq’BN|<‰3*„Dê¦Ó¤ğ•rİSµqôCÛõ‹÷¯®v»g»=Ëë§Ï.ï¶[¥û]¦_G¼M59¯
+l«òı±QóÛÛãéüø]»Ã»ûÃ»ïŞ¬ŞİŸ|ô{tæÿ[®öÛ¯chZûNÆîÕ£­Oí»?w)è«é™°aG?=´í×ÿü·fÉ××_|úlÛÏ_üx¾©µqS‰ıZN‡G$ib®p)µ•²½l\_~¼<9¸|+N·§£ûşşbıİ÷ß>»Ï¾ù±óçÏnnÿÿ»~şîáşôŞw[ışóY–v	]ä ª÷q€õÿoÇ—·Ï÷'ãéñÂy»®ÙXi¼îcÌ`!D+Í¦æöúüŞgWnH€fHÎ©%zü¼e¹_¯onïîv§óïCäò¢@æéšÇíe®šiíuøşz{}z];ér´6iÕXLO'÷ó£Î£f@Ğ)ÌÄŞ;ƒşÿUk|¼œĞÁXÚ]G`ÑG£©÷Y®o¶¯^Î#RF7—nótYëx [·–Œ|ıÃãÓÛÛÍ¦êª‘'<ÂBÊ·)3ªiôşvtæË×ß‡c–~]ıÒ9®ıá÷l½9·w_WF‚ò’usw4ş€%‡"`#Îä6É{¥±@ˆz†ŠgL]Ãj3u}RŞvÇt0ÃK†`>0-ü]×šF |¥€Œ7JâÉÃË€ Ù†!ÜÖÖ—R”uLQÍª¡¾ÅPBpôkY¸Q$ĞŒĞ„A5(R< xs§”mèdÎób{¨D;¢£dé2û„`)üé€à¤8•ÖnY;uGä KŒº¾ïH˜ m,r ‡÷C ƒú¼@Óã H8ÕŒ.;ß½E@*Â:€P`"pÂÕBØ}˜EĞÁ8z“%ÈD¹’ğ|¨H… .T—j£DDF¸TË@Ìb8ç`m†ÙA©/şÿ¿ÿSÿò¥ÏşyOÿ+ÿø7vşÿúÿüoşº2lúíü»vßÿ7ÿÉ~/oÿ÷şÿ›ïÿ8ÎàÌ²qŞ¿
+ÿàßùëÿÿõ¸uvëß¿¼çô“×¯Ÿ:;Ñ34ß{¿¯ßûÃïıZóïÿn÷ß<ôı{³fçÿ|2×Jwÿgyÿ4ı×ef¾(ã¤Èğ=ï¿Úïşeï¿û»DbˆF†­Ùn^]®ïîŠYuÍ›Î„"ù+ÄZêÙ¸ P“	0 P1‘C)É£%®RŠÆmôà.‹4ª¦¢eÚ[líxi´ßD‘—´·"¦«L‰öl€S8{µµÌÔ„‚ì¥Cpœzù·>Ô"!!Ã§tùÀ0–±wqîHÎ·Z¥Š÷*„gMTÕk‡*„øH¹I0ŒmH„‘%Ô¤®êªEC5|Yñfâ5ÍX 5û!!wxŸÀ³·0.E'@z)RãÌôŒÀ¸†ÀÀµ­K¢ÖöÃ]ÖV!9¨wÂt@Û6¦0óHm+×B™Ó›ó–Q6”›©+…+MsÙíâP«u"±)¦–ÀŠaB¶m:j‚q‘ËÅpÛS£`™‡XıT%Š©Q„ œ¹m8åV„6[4œÊ<¡FY%—HVèRÊDZÜ€fa­Q˜Ã‡jå¢9¨ì˜ ª.æÊ@›Á”é
++n¾n§©“gLİ5“APÃÈfÜæ“M-ıo‡£ÒŞ'dêfËHêƒgÌú ŒPaí“HÄ]ì"ğîîfıŒZ}”¦œ
+ifîÔÒ"E¿8à$I”Ë9†3]ˆÑ4Yvæuôâ jFMòŞ{‡!bJ7"lBƒXÑrÖÊàfî^Å½Àl5©A œT=f’Ğæëª€K­D´C-ô¡p(ıã viíu¦©‹•V1)–XÚrØš”îŞz­0‘½›LJì[ŒYùÜŠi‘`:jì¥6¶º*ŒzÔ Gá¾ĞQ	¥n;?Èğ*eªçSuZšp–çoHäØ)T­Ùs-Gà§ayş]‘œJœÈˆÀR›VÕMHQ²HAÁ¤îfàE”ˆ#(*¦éMK*@”Wjæ´¢$a.Kfü4@ÈXEB@§ÜÎ–ğ©ä“—2[.HÈaSFÌ‘ûèÃù£¦Ûu²RÃ@“tÇÊ0´uH»õb	4¥3–nˆ¸BçbÈPGwU,BDfÎ€&¦nÄ¨Ñî Õ QĞBàÙ‚Á*uWqŞC`­„a#„LDUÄ–bYà$Â,¾
+ciH"^í)b²>]£nE *Báúû'RÈi[*’xT†ÁL¼Ş¶G)b^ÀšâúÌ-ã6 (&Xõ“M@üÈ¸¥RÖ\«U¦¦Ğ—b¦ÄgÕ9ì¶HE}Ö-•ñDŒeÁ²7½ÔØ™9XÖ	•ÉÈTPå®¸Rù&nHOCÈ9ªDÂ@ÀàQQ¦j›’¢T 	œ‚]ø½2ar¼232ì•(_»€Q“@êK+H”»ÙÙ™-@¡3Rr-MP5¸Q©`”È-ÙxÎƒ-uRÑP*ÜŠ]vv,*w@†  vÙˆàªÕ¥¯u‹1z„0<AÄk¦Ã` & \á@ä(K†çR3,˜z'ib"ÆÒêrì¯ãH&Ù€Nh0¶¶‰%‰+m	”¬¬8 Røˆ»¨ƒ€•€â®Îuù9@Á,ÑLné@.[‚¨%Æ˜j™¡HŒÔÛDY”à´wÑqj‹­Wd&´æ(gÕíÊpHÀ¥óe´¼ÓGãY¹”Œ•¶B<É±UHh,a Õ&_n€TÌ™ †@f`0—iÀĞ%R”³0s7;Éd!	u£g­ØIˆ½jpÓ´÷!rá÷MÙ"!w33`ì“Só%ÊU´¦$×Ê§ÓšíYôObcSP	1Bne ºi=×9AÈ)ÆPf)I!‹´Í‚¢¢hƒ	€ŒœØHHÁÈL2áP‚ö[®×‰àü7fåp¥N™¥¬­y+#ˆšn.”5"),t1^w	„Ğ
+Béÿ™C|ø™£P”ånˆÚf:Àx‡ØÚefqû ˆJN…d@¶Ô‚3Vr57CRò^hºb6wO  ‹ÅGÃÁ*¥yæ?¨A°c:%Ş(âR3H Œ"[ú"B!P†KXaŞ¢ÂpÄ²¹Ú’VQˆË™¯CİİLêfÔšÉ¬©B%´œ ÆSœnhr]‚˜$ĞtôüMÇÿ]³¶LX*O'1¬#'*Ø‚Á´!Ôß_‚0àâdäŞöS°Z&ÁIşÌş\ï«Hğƒu.u_7ŞYÅÀØº,ïÌ„ˆÄÔI¬ˆS&&v5s3CUsB"&H(cÌY÷õW$Ÿ8G™›š­[a „«œçŸŞÈÀğ°õ÷æÓbŒ¤6i”`V²×1êSø¢Ÿ: ĞL4f5@Ã©5ÚK,}r¾½wgnÙÊl‰;:{dë÷¯_n
+åOÿú>mdÆÎœNØvÇ1ş¡Ïş¸Wÿ'OıÆ÷ÿk¶ãûÃÃÔfÅ¢ö<.áğäöêı{¬7ÛgÏßp“-|8şO)ÓµO±Î©¬Q…¸rë‚@@–Î&_Áåğ«b“¦Ûz\ç9=ŞŞ?òİÛÛÕÇ×÷ï®/·‹fêöÚû^‹Ÿz'¼H!5™Şüÿ>–·Súş{¼|^Ÿıººë÷¯wKvÅÓÛ—·77›õíz†"õ{vÜÎí_‡˜õ^l¶ua³ºq’7¯·?újëï¼y6yó×/ö›ıŞÇÍ¡£vblø1 ~(æææó}¨úöíáğöğğ÷~|\G[ãááı}:¿¿Ïÿq«ß|²qóç—{ëû‡»·ï¯ßİ}û¼u=¶ót…‹•]>®îw­ªóµ~Íáıéüşmöæÿu_œïwC¥¸f¤%º÷[ª{{³^úÊ®ñK@aQ‹¯E¥¡áÄÄ÷W;w·‡ğ ><œ3“ßªiCßnõ™õõÕşşáàè,®îÄÌÃçr>8ºlË×ï¶»½é¢€zîKÒŞŞşızÍğ	!«m¶ˆb*=ßŞ<{
+OG¹Ô(&L[¥ù|^ƒÙQ­kO}ß¯vï_ÑåñQü){‚!!ñôÉçÏ7ûm½áñÉ»p÷‚À40À¼5ww]Ï¿}³OO-zy…ş‘$®ÖA“‚ƒ gOh*Ù‡Ö"X:ûØAB@\íä™r@#@&AƒÒ¡\$gTĞ¯äsP“MZé&;Uğ’CíUMB0µHo£.ÌuÑÈ	dÆ|8”ÃB	èÈŒ3ëàO¸€@FZsªb)bö,:"5 A;×cöJ.Ïé=’OSš«œK®Ä®@üy

@@ -321,12 +321,12 @@ export default function Home() {
       </section>
 
       <section className="how shell" id="how">
-        <div><span className="section-kicker">MADE FOR THE WAY YOU DRESS</span><h2>Your wardrobe.<br />Your rules.</h2></div>
+        <div><span className="section-kicker">WHY ATTIRELENS</span><h2>See it.<br />Shape it.<br />Step out.</h2></div>
         <div className="feature-grid">
-          <article><b>01</b><h3>Every wardrobe welcome</h3><p>Explore womenswear, menswear, unisex and gender-fluid looks with the same complete feature set.</p></article>
-          <article><b>02</b><h3>Accessible descriptions</h3><p>Read or hear a structured explanation of the complete look.</p></article>
-          <article><b>03</b><h3>Measurement-backed fit</h3><p>Gate fit estimates behind body and garment dimensions instead of inventing an idealised model.</p></article>
-          <article><b>04</b><h3>Complete the look</h3><p>Bring garments, layers, accessories and footwear together before stepping out.</p></article>
+          <article><h3>Every look belongs here.</h3><p>Womenswear, menswear, unisex and gender-fluid styles. The same tools, no separate lanes.</p></article>
+          <article><h3>See the whole story.</h3><p>Read or hear how every layer comes together, from drape to detail.</p></article>
+          <article><h3>Fit starts with facts.</h3><p>Body and garment measurements first. Guesswork never.</p></article>
+          <article><h3>Style it head to toe.</h3><p>Clothes, layers, accessories and footwear in one complete look.</p></article>
         </div>
       </section>
 

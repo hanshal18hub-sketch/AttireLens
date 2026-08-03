@@ -166,13 +166,13 @@ export default function Home() {
       <nav className="nav shell" aria-label="Main navigation">
         <a href="#top" className="brand" aria-label="AttireLens home"><span className="brand-mark">A</span><span>AttireLens</span></a>
         <div className="nav-links"><a href="#how">How it works</a><button className="link-button" onClick={() => setPrivacyOpen(true)}>Privacy</button></div>
-        <span className="private-badge"><span /> Private by design</span>
+        <a className="nav-cta" href="#fitting-room">Start styling</a>
       </nav>
 
       <section className="hero shell" id="top">
         <div className="eyebrow">Asian and West Asian wear, seen through your lens</div>
         <h1>Every layer.<br /><em>Your whole story.</em></h1>
-        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Asian and Middle Eastern styles, fitted to you. Private, for your eyes only.</p>
+        <p className="hero-copy"><strong>Try the look. Make it yours.</strong><br />Your wardrobe, reimagined before you wear it.</p>
 
         <div className="tryon-card" id="fitting-room">
           <div className="mode-tabs" role="group" aria-label="Shopping mode">
@@ -268,9 +268,8 @@ export default function Home() {
                 </div>
                 <p className="sr-status" aria-live="polite">{shareMessage}</p>
 
-                <div className="audit-grid">
+                <div className="audit-grid single">
                   <section><h3>Detail fidelity</h3><ul className="check-list"><li><b>Source images</b><span className="good">Preserved locally</span></li><li><b>Embroidery and borders</b><span>AI check pending</span></li><li><b>Body dimensions</b><span className={bodyFieldsComplete ? "good" : ""}>{bodyFieldsComplete ? "Provided locally" : "Incomplete"}</span></li><li><b>Garment dimensions</b><span className={garmentFieldsComplete ? "good" : ""}>{garmentFieldsComplete ? "Provided locally" : "Incomplete"}</span></li><li><b>Physical fit</b><span>{fitDataComplete ? "Structured engine pending" : "Not estimated"}</span></li></ul></section>
-                  <section><h3>Privacy receipt</h3><ul className="check-list"><li><b>Processed</b><span>On this device</span></li><li><b>Cloud provider</b><span>None</span></li><li><b>Stored</b><span>Browser memory only</span></li><li><b>Training use</b><span className="good">Never</span></li></ul></section>
                 </div>
                 <button className="delete-button" onClick={clearSession}>Delete this session now</button>
               </div>
@@ -291,16 +290,16 @@ export default function Home() {
           )}
         </div>
 
-        <div className="trust-row"><span><b>Yes</b> Every body welcome</span><span><b>Yes</b> No photo storage</span><span><b>Yes</b> Never training data</span><span><b>Yes</b> Seated photos welcome</span></div>
+        <p className="privacy-line">Your photos stay in this browser session and are not stored.</p>
       </section>
 
       <section className="how shell" id="how">
-        <div><span className="section-kicker">MADE FOR THE WAY YOU DRESS</span><h2>Style it.<br />Try it. Own it.</h2></div>
+        <div><span className="section-kicker">MADE FOR THE WAY YOU DRESS</span><h2>Your wardrobe.<br />Your rules.</h2></div>
         <div className="feature-grid">
           <article><b>01</b><h3>Every wardrobe welcome</h3><p>Explore womenswear, menswear, unisex and gender-fluid looks with the same complete feature set.</p></article>
           <article><b>02</b><h3>Accessible descriptions</h3><p>Read or hear a structured explanation of the complete look.</p></article>
           <article><b>03</b><h3>Measurement-backed fit</h3><p>Gate fit estimates behind body and garment dimensions instead of inventing an idealised model.</p></article>
-          <article><b>04</b><h3>Visible privacy</h3><p>Receive a receipt showing what was processed, stored and shared.</p></article>
+          <article><b>04</b><h3>Complete the look</h3><p>Bring garments, layers, accessories and footwear together before stepping out.</p></article>
         </div>
       </section>
 

@@ -1,4 +1,4 @@
-# AttireLens product brief
+­r‡^Ñf¥–Ø¦{^lyÊ'vÃ®¶›­# AttireLens product brief
 
 ## Vision
 
@@ -42,21 +42,21 @@ A shopper choosing clothing for weddings, festivals, religious occasions, family
 - Provide one-tap session deletion and clear retention language.
 - Commission privacy and security reviews before public launch.
 
-## Roadmap
+## Production workstreams
 
-### Phase 1 â€” Experience prototype
+### Workstream 1 â€” Production experience foundation
 
-Validate the two-photo journey, language, trust model, and online versus in-store modes. This repository currently implements this phase.
+Deliver the capture, measurement, styling, trust, online-shopping and in-store product surfaces against production accessibility, privacy and failure-state requirements. This repository implements that foundation.
 
-### Phase 2 â€” Visual try-on
+### Workstream 2 â€” Visual try-on inference
 
 Integrate a zero-retention virtual try-on model. Evaluate identity preservation, embroidery and print fidelity, layered garments, diverse skin tones and body types, and output latency.
 
-### Phase 3 â€” Fit intelligence
+### Workstream 3 â€” Fit intelligence
 
 Add optional measurements, brand garment charts, fabric stretch and drape metadata, fit preference, confidence ranges, and explicit uncertainty. Never infer exact fit from a generated picture alone.
 
-### Phase 4 â€” Shopping surfaces
+### Workstream 4 â€” Shopping surfaces
 
 Add product-link ingestion, a browser extension, retailer QR codes, wardrobe combinations, comparison, and private sharing.
 

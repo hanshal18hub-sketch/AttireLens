@@ -69,10 +69,23 @@ function UploadCard({ id, title, hint, file, onChange, optional = false }: {
   );
 }
 
+function VideoUploadCard({ file, onChange, error }: { file: Preview; onChange: (file: File | null) => void; error: string }) {
+  return (
+    <label className={`video-upload ${file ? "has-file" : ""}`} htmlFor="turn-video">
+      {file ? <video src={file.url} aria-label={`Uploaded turn video: ${file.name}`} controls muted playsInline preload="metadata" /> : <span><b>Or add one short turn video</b><small>5–10 seconds · front, right, back and left · MP4, MOV or WebM · up to 25 MB</small></span>}
+      <input id="turn-video" type="file" accept="video/mp4,video/webm,video/quicktime" onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(event.target.files?.[0] ?? null)} />
+      <strong>{file ? "Change video" : "Choose video"}</strong>
+      {error && <em role="alert">{error}</em>}
+    </label>
+  );
+}
+
 export default function Home() {
   const [workspaceStep, setWorkspaceStep] = useState<"capture" | "outfit" | "fit">("capture");
   const [mode, setMode] = useState<"online" | "store">("online");
   const [personFile, setPersonFile] = useState<File | null>(null);
+  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [videoError, setVideoError] = useState("");
   const [rightFile, setRightFile] = useState<File | null>(null);
   const [backFile, setBackFile] = useState<File | null>(null);
   const [leftFile, setLeftFile] = useState<File | null>(null);
@@ -94,6 +107,7 @@ export default function Home() {
   const [shareMessage, setShareMessage] = useState("");
 
   const person = usePreview(personFile);
+  const turnVideo = usePreview(videoFile);
   const right = usePreview(rightFile);
   const back = usePreview(backFile);
   const left = usePreview(leftFile);
@@ -102,13 +116,14 @@ export default function Home() {
   const layer = usePreview(layerFile);
   const accessory = usePreview(accessoryFile);
   const footwear = usePreview(footwearFile);
-  const canPreview = Boolean(person && main);
+  const canPreview = Boolean((person || turnVideo) && main);
   const bodyFieldsComplete = Object.values(body).every(Boolean);
   const garmentFieldsComplete = Object.values(garment).every(Boolean);
   const fitDataComplete = bodyFieldsComplete && garmentFieldsComplete;
-  const angleCount = [person, right, back, left].filter(Boolean).length;
-  const captureLevel = angleCount === 4 ? "Best available capture" : angleCount === 3 ? "Improved estimate" : angleCount === 2 ? "Limited estimate" : "Low-confidence estimate";
-  const captureDetail = angleCount === 4 ? "All four recommended views are present." : `${4 - angleCount} more angle${4 - angleCount === 1 ? "" : "s"} recommended; AttireLens should widen every uncertainty range.`;
+  const photoAngleCount = [person, right, back, left].filter(Boolean).length;
+  const angleCount = turnVideo ? 4 : photoAngleCount;
+  const captureLevel = turnVideo ? "Video coverage to verify" : angleCount === 4 ? "Best available capture" : angleCount === 3 ? "Improved estimate" : angleCount === 2 ? "Limited estimate" : "Low-confidence estimate";
+  const captureDetail = turnVideo ? "A future local frame check will verify that all four body views are clear before estimating measurements." : angleCount === 4 ? "All four recommended views are present." : `${4 - angleCount} more angle${4 - angleCount === 1 ? "" : "s"} recommended; AttireLens should widen every uncertainty range.`;
 
   useEffect(() => setStage(canPreview ? "ready" : "idle"), [canPreview]);
   useEffect(() => {
@@ -128,7 +143,7 @@ export default function Home() {
 
   function clearSession() {
     speechSynthesis?.cancel();
-    setPersonFile(null); setRightFile(null); setBackFile(null); setLeftFile(null); setMainFile(null); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
+    setPersonFile(null); setVideoFile(null); setVideoError(""); setRightFile(null); setBackFile(null); setLeftFile(null); setMainFile(null); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
     setBody(emptyBody); setConfirmed(emptyConfirmation); setGarment(emptyGarment); setRotation(0);
     setWorkspaceStep("capture");
     setStage("idle"); setShareMessage("");
@@ -141,6 +156,16 @@ export default function Home() {
 
   function updateGarment(field: keyof GarmentMeasurements, value: string) {
     setGarment((current) => ({ ...current, [field]: value }));
+  }
+
+  function updateVideo(file: File | null) {
+    if (file && file.size > 25 * 1024 * 1024) {
+      setVideoError("Please choose a video smaller than 25 MB.");
+      setVideoFile(null);
+      return;
+    }
+    setVideoError("");
+    setVideoFile(file);
   }
 
   function rotateBy(degrees: number) {
@@ -183,9 +208,9 @@ export default function Home() {
           <nav className="workspace-progress" aria-label="Fitting room steps">
             <button className={workspaceStep === "capture" ? "active" : ""} aria-current={workspaceStep === "capture" ? "step" : undefined} onClick={() => setWorkspaceStep("capture")}><b>1</b><span>Add your photos<small>Capture your shape</small></span></button>
             <i aria-hidden="true" />
-            <button disabled={!person} className={workspaceStep === "outfit" ? "active" : ""} aria-current={workspaceStep === "outfit" ? "step" : undefined} onClick={() => setWorkspaceStep("outfit")}><b>2</b><span>Build your look<small>Mix and match pieces</small></span></button>
+            <button disabled={!person && !turnVideo} className={workspaceStep === "outfit" ? "active" : ""} aria-current={workspaceStep === "outfit" ? "step" : undefined} onClick={() => setWorkspaceStep("outfit")}><b>2</b><span>Build your look<small>Mix and match pieces</small></span></button>
             <i aria-hidden="true" />
-            <button disabled={!person || !main} className={workspaceStep === "fit" ? "active" : ""} aria-current={workspaceStep === "fit" ? "step" : undefined} onClick={() => setWorkspaceStep("fit")}><b>3</b><span>Review the fit<small>Confirm measurements</small></span></button>
+            <button disabled={(!person && !turnVideo) || !main} className={workspaceStep === "fit" ? "active" : ""} aria-current={workspaceStep === "fit" ? "step" : undefined} onClick={() => setWorkspaceStep("fit")}><b>3</b><span>Review the fit<small>Confirm measurements</small></span></button>
           </nav>
 
           {workspaceStep === "outfit" && <div className="context-row">
@@ -196,6 +221,8 @@ export default function Home() {
           <div className={`composition-grid step-${workspaceStep}`}>
             <section className="person-panel capture-panel" aria-labelledby="person-title">
               <div className="step-label"><b>1</b><span><strong id="person-title">Capture your shape</strong>Four angles are the recommended minimum for the strongest estimate.</span></div>
+              <VideoUploadCard file={turnVideo} onChange={updateVideo} error={videoError} />
+              <div className="capture-divider"><span>or add individual photos</span></div>
               <div className="capture-grid">
                 <UploadCard id="person-photo" title="Front" hint="Required" file={person} onChange={setPersonFile} />
                 <UploadCard id="right-photo" title="Right profile" hint="Recommended" file={right} onChange={setRightFile} optional />
@@ -203,7 +230,7 @@ export default function Home() {
                 <UploadCard id="left-photo" title="Left profile" hint="Recommended" file={left} onChange={setLeftFile} optional />
               </div>
               <div className={`capture-readiness level-${angleCount}`} role="status" aria-live="polite"><b>{angleCount}/4 views · {captureLevel}</b><span>{captureDetail}</span></div>
-              <details className="capture-guide"><summary>How to photograph for the best result</summary><ul><li>Show your complete body, including the top of the head and both feet.</li><li>Stand naturally with feet hip-width apart and arms slightly away from the torso.</li><li>Place the camera level around waist height; do not tilt it up or down.</li><li>Use the same distance, zoom and lighting for every angle.</li><li>Wear close-fitting clothing when comfortable, or enter measurements manually.</li><li>Provide your measured height; without a known scale, centimetre estimates cannot be dependable.</li></ul></details>
+              <details className="capture-guide"><summary>How to capture the best result</summary><ul><li>Show your complete body, including the top of the head and both feet.</li><li>For video, turn slowly through front, right, back and left without moving the camera.</li><li>Stand naturally with feet hip-width apart and arms slightly away from the torso.</li><li>Place the camera level around waist height; do not tilt it up or down.</li><li>Wear close-fitting clothing when comfortable, or enter measurements manually.</li><li>Provide your measured height; without a known scale, centimetre estimates cannot be dependable.</li></ul></details>
             </section>
             <section className="pieces-panel" aria-labelledby="pieces-title">
               <div className="step-label"><b>2</b><span><strong id="pieces-title">Free mix-and-match space</strong>Add, remove and replace each category independently.</span></div>
@@ -217,7 +244,7 @@ export default function Home() {
             </section>
           </div>
 
-          {workspaceStep === "capture" && <div className="step-actions"><span>Start with one front photo. Add all four views for the strongest basis.</span><button className="primary-button" disabled={!person} onClick={() => setWorkspaceStep("outfit")}>Continue to outfit <span aria-hidden="true">-&gt;</span></button></div>}
+          {workspaceStep === "capture" && <div className="step-actions"><span>Use one short turn video or four individual views for the strongest basis.</span><button className="primary-button" disabled={!person && !turnVideo} onClick={() => setWorkspaceStep("outfit")}>Continue to outfit <span aria-hidden="true">-&gt;</span></button></div>}
           {workspaceStep === "outfit" && <div className="step-actions"><button className="secondary-button" onClick={() => setWorkspaceStep("capture")}>&lt;- Back to photos</button><button className="primary-button" disabled={!main} onClick={() => setWorkspaceStep("fit")}>Continue to fit <span aria-hidden="true">-&gt;</span></button></div>}
 
           {workspaceStep === "fit" && <section className="fit-studio" aria-labelledby="fit-studio-title">
@@ -256,7 +283,7 @@ export default function Home() {
             <button className="primary-button" disabled={!canPreview} onClick={() => setStage("preview")}>Create concept preview <span aria-hidden="true">-&gt;</span></button>
           </div>}
 
-          {stage === "preview" && person && main && (
+          {stage === "preview" && (person || turnVideo) && main && (
             <section className="result" aria-labelledby="result-title">
               <div className="result-copy">
                 <span className="result-kicker">PRIVATE FITTING SESSION</span>
@@ -274,7 +301,7 @@ export default function Home() {
                 <button className="delete-button" onClick={clearSession}>Delete this session now</button>
               </div>
               <div className="concept-canvas">
-                <img className="person-image" style={{ transform: `rotate(${rotation}deg)` }} src={person.url} alt={`Your uploaded base photograph, rotated ${rotation} degrees`} />
+                {person ? <img className="person-image" style={{ transform: `rotate(${rotation}deg)` }} src={person.url} alt={`Your uploaded base photograph, rotated ${rotation} degrees`} /> : turnVideo && <video className="person-image" src={turnVideo.url} aria-label="Your uploaded turn video" controls muted playsInline loop />}
                 <div className="piece-stack" aria-label="Selected outfit pieces">
                   {[main, bottom, layer, accessory, footwear].filter(Boolean).map((piece, index) => piece && <img key={piece.url} src={piece.url} alt={`Selected piece ${index + 1}: ${piece.name}`} />)}
                 </div>

@@ -4,6 +4,11 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 type Preview = { url: string; name: string } | null;
 type Stage = "idle" | "ready" | "preview";
+type Measurements = { height: string; chest: string; waist: string; hip: string; inseam: string };
+type GarmentMeasurements = { chest: string; waist: string; hip: string; length: string };
+
+const emptyBody: Measurements = { height: "", chest: "", waist: "", hip: "", inseam: "" };
+const emptyGarment: GarmentMeasurements = { chest: "", waist: "", hip: "", length: "" };
 
 const regions = [
   "South Asia",
@@ -72,8 +77,15 @@ export default function Home() {
   const [mode, setMode] = useState<"online" | "store">("online");
   const [personFile, setPersonFile] = useState<File | null>(null);
   const [mainFile, setMainFile] = useState<File | null>(null);
+  const [bottomFile, setBottomFile] = useState<File | null>(null);
   const [layerFile, setLayerFile] = useState<File | null>(null);
   const [accessoryFile, setAccessoryFile] = useState<File | null>(null);
+  const [footwearFile, setFootwearFile] = useState<File | null>(null);
+  const [body, setBody] = useState<Measurements>(emptyBody);
+  const [garment, setGarment] = useState<GarmentMeasurements>(emptyGarment);
+  const [unit, setUnit] = useState<"cm" | "in">("cm");
+  const [preferredFit, setPreferredFit] = useState("Regular");
+  const [rotation, setRotation] = useState(0);
   const [region, setRegion] = useState(regions[0]);
   const [drape, setDrape] = useState(drapeChoices[0]);
   const [stage, setStage] = useState<Stage>("idle");
@@ -82,9 +94,14 @@ export default function Home() {
 
   const person = usePreview(personFile);
   const main = usePreview(mainFile);
+  const bottom = usePreview(bottomFile);
   const layer = usePreview(layerFile);
   const accessory = usePreview(accessoryFile);
+  const footwear = usePreview(footwearFile);
   const canPreview = Boolean(person && main);
+  const bodyFieldsComplete = Object.values(body).every(Boolean);
+  const garmentFieldsComplete = Object.values(garment).every(Boolean);
+  const fitDataComplete = bodyFieldsComplete && garmentFieldsComplete;
 
   useEffect(() => setStage(canPreview ? "ready" : "idle"), [canPreview]);
   useEffect(() => {
@@ -95,14 +112,30 @@ export default function Home() {
   }, [privacyOpen]);
 
   const description = useMemo(() => {
-    const pieces = [main && "main garment", layer && "draped or outer layer", accessory && "accessory"].filter(Boolean).join(", ");
-    return `A concept look in the ${region} context using ${pieces || "a main garment"}. Draping preference: ${drape}. The prototype preserves your uploaded source images locally but does not yet infer colour, embroidery, fabric behaviour or physical fit.`;
-  }, [region, drape, main, layer, accessory]);
+    const pieces = [main && "main garment", bottom && "lower piece", layer && "draped or outer layer", accessory && "accessory", footwear && "footwear"].filter(Boolean).join(", ");
+    const fitNote = fitDataComplete
+      ? `Body and garment measurements are present in ${unit} for a future ${preferredFit.toLowerCase()}-fit comparison; fabric stretch and construction still require verification.`
+      : "Physical fit is not estimated because body and garment measurements are incomplete.";
+    return `A concept look in the ${region} context using ${pieces || "a main garment"}. Draping preference: ${drape}. ${fitNote}`;
+  }, [region, drape, main, bottom, layer, accessory, footwear, fitDataComplete, unit, preferredFit]);
 
   function clearSession() {
     speechSynthesis?.cancel();
-    setPersonFile(null); setMainFile(null); setLayerFile(null); setAccessoryFile(null);
+    setPersonFile(null); setMainFile(null); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
+    setBody(emptyBody); setGarment(emptyGarment); setRotation(0);
     setStage("idle"); setShareMessage("");
+  }
+
+  function updateBody(field: keyof Measurements, value: string) {
+    setBody((current) => ({ ...current, [field]: value }));
+  }
+
+  function updateGarment(field: keyof GarmentMeasurements, value: string) {
+    setGarment((current) => ({ ...current, [field]: value }));
+  }
+
+  function rotateBy(degrees: number) {
+    setRotation((current) => (current + degrees + 360) % 360);
   }
 
   function speakDescription() {
@@ -149,14 +182,44 @@ export default function Home() {
               <UploadCard id="person-photo" title="Your photo" hint="JPG, PNG, WebP or HEIC" file={person} onChange={setPersonFile} />
             </section>
             <section className="pieces-panel" aria-labelledby="pieces-title">
-              <div className="step-label"><b>2</b><span><strong id="pieces-title">Build the complete look</strong>Add each piece separately for better control.</span></div>
+              <div className="step-label"><b>2</b><span><strong id="pieces-title">Free mix-and-match space</strong>Add, remove and replace each category independently.</span></div>
               <div className="piece-grid">
                 <UploadCard id="main-garment" title={mode === "online" ? "Main garment" : "Photograph main piece"} hint="Kurta, saree, dress, thobe..." file={main} onChange={setMainFile} />
+                <UploadCard id="lower-piece" title="Lower piece" hint="Trousers, lehenga, skirt, sarong..." file={bottom} onChange={setBottomFile} optional />
                 <UploadCard id="outer-layer" title="Layer or drape" hint="Dupatta, shawl, pallu, bisht..." file={layer} onChange={setLayerFile} optional />
-                <UploadCard id="accessory" title="Accessory" hint="Jewellery, bag, footwear..." file={accessory} onChange={setAccessoryFile} optional />
+                <UploadCard id="accessory" title="Accessories" hint="Jewellery, bag, belt, headwear..." file={accessory} onChange={setAccessoryFile} optional />
+                <UploadCard id="footwear" title="Shoes & footwear" hint="Jutti, khussa, sandals, heels..." file={footwear} onChange={setFootwearFile} optional />
               </div>
             </section>
           </div>
+
+          <section className="fit-studio" aria-labelledby="fit-studio-title">
+            <div className="fit-intro">
+              <span className="section-kicker">FIT DATA, NOT GUESSWORK</span>
+              <h2 id="fit-studio-title">Build a measurement-backed fit profile</h2>
+              <p>Values stay in this browser session. A photo alone cannot reliably prove size, length or fit.</p>
+              <div className="fit-options">
+                <label>Unit<select value={unit} onChange={(event) => setUnit(event.target.value as "cm" | "in")}><option value="cm">Centimetres</option><option value="in">Inches</option></select></label>
+                <label>Preferred fit<select value={preferredFit} onChange={(event) => setPreferredFit(event.target.value)}><option>Close</option><option>Regular</option><option>Relaxed</option></select></label>
+              </div>
+            </div>
+            <div className="measurement-group">
+              <h3>Your body</h3>
+              <div className="measurement-grid">
+                {(Object.keys(body) as (keyof Measurements)[]).map((field) => <label key={field}><span>{field === "inseam" ? "Inseam" : field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" value={body[field]} onChange={(event) => updateBody(field, event.target.value)} /></label>)}
+              </div>
+            </div>
+            <div className="measurement-group">
+              <h3>Main garment</h3>
+              <div className="measurement-grid">
+                {(Object.keys(garment) as (keyof GarmentMeasurements)[]).map((field) => <label key={field}><span>{field[0].toUpperCase() + field.slice(1)} ({unit})</span><input inputMode="decimal" type="number" min="0" step="0.1" value={garment[field]} onChange={(event) => updateGarment(field, event.target.value)} /></label>)}
+              </div>
+            </div>
+            <div className={`fit-readiness ${fitDataComplete ? "complete" : ""}`} role="status" aria-live="polite">
+              <b>{fitDataComplete ? "Measurement set complete" : "Visual preview only"}</b>
+              <span>{fitDataComplete ? "Ready for a future structured fit comparison - fabric stretch and construction data are still needed." : "Complete both measurement groups before AttireLens may make a fit estimate."}</span>
+            </div>
+          </section>
 
           <div className="action-panel wide">
             <div className="status" role="status" aria-live="polite"><i className={canPreview ? "ready" : ""} />{canPreview ? "Ready for a local concept preview" : "Add yourself and a main garment to begin"}</div>
@@ -177,18 +240,24 @@ export default function Home() {
                 <p className="sr-status" aria-live="polite">{shareMessage}</p>
 
                 <div className="audit-grid">
-                  <section><h3>Detail fidelity</h3><ul className="check-list"><li><b>Source images</b><span className="good">Preserved locally</span></li><li><b>Embroidery and borders</b><span>AI check pending</span></li><li><b>Layer placement</b><span>AI check pending</span></li><li><b>Physical fit</b><span>Measurements required</span></li></ul></section>
+                  <section><h3>Detail fidelity</h3><ul className="check-list"><li><b>Source images</b><span className="good">Preserved locally</span></li><li><b>Embroidery and borders</b><span>AI check pending</span></li><li><b>Body dimensions</b><span className={bodyFieldsComplete ? "good" : ""}>{bodyFieldsComplete ? "Provided locally" : "Incomplete"}</span></li><li><b>Garment dimensions</b><span className={garmentFieldsComplete ? "good" : ""}>{garmentFieldsComplete ? "Provided locally" : "Incomplete"}</span></li><li><b>Physical fit</b><span>{fitDataComplete ? "Structured engine pending" : "Not estimated"}</span></li></ul></section>
                   <section><h3>Privacy receipt</h3><ul className="check-list"><li><b>Processed</b><span>On this device</span></li><li><b>Cloud provider</b><span>None</span></li><li><b>Stored</b><span>Browser memory only</span></li><li><b>Training use</b><span className="good">Never</span></li></ul></section>
                 </div>
                 <button className="delete-button" onClick={clearSession}>Delete this session now</button>
               </div>
               <div className="concept-canvas">
-                <img className="person-image" src={person.url} alt="Your uploaded base photograph" />
+                <img className="person-image" style={{ transform: `rotate(${rotation}deg)` }} src={person.url} alt={`Your uploaded base photograph, rotated ${rotation} degrees`} />
                 <div className="piece-stack" aria-label="Selected outfit pieces">
-                  {[main, layer, accessory].filter(Boolean).map((piece, index) => piece && <img key={piece.url} src={piece.url} alt={`Selected piece ${index + 1}: ${piece.name}`} />)}
+                  {[main, bottom, layer, accessory, footwear].filter(Boolean).map((piece, index) => piece && <img key={piece.url} src={piece.url} alt={`Selected piece ${index + 1}: ${piece.name}`} />)}
                 </div>
                 <span className="concept-label">Concept composition - not an AI try-on yet</span>
+                <div className="rotation-controls" aria-label="Rotate preview image">
+                  <button type="button" onClick={() => rotateBy(-90)} aria-label="Rotate preview counterclockwise 90 degrees">↶</button>
+                  <span>{rotation}°</span>
+                  <button type="button" onClick={() => rotateBy(90)} aria-label="Rotate preview clockwise 90 degrees">↷</button>
+                </div>
               </div>
+              <p className="rotation-note">These controls rotate the 2D photo through a complete circle. A true view around the body requires front, side and back capture plus multi-angle garment data.</p>
             </section>
           )}
         </div>
@@ -199,9 +268,9 @@ export default function Home() {
       <section className="how shell" id="how">
         <div><span className="section-kicker">BUILT AROUND CULTURAL CONTEXT</span><h2>Specific traditions.<br />Never generic.</h2></div>
         <div className="feature-grid">
-          <article><b>01</b><h3>Multi-piece intelligence</h3><p>Compose main garments, draped layers and accessories independently.</p></article>
+          <article><b>01</b><h3>Free mix and match</h3><p>Compose upper and lower garments, draped layers, accessories and footwear independently.</p></article>
           <article><b>02</b><h3>Accessible descriptions</h3><p>Read or hear a structured explanation of the complete look.</p></article>
-          <article><b>03</b><h3>Honest fidelity</h3><p>Separate preserved source details, AI uncertainty and physical fit.</p></article>
+          <article><b>03</b><h3>Measurement-backed fit</h3><p>Gate fit estimates behind body and garment dimensions instead of inventing an idealised model.</p></article>
           <article><b>04</b><h3>Visible privacy</h3><p>Receive a receipt showing what was processed, stored and shared.</p></article>
         </div>
       </section>

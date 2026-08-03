@@ -15,20 +15,14 @@ const emptyConfirmation: Confirmation = { height: false, chest: false, waist: fa
 const regions = [
   "South Asia",
   "Southeast Asia",
-  "East Asia",
-  "Central Asia",
-  "West Asia, Iran and Iraq",
-  "Arabian Peninsula and wider Middle East",
+  "Middle East",
   "Cross-cultural or contemporary",
 ];
 
 const garmentExamples: Record<string, string> = {
   "South Asia": "saree, lehenga, salwar kameez, kurta, sherwani",
   "Southeast Asia": "kebaya, baju kurung, barong, sinh, ao dai",
-  "East Asia": "hanbok, kimono, hanfu, qipao, changshan",
-  "Central Asia": "chapan, atlas dress, embroidered tunic and layered coat",
-  "West Asia, Iran and Iraq": "manteau, abaya, kaftan, dishdasha and embroidered dress",
-  "Arabian Peninsula and wider Middle East": "abaya, thobe, jalabiya, kaftan and bisht",
+  "Middle East": "abaya, thobe, jalabiya, kaftan, manteau and bisht",
   "Cross-cultural or contemporary": "fusion sets, modest occasion wear and elevated home wear",
 };
 
@@ -76,6 +70,7 @@ function UploadCard({ id, title, hint, file, onChange, optional = false }: {
 }
 
 export default function Home() {
+  const [workspaceStep, setWorkspaceStep] = useState<"capture" | "outfit" | "fit">("capture");
   const [mode, setMode] = useState<"online" | "store">("online");
   const [personFile, setPersonFile] = useState<File | null>(null);
   const [rightFile, setRightFile] = useState<File | null>(null);
@@ -135,6 +130,7 @@ export default function Home() {
     speechSynthesis?.cancel();
     setPersonFile(null); setRightFile(null); setBackFile(null); setLeftFile(null); setMainFile(null); setBottomFile(null); setLayerFile(null); setAccessoryFile(null); setFootwearFile(null);
     setBody(emptyBody); setConfirmed(emptyConfirmation); setGarment(emptyGarment); setRotation(0);
+    setWorkspaceStep("capture");
     setStage("idle"); setShareMessage("");
   }
 
@@ -176,7 +172,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="eyebrow">Asian and West Asian wear, seen through your lens</div>
         <h1>Every layer.<br /><em>Your whole story.</em></h1>
-        <p className="hero-copy">Try occasion wear and home wear across South, Southeast, East, Central and West Asia, Iran, Iraq and the wider Middle East - while your photos remain in this browser session.</p>
+        <p className="hero-copy">Explore occasion wear and elevated home wear from South and Southeast Asia and the Middle East—with your photos kept private in this browser session.</p>
 
         <div className="tryon-card" id="fitting-room">
           <div className="mode-tabs" role="group" aria-label="Shopping mode">
@@ -184,12 +180,20 @@ export default function Home() {
             <button aria-pressed={mode === "store"} className={mode === "store" ? "active" : ""} onClick={() => setMode("store")}>In a store</button>
           </div>
 
-          <div className="context-row">
+          <nav className="workspace-progress" aria-label="Fitting room steps">
+            <button className={workspaceStep === "capture" ? "active" : ""} aria-current={workspaceStep === "capture" ? "step" : undefined} onClick={() => setWorkspaceStep("capture")}><b>1</b><span>Add your photos<small>Capture your shape</small></span></button>
+            <i aria-hidden="true" />
+            <button disabled={!person} className={workspaceStep === "outfit" ? "active" : ""} aria-current={workspaceStep === "outfit" ? "step" : undefined} onClick={() => setWorkspaceStep("outfit")}><b>2</b><span>Build your look<small>Mix and match pieces</small></span></button>
+            <i aria-hidden="true" />
+            <button disabled={!person || !main} className={workspaceStep === "fit" ? "active" : ""} aria-current={workspaceStep === "fit" ? "step" : undefined} onClick={() => setWorkspaceStep("fit")}><b>3</b><span>Review the fit<small>Confirm measurements</small></span></button>
+          </nav>
+
+          {workspaceStep === "outfit" && <div className="context-row">
             <label><span>Cultural context</span><select value={region} onChange={(e) => setRegion(e.target.value)}>{regions.map((item) => <option key={item}>{item}</option>)}</select><small>Examples: {garmentExamples[region]}</small></label>
             <fieldset><legend>Draping preference</legend><div className="choice-row">{drapeChoices.map((choice) => <button type="button" aria-pressed={drape === choice} className={drape === choice ? "choice active" : "choice"} key={choice} onClick={() => setDrape(choice)}>{choice}</button>)}</div></fieldset>
-          </div>
+          </div>}
 
-          <div className="composition-grid">
+          <div className={`composition-grid step-${workspaceStep}`}>
             <section className="person-panel capture-panel" aria-labelledby="person-title">
               <div className="step-label"><b>1</b><span><strong id="person-title">Capture your shape</strong>Four angles are the recommended minimum for the strongest estimate.</span></div>
               <div className="capture-grid">
@@ -213,7 +217,10 @@ export default function Home() {
             </section>
           </div>
 
-          <section className="fit-studio" aria-labelledby="fit-studio-title">
+          {workspaceStep === "capture" && <div className="step-actions"><span>Start with one front photo. Add all four views for the strongest basis.</span><button className="primary-button" disabled={!person} onClick={() => setWorkspaceStep("outfit")}>Continue to outfit <span aria-hidden="true">-&gt;</span></button></div>}
+          {workspaceStep === "outfit" && <div className="step-actions"><button className="secondary-button" onClick={() => setWorkspaceStep("capture")}>&lt;- Back to photos</button><button className="primary-button" disabled={!main} onClick={() => setWorkspaceStep("fit")}>Continue to fit <span aria-hidden="true">-&gt;</span></button></div>}
+
+          {workspaceStep === "fit" && <section className="fit-studio" aria-labelledby="fit-studio-title">
             <div className="fit-intro">
               <span className="section-kicker">FIT DATA, NOT GUESSWORK</span>
               <h2 id="fit-studio-title">Build a measurement-backed fit profile</h2>
@@ -241,13 +248,13 @@ export default function Home() {
               <b>{fitDataComplete ? "Measurement set complete" : "Visual preview only"}</b>
               <span>{fitDataComplete ? "Ready for a future structured fit comparison - fabric stretch and construction data are still needed." : `Complete both measurement groups before AttireLens may make a fit estimate. Current photo basis: ${angleCount}/4 views.`}</span>
             </div>
-          </section>
+          </section>}
 
-          <div className="action-panel wide">
+          {workspaceStep === "fit" && <div className="action-panel wide">
+            <button className="secondary-button" onClick={() => setWorkspaceStep("outfit")}>&lt;- Back to outfit</button>
             <div className="status" role="status" aria-live="polite"><i className={canPreview ? "ready" : ""} />{canPreview ? "Ready for a local concept preview" : "Add yourself and a main garment to begin"}</div>
             <button className="primary-button" disabled={!canPreview} onClick={() => setStage("preview")}>Create concept preview <span aria-hidden="true">-&gt;</span></button>
-            <small>Nothing is uploaded in this prototype.</small>
-          </div>
+          </div>}
 
           {stage === "preview" && person && main && (
             <section className="result" aria-labelledby="result-title">

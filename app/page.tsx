@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       <section className="how shell" id="how">
-        <div><span className="section-kicker">BUILT AROUND CULTURAL CONTEXT</span><h2>Specific traditions.<br />Never generic.</h2></div>
+        <div><span className="section-kicker">MADE FOR THE WAY YOU DRESS</span><h2>Style it.<br />Try it. Own it.</h2></div>
         <div className="feature-grid">
           <article><b>01</b><h3>Every wardrobe welcome</h3><p>Explore womenswear, menswear, unisex and gender-fluid looks with the same complete feature set.</p></article>
           <article><b>02</b><h3>Accessible descriptions</h3><p>Read or hear a structured explanation of the complete look.</p></article>

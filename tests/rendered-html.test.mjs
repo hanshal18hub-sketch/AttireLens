@@ -1,57 +1,67 @@
-­r‡^Ñf¥–Ø¦{[r‰Ý°ë­¦ëZ[\Ü\ÜÙ\œ›ÛH››ÙN˜\ÜÙ\ÜÝšXÝŽÂš[\ÜÈ™XYš[HHœ›ÛH››ÙN™œËÜ›ÛZ\Ù\ÈŽÂš[\Ü\Ýœ›ÛH››ÙN\ÝŽÂ‚˜ÛÛœÝ›ÛÝH™]ÈT“
-‹‹‹È‹[\Ü›Y]K\›
-NÂ‚˜\Þ[˜È[˜Ý[Ûˆ™[™\Š
-HÂˆÛÛœÝÛÜšÙ\•\›H™]ÈT“
-‹‹‹Ù\ÝÜÙ\™\‹Ú[™^šœÈ‹[\Ü›Y]K\›
-NÂˆÛÜšÙ\•\›œÙX\˜Ú\˜[\ËœÙ]
-\Ý‹	Ü›ØÙ\ÜËœYKIÑ]K››ÝÊ
-_X
-NÂˆÛÛœÝÈY˜][ˆÛÜšÙ\ˆHH]ØZ][\Ü
-ÛÜšÙ\•\›š™YŠNÂˆ™]\›ˆÛÜšÙ\‹™™]Ú
-™]È™\]Y\Ý
-šÎ‹ËØ]\™[[œË\ÝÈ‹ÈXY\œÎˆÈXØÙ\ˆ^Ú[ˆHJKÂˆTÔÑUÎˆÈ™]Úˆ\Þ[˜È
+­r‡^Ñf¥–Ø¦{^,yÊ'vÃ®¶›­import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
 
-HOˆ™]È™\ÜÛœÙJ“›Ý›Ý[™‹ÈÝ]\ÎˆJHKˆKÈØZ][[
+const root = new URL("../", import.meta.url);
 
-HßK\ÜÕ›ÝYÚÛ‘^Ù\[ÛŠ
-HßHJNÂŸB‚\Ý
-œ™[™\œÈH]\™S[œÈ›ÙXÝ[ÛˆÝ\™˜XÙH‹\Þ[˜È
+async function render() {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  return worker.fetch(new Request("https://attirelens.test/", { headers: { accept: "text/html" } }), {
+    ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+  }, { waitUntil() {}, passThroughOnException() {} });
+}
 
-HOˆÂˆÛÛœÝ™\ÜÛœÙHH]ØZ]™[™\Š
-NÂˆ\ÜÙ\™\]X[
-™\ÜÛœÙKœÝ]\ËŒ
-NÂˆÛÛœÝ[H]ØZ]™\ÜÛœÙK^
+test("renders the AttireLens production surface", async () => {
+  const response = await render();
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /AttireLens/);
+  assert.match(html, /Every layer/);
+  assert.doesNotMatch(html, /codex-preview|Your site is taking shape|prototype/i);
+});
 
-NÂˆ\ÜÙ\›X]Ú
-[Ð]\™S[œËÊNÂˆ\ÜÙ\›X]Ú
-[Ñ]™\žH^Y\‹ÊNÂˆ\ÜÙ\™Ù\Ó›ÝX]Ú
-[ØÛÙ^\™]šY]ß[Ý\ˆÚ]H\ÈZÚ[™ÈÚ\_›ÝÝ\KÚJNÂŸJNÂ‚\Ý
-™[™›Ü˜Ù\ÈÙXÝ\š]HXY\œÈ]HÛÜšÙ\ˆ›Ý[™\žH‹\Þ[˜È
+test("enforces security headers at the worker boundary", async () => {
+  const response = await render();
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/);
+  assert.match(response.headers.get("strict-transport-security") ?? "", /max-age=63072000/);
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
+  assert.equal(response.headers.get("cross-origin-opener-policy"), "same-origin");
+  assert.equal(response.headers.get("cache-control"), "no-store, max-age=0");
+});
 
-HOˆÂˆÛÛœÝ™\ÜÛœÙHH]ØZ]™[™\Š
-NÂˆ\ÜÙ\›X]Ú
-™\ÜÛœÙKšXY\œË™Ù]
-˜ÛÛ[\ÙXÝ\š]K\ÛXÞHŠHÏÈˆ‹Ùœ˜[YKX[˜Ù\ÝÜœÈ	Û›Û™IËÊNÂˆ\ÜÙ\›X]Ú
-™\ÜÛœÙKšXY\œË™Ù]
-œÝšXÝ]˜[œÜÜ\ÙXÝ\š]HŠHÏÈˆ‹ÛX^XYÙOMŒÌÌŒÊNÂˆ\ÜÙ\™\]X[
-™\ÜÛœÙKšXY\œË™Ù]
-žXÛÛ[]\K[Ü[ÛœÈŠK››ÜÛšY™ˆŠNÂˆ\ÜÙ\™\]X[
-™\ÜÛœÙKšXY\œË™Ù]
-žYœ˜[YK[Ü[ÛœÈŠK‘S–HŠNÂˆ\ÜÙ\™\]X[
-™\ÜÛœÙKšXY\œË™Ù]
-˜Ü›ÜÜË[ÜšYÚ[‹[Ü[™\‹\ÛXÞHŠKœØ[YK[ÜšYÚ[ˆŠNÂˆ\ÜÙ\™\]X[
-™\ÜÛœÙKšXY\œË™Ù]
-˜ØXÚKXÛÛ›ÛŠK››Ë\ÝÜ™KX^XYÙOLŠNÂŸJNÂ‚\Ý
-šÙY\Èš\ÚÞH[œ]È˜Z[XÛÜÙY‹\Þ[˜È
+test("keeps risky inputs fail-closed", async () => {
+  const [page, security] = await Promise.all([
+    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("SECURITY.md", root), "utf8"),
+  ]);
+  assert.match(page, /MAX_IMAGE_BYTES/);
+  assert.match(page, /createImageBitmap/);
+  assert.match(page, /canvas\.toBlob/);
+  assert.match(page, /Automatic importing is locked until the isolated retailer gateway is connected/);
+  assert.match(security, /Client validation is defence in depth, never the trust boundary/);
+});
 
-HOˆÂˆÛÛœÝÜYÙKÙXÝ\š]WHH]ØZ]›ÛZ\ÙK˜[
-Âˆ™XYš[J™]ÈT“
-˜\ÜYÙKÞ‹›ÛÝ
-K]ŽŠKˆ™XYš[J™]ÈT“
-”ÑPÕT’UK›Y‹›ÛÝ
-K]ŽŠKˆJNÂˆ\ÜÙ\›X]Ú
-YÙKÓPVÒSPQÑWÐ–UTËÊNÂˆ\ÜÙ\›X]Ú
-YÙKØÜ™X]R[XYÙPš]X\ÊNÂˆ\ÜÙ\›X]Ú
-YÙKØØ[˜\×Ð›Ø‹ÊNÂˆ\ÜÙ\›X]Ú
-YÙKÐ]]ÛX]XÈ[\Ü[™È\ÈØÚÙY[[H\ÛÛ]Y™]Z[\ˆØ]]Ø^H\ÈÛÛ›™XÝYÊNÂˆ\ÜÙ\›X]Ú
-ÙXÝ\š]KÐÛY[˜[Y][Ûˆ\ÈY™[˜ÙH[ˆ\™]™\ˆH\Ý›Ý[™\žKÊNÂŸJNÂ
+test("labels lab evaluation as test-only and computes against ground truth", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("lab-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const request = new Request("https://attirelens.test/api/lab/evaluate", { method: "POST", headers: { "content-type": "application/json", "oai-authenticated-user-id": "test-operator", "oai-authenticated-user-email": "operator@example.test" }, body: JSON.stringify({ environment: "test", source: "simulated", caseId: "FIT-TEST01", consentRecorded: true, groundTruth: { chest: 90, waist: 75, hip: 98, inseam: 78 }, prediction: { values: { chest: 91, waist: 77, hip: 97, inseam: 79 }, ranges: { chest: { low: 88, high: 93 }, waist: { low: 74, high: 79 }, hip: { low: 95, high: 100 }, inseam: { low: 77, high: 81 } } }, fit: { groundTruth: "regular", predicted: "regular" } }) });
+  const response = await worker.fetch(request, { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
+  const report = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("x-attirelens-environment"), "test");
+  assert.equal(report.testOnly, true);
+  assert.equal(report.summary.meanAbsoluteErrorCm, 1.3);
+  assert.equal(report.summary.passed, true);
+});
+
+test("rejects unauthenticated lab evaluation", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("lab-auth-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const response = await worker.fetch(new Request("https://attirelens.test/api/lab/evaluate", { method: "POST" }), { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
+  assert.equal(response.status, 401);
+});
